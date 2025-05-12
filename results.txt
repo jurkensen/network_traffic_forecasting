@@ -1,0 +1,10 @@
+Evaluation metrics for down traffic for PobleSec station: ARIMA (4,0,4)
+  MSE: 19550644804377788.0000
+  RMSE: 139823620.3378
+  MAE: 87119733.9978
+  MAPE: 84.5256
+Evaluation metrics for up traffic for PobleSec station: ARIMA (1,1,4)
+  MSE: 648053784580900.6250
+  RMSE: 25456900.5297
+  MAE: 16598568.0204
+  MAPE: 6179.8946
