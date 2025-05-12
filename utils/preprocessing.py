@@ -8,6 +8,23 @@ def load_data(station_path):
     test_path = station_path / f'{station_path.name}_test.csv'
     df_train = pd.read_csv(train_path)
     df_test = pd.read_csv(test_path)
+
+    df_train['time'] = pd.to_datetime(df_train['time'])
+    df_test['time'] = pd.to_datetime(df_test['time'])
+
+    df_train = df_train.set_index('time')
+    df_test = df_test.set_index('time')
+
+    df_train = df_train.sort_index()
+    df_test = df_test.sort_index()
+    # Check for frequency
+    infer_freq_train = pd.infer_freq(df_train.index)
+    if infer_freq_train:
+        # Ensure the index has a frequency
+        df_train = df_train.asfreq(infer_freq_train)
+        df_test = df_test.asfreq(infer_freq_train)
+    
+    handle_missing_values(df_train, df_test)
     return df_train, df_test
 
 
@@ -46,7 +63,7 @@ def initial_data_stats(df_train, df_test, station_path):
     print(f'\nMissing values: {train_missing} in training, {test_missing} in test')
     
     # Time range information (assuming there's a timestamp column)
-    time_cols = [col for col in df_train.columns if 'time' in col.lower() or 'date' in col.lower()]
+    time_cols = [col for col in df_train.columns if 'time' in col.lower()]
     if time_cols:
         time_col = time_cols[0]
         try:
@@ -68,12 +85,6 @@ def initial_data_stats(df_train, df_test, station_path):
     print(f'\nDuplicate records: {train_duplicates} in training, {test_duplicates} in test')
 
 
-def handle_missing_values(df_train, df_test):
-    print(len(df_train), len(df_test))
-    missing_cols_train = df_train.columns[df_train.isnull().any()].tolist()
-    missing_cols_test = df_test.columns[df_test.isnull().any()].tolist()
-    
-    missing_counts_train = df_train[missing_cols_train].isnull().sum()
-    missing_counts_test = df_test[missing_cols_test].isnull().sum()
-    print(missing_cols_train, missing_counts_train)
-    print(missing_cols_test, missing_counts_test)
+def handle_missing_values(train_series, test_series):
+    train_series = train_series.ffill().bfill()
+    test_series = test_series.ffill().bfill()
