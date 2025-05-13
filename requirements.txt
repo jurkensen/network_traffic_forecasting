@@ -1,0 +1,8 @@
+# requirements.txt
+torch
+pandas
+numpy
+matplotlib
+statsmodels
+scikit-learn
+--only-binary=:all: pillow

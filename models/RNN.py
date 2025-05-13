@@ -10,29 +10,25 @@ from utils.preprocessing import *
 
 class NetworkDataset(Dataset):
     def __init__(self, dataframe, target_column):
-        self.df = dataframe
+        self.data = dataframe.values
         self.target_col = target_column
-        self.feature_cols = list(self.df.columns)
+        self.feature_cols = list(dataframe.columns)
+        self.timestamps = list(dataframe.index)
     
     def __len__(self):
-        return len(self.df)
+        return len(self.data)
     
     def __getitem__(self, idx):
-        # access the data in the given index
-        row = self.df.iloc[idx]
-        features = row.values.astype(np.float32)
-        target = row[self.target_column]
-        timestamp = self.df.index[idx]
-        
-        # TODO: do we need the idx? why?
+        row_data = self.data[idx]
+        features = row_data.astype(np.float32)
+        timestamp = self.timestamps[idx]
+       
         return {
             'features': torch.tensor(features),
-            'target': torch.tensor(target, dtype=torch.float32),
             'timestamp': timestamp,
-            'idx': idx
         }
     
-def time_series_collate_fn(batch, seq_length=6, forecast_horizon=1):
+def time_series_collate_fn(batch, seq_length, forecast_horizon):
     """
     Custom collate function that forms sequences from individual timesteps
     
@@ -41,9 +37,6 @@ def time_series_collate_fn(batch, seq_length=6, forecast_horizon=1):
         seq_length: Length of input sequences
         forecast_horizon: How many steps ahead to predict
     """
-    # Sort batch by idx to ensure time order
-    batch.sort(key=lambda x: x['idx'])
-    
     # Check if we can form a valid sequence
     if len(batch) < seq_length + forecast_horizon:
         raise ValueError(f"Batch size ({len(batch)}) is smaller than required sequence length + forecast horizon ({seq_length + forecast_horizon})")
@@ -86,11 +79,9 @@ def time_series_collate_fn(batch, seq_length=6, forecast_horizon=1):
         'target_timestamps': target_timestamps
     }
 
-def create_dataloader(dataframe, batch_size=32, seq_length=6, forecast_horizon=1, shuffle=False):
-    """Create DataLoader with time series support"""
-    
+def create_dataloader(dataframe, target_column, batch_size=32, seq_length=6, forecast_horizon=1, shuffle=False):
     # Create dataset
-    dataset = NetworkDataset(dataframe, target_column='down')
+    dataset = NetworkDataset(dataframe, target_column)
     
     # Define custom collate function with closure to set parameters
     collate_fn = lambda batch: time_series_collate_fn(
@@ -126,8 +117,89 @@ class SimpleRNN(nn.Module):
         out = self.fc(out)
         return out
 
-
-input_size = 1
-hidden_size = 20
-output_size = 1
-model = SimpleRNN(input_size, hidden_size, output_size)
+def main():
+    train_poblesec, test_poblesec = load_data(POBLESEC_ST)
+    simple_dataset = NetworkDataset(train_poblesec, 'down')
+    
+    # Print dataset length
+    print(f"Dataset length: {len(simple_dataset)}")
+    
+    # Print all parameters from the dataset object
+    print("\nDataset parameters:")
+    print(f"Target column: {simple_dataset.target_col}")
+    print(f"Feature columns: {simple_dataset.feature_cols}")
+    print(f"Data shape: {simple_dataset.data.shape}")
+    print(f"Number of timestamps: {len(simple_dataset.timestamps)}")
+    
+    # Print first few timestamps and data
+    print("\nFirst 3 timestamps:")
+    for i in range(min(3, len(simple_dataset.timestamps))):
+        print(f"  {simple_dataset.timestamps[i]}")
+    
+    # Display a sample
+    first_sample = simple_dataset[0]
+    print("\nSample from position 0:")
+    print(f"Features shape: {first_sample['features'].shape}")
+    print(f"Timestamp: {first_sample['timestamp']}")
+    
+    # Print feature names and values for the first sample
+    print("\nFeature values for first sample:")
+    for i, feature_name in enumerate(simple_dataset.feature_cols):
+        print(f"  {feature_name}: {first_sample['features'][i].item()}")    # train_loader = create_dataloader(
+    #         train_poblesec, 
+    #         batch_size=4,  # Small batch size for inspection
+    #         seq_length=6,
+    #         forecast_horizon=1,
+    #         target_column='down'
+    #     )
+    
+    # print(f"Dataset has {len(train_loader)} batches")
+    
+    # # Get the first batch
+    # for batch_idx, batch in enumerate(train_loader):
+    #     if batch_idx > 1:  # Just look at the first couple of batches
+    #         break
+            
+    #     print(f"\n--- Batch {batch_idx+1} ---")
+        
+    #     # Print batch information
+    #     features = batch['features']
+    #     targets = batch['target']
+    #     timestamps = batch['timestamps']
+    #     target_timestamps = batch['target_timestamps']
+        
+    #     print(f"Batch features shape: {features.shape}")
+    #     print(f"Batch targets shape: {targets.shape}")
+        
+    #     # Print details of first sequence in batch
+    #     print("\nFirst sequence in batch:")
+    #     print(f"  Input timestamps: {timestamps[0]}")
+    #     print(f"  Target timestamp: {target_timestamps[0]}")
+        
+    #     # Print feature values for first sequence
+    #     print("\nFeature values for first sequence:")
+    #     first_seq = features[0]  # Shape: [seq_length, num_features]
+        
+    #     # Get feature names from original dataframe
+    #     feature_names = list(train_poblesec.columns)
+        
+    #     # Print first and last timestep features
+    #     print("\nFirst timestep features:")
+    #     for i, name in enumerate(feature_names):
+    #         print(f"  {name}: {first_seq[0][i].item():.4f}")
+            
+    #     print("\nLast timestep features:")
+    #     for i, name in enumerate(feature_names):
+    #         print(f"  {name}: {first_seq[-1][i].item():.4f}")
+            
+    #     print("\nTarget value to predict:", targets[0].item())
+        
+    #     # Show the sliding window pattern
+    #     if batch_idx == 0:
+    #         print("\nSliding window pattern:")
+    #         for i in range(min(3, len(batch['timestamps']))):
+    #             print(f"Sequence {i+1}:")
+    #             print(f"  Input: {batch['timestamps'][i]}")
+    #             print(f"  Target: {batch['target_timestamps'][i]}")
+    #             print()
+main()
