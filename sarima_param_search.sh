@@ -13,6 +13,8 @@
 echo "Job started at $(date)"
 echo "Running on host: $(hostname)"
 
+pip install pandas numpy matplotlib statsmodels scikit-learn
+
 srun python main.py
 
 # Display job completion info
