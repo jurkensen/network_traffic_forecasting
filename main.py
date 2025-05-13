@@ -31,6 +31,7 @@ def main():
     improvement = (139823620.3378 - down_results['evaluation']['RMSE']) / 139823620.3378 * 100
     print(f"Improvement: {improvement:.2f}%")
 
+    print(down_results)
     # arima = ARIMAPredictor()
     # ## ---- LOADING AND PREPROCESSING DATA ------
     # print("\n===== LOADING AND PREPROCESSING DATA =====")

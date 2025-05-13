@@ -13,7 +13,7 @@
 echo "Job started at $(date)"
 echo "Running on host: $(hostname)"
 
-srun ./main.py
+srun python main.py
 
 # Display job completion info
 echo "Job completed at $(date)"
