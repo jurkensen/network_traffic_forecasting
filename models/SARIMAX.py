@@ -106,7 +106,7 @@ class SARIMAPredictor():
         best_seasonal_order = None
         
         # Limit the combinations to avoid excessive computation
-        max_combinations = 1000  # Adjust based on available computation time
+        max_combinations = 3000  # Adjust based on available computation time
         combinations_tried = 0
         
         # Get a sample of the data for faster parameter search
