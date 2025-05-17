@@ -88,3 +88,22 @@ def initial_data_stats(df_train, df_test, station_path):
 def handle_missing_values(train_series, test_series):
     train_series = train_series.ffill().bfill()
     test_series = test_series.ffill().bfill()
+
+
+def aggregate_data(df, interval_minutes=15):
+    # Create the resampling rule string (e.g., '15min', '1H')
+    rule = f'{interval_minutes}min'
+    
+    # Perform resampling with mean aggregation for all columns
+    aggregated_df = df.resample(rule).mean()
+    
+    print(aggregated_df.insa().any())
+    # Fill any NaN values that might have been created
+    # Using forward fill first, then backward fill for any remaining NaNs
+    aggregated_df = aggregated_df.ffill().bfill()
+    
+    print(f"Original data points: {len(df)}")
+    print(f"Aggregated data points: {len(aggregated_df)}")
+    print(f"Reduction ratio: {len(aggregated_df)/len(df):.2f}")
+    
+    return aggregated_df
