@@ -4,6 +4,8 @@ import glob
 from utils.config import *
 
 def load_data(station_path):
+    print("\n===== LOADING DATA =====")
+    print(f"\n======= FROM STATION: {station_path.name} =======")
     train_path = station_path / f'{station_path.name}.csv'
     test_path = station_path / f'{station_path.name}_test.csv'
     df_train = pd.read_csv(train_path)
@@ -24,7 +26,7 @@ def load_data(station_path):
         df_train = df_train.asfreq(infer_freq_train)
         df_test = df_test.asfreq(infer_freq_train)
     
-    handle_missing_values(df_train, df_test)
+    df_train, df_test = handle_missing_values(df_train, df_test)
     return df_train, df_test
 
 
@@ -86,22 +88,18 @@ def initial_data_stats(df_train, df_test, station_path):
 
 
 def handle_missing_values(train_series, test_series):
-    train_series = train_series.ffill().bfill()
-    test_series = test_series.ffill().bfill()
+    clean_train_series = train_series.ffill().bfill()
+    clean_test_series = test_series.ffill().bfill()
+    return clean_train_series, clean_test_series
 
 
-def aggregate_data(df, interval_minutes=15):
+def aggregate_data(df, interval_minutes=1):
     # Create the resampling rule string (e.g., '15min', '1H')
-    rule = f'{interval_minutes}min'
+    rule = f'{interval_minutes}H'
     
     # Perform resampling with mean aggregation for all columns
     aggregated_df = df.resample(rule).mean()
-    
-    print(aggregated_df.insa().any())
-    # Fill any NaN values that might have been created
-    # Using forward fill first, then backward fill for any remaining NaNs
-    aggregated_df = aggregated_df.ffill().bfill()
-    
+        
     print(f"Original data points: {len(df)}")
     print(f"Aggregated data points: {len(aggregated_df)}")
     print(f"Reduction ratio: {len(aggregated_df)/len(df):.2f}")

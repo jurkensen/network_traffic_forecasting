@@ -115,7 +115,6 @@ def train_model(model, train_loader, val_loader=None, epochs=25, learning_rate=0
     # Training history
     history = {
         'train_loss': [],
-        'val_loss': [],
         'learning_rates': []
     }
     
@@ -307,18 +306,8 @@ def main():
     
     # Load and prepare data
     train_data, test_data = load_data(POBLESEC_ST)
-    
-    # Check for NaN values in data
-    print("Checking training data for NaN values...")
-    print(f"NaNs in train data: {train_data.isna().sum().sum()}")
-    print(f"NaNs in test data: {test_data.isna().sum().sum()}")
-    
-    # Fill NaN values if present
-    if train_data.isna().sum().sum() > 0 or test_data.isna().sum().sum() > 0:
-        print("Filling NaN values with forward fill, then backward fill")
-        train_data = train_data.fillna(method='ffill').fillna(method='bfill')
-        test_data = test_data.fillna(method='ffill').fillna(method='bfill')
-    
+    train_data, test_data = aggregate_data(train_data), aggregate_data(test_data)
+
     # Create datasets
     train_dataset = NetworkDataset(train_data, 'down')
     test_dataset = NetworkDataset(test_data, 'down')
@@ -330,7 +319,27 @@ def main():
         seq_length=6,
         forecast_horizon=1
     )
-    
+    print(f"Dataset has {len(train_loader)} batches")
+    for batch_idx, batch in enumerate(train_loader):
+        if batch_idx > 1:  # Just look at the first couple of batches
+            break
+            
+        print(f"\n--- Batch {batch_idx+1} ---")
+        
+        # Print batch information
+        features = batch['features']
+        targets = batch['target']
+        timestamps = batch['timestamps']
+        target_timestamps = batch['target_timestamps']
+        
+        print(f"Batch features shape: {features.shape}")
+        print(f"Batch targets shape: {targets.shape}")
+        
+        # Print details of first sequence in batch
+        print("\nFirst sequence in batch:")
+        print(f"  Input timestamps: {timestamps[0]}")
+        print(f"  Target timestamp: {target_timestamps[0]}")
+
     test_loader = create_dataloader(
         test_dataset, 
         batch_size=32,  

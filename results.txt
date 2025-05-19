@@ -8,3 +8,513 @@ Evaluation metrics for up traffic for PobleSec station: ARIMA (1,1,4)
   RMSE: 25456900.5297
   MAE: 16598568.0204
   MAPE: 6179.8946
+
+
+ARIMA ON 1 hour intervals
+===== LOADING DATA =====
+
+======= FROM STATION: /home/ojurek/network_traffic_forecasting/datasets/PobleSec =======
+Original data points: 15927
+Aggregated data points: 532
+Reduction ratio: 0.03
+Original data points: 3982
+Aggregated data points: 134
+Reduction ratio: 0.03
+Finding the optimal ARIMA parameters..
+Training ARIMA model with order (2, 0, 3)...
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7379816581176547.0000
+  RMSE: 85905858.8292
+  MAE: 52903917.7330
+  MAPE: 33.7636
+{'MSE': 7379816581176547.0, 'RMSE': 85905858.8291657, 'MAE': 52903917.733007334, 'MAPE': 33.763603560698954}
+
+===== LOADING DATA =====
+
+======= FROM STATION: PobleSec =======
+Original data points: 15927
+Aggregated data points: 532
+Reduction ratio: 0.03
+Original data points: 3982
+Aggregated data points: 134
+Reduction ratio: 0.03
+Finding the optimal ARIMA parameters..
+Training ARIMA model with order (2, 0, 3)...
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7379816581176547.0000
+  RMSE: 85905858.8292
+  MAE: 52903917.7330
+  MAPE: 33.7636
+{'MSE': 7379816581176547.0, 'RMSE': 85905858.8291657, 'MAE': 52903917.733007334, 'MAPE': 33.763603560698954}
+Checking seasonality patterns...
+Finding the optimal SARIMA parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(2, 0, 3)x(1, 1, 1, 24) - AIC: 18760.609103312905
+Best SARIMA model: SARIMA(2, 0, 3)x(1, 1, 1, 24) with AIC: 18760.609103312905
+Training SARIMA model with order (2, 0, 3) and seasonal_order (1, 1, 1, 24)...
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            8     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.76372D+01    |proj g|=  6.35703D-02
+
+At iterate    5    f=  1.76183D+01    |proj g|=  1.81944D-02
+
+At iterate   10    f=  1.76174D+01    |proj g|=  3.04490D-03
+
+At iterate   15    f=  1.76172D+01    |proj g|=  7.59698D-03
+
+At iterate   20    f=  1.76171D+01    |proj g|=  2.94955D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    8     23     25      1     0     0   3.569D-05   1.762D+01
+  F =   17.617113818903107     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7870437528070525.0000
+  RMSE: 88715486.4050
+  MAE: 54025837.1417
+  MAPE: 27.7407
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib64/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/ojurek/network_traffic_forecasting/main.py", line 24, in <module>
+    main()
+  File "/home/ojurek/network_traffic_forecasting/main.py", line 19, in main
+    evaluation_sarima = sarima.predict_network_traffic(train_poblesec, test_poblesec, 'down')
+  File "/home/ojurek/network_traffic_forecasting/models/SARIMAX.py", line 253, in predict_network_traffic
+    'actual': test_actual,
+NameError: name 'test_actual' is not defined
+[ojurek@login01 network_traffic_forecasting]$ python -m main
+
+===== LOADING DATA =====
+
+======= FROM STATION: PobleSec =======
+Original data points: 15927
+Aggregated data points: 532
+Reduction ratio: 0.03
+Original data points: 3982
+Aggregated data points: 134
+Reduction ratio: 0.03
+Finding the optimal ARIMA parameters..
+Training ARIMA model with order (2, 0, 3)...
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7379816581176547.0000
+  RMSE: 85905858.8292
+  MAE: 52903917.7330
+  MAPE: 33.7636
+{'MSE': 7379816581176547.0, 'RMSE': 85905858.8291657, 'MAE': 52903917.733007334, 'MAPE': 33.763603560698954}
+Checking seasonality patterns...
+Finding the optimal SARIMA parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(2, 0, 3)x(1, 1, 1, 24) - AIC: 18760.609103312905
+Best SARIMA model: SARIMA(2, 0, 3)x(1, 1, 1, 24) with AIC: 18760.609103312905
+Training SARIMA model with order (2, 0, 3) and seasonal_order (1, 1, 1, 24)...
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            8     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.76372D+01    |proj g|=  6.35703D-02
+
+At iterate    5    f=  1.76183D+01    |proj g|=  1.81944D-02
+
+At iterate   10    f=  1.76174D+01    |proj g|=  3.04490D-03
+
+At iterate   15    f=  1.76172D+01    |proj g|=  7.59698D-03
+
+At iterate   20    f=  1.76171D+01    |proj g|=  2.94955D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    8     23     25      1     0     0   3.569D-05   1.762D+01
+  F =   17.617113818903107     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7870437528070525.0000
+  RMSE: 88715486.4050
+  MAE: 54025837.1417
+  MAPE: 27.7407
+{'evaluation': {'MSE': 7870437528070525.0, 'RMSE': 88715486.40497062, 'MAE': 54025837.14169687, 'MAPE': 27.740681291879373}, 'predictions': time
+2018-02-28 02:00:00    2.546744e+07
+2018-02-28 03:00:00    2.546744e+07
+2018-02-28 04:00:00    2.970347e+07
+2018-02-28 05:00:00    2.694716e+07
+2018-02-28 06:00:00    3.537153e+07
+                           ...     
+2018-03-05 11:00:00    1.116786e+08
+2018-03-05 12:00:00    1.197862e+08
+2018-03-05 13:00:00    1.340468e+08
+2018-03-05 14:00:00    1.458561e+08
+2018-03-05 15:00:00    1.470229e+08
+Freq: H, Name: forecast, Length: 134, dtype: float64, 'actual': time
+2018-02-28 02:00:00    4.756585e+07
+2018-02-28 03:00:00    4.027964e+07
+2018-02-28 04:00:00    3.709350e+07
+2018-02-28 05:00:00    3.955855e+07
+2018-02-28 06:00:00    4.913865e+07
+                           ...     
+2018-03-05 11:00:00    1.720958e+08
+2018-03-05 12:00:00    1.814631e+08
+2018-03-05 13:00:00    1.991866e+08
+2018-03-05 14:00:00    2.937393e+08
+2018-03-05 15:00:00    1.036111e+08
+Freq: H, Name: down, Length: 134, dtype: float64, 'model': <statsmodels.tsa.statespace.sarimax.SARIMAXResultsWrapper object at 0x1553f4f9f2b0>, 'hourly_pattern': hour
+0     1.282840e+08
+1     8.205490e+07
+2     6.940633e+07
+3     4.891293e+07
+4     3.858132e+07
+5     3.491058e+07
+6     4.336484e+07
+7     6.578010e+07
+8     8.289395e+07
+9     9.007260e+07
+10    1.108367e+08
+11    1.154671e+08
+12    1.173666e+08
+13    1.504477e+08
+14    1.756303e+08
+15    1.665078e+08
+16    1.825804e+08
+17    2.121852e+08
+18    1.905954e+08
+19    2.175594e+08
+20    2.192841e+08
+21    2.149508e+08
+22    2.521037e+08
+23    2.168958e+08
+Name: down, dtype: float64}
+[ojurek@login01 network_traffic_forecasting]$ python -m main
+
+===== LOADING DATA =====
+
+======= FROM STATION: PobleSec =======
+Original data points: 15927
+Aggregated data points: 532
+Reduction ratio: 0.03
+Original data points: 3982
+Aggregated data points: 134
+Reduction ratio: 0.03
+Finding the optimal ARIMA parameters..
+Training ARIMA model with order (2, 0, 3)...
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7379816581176547.0000
+  RMSE: 85905858.8292
+  MAE: 52903917.7330
+  MAPE: 33.7636
+{'MSE': 7379816581176547.0, 'RMSE': 85905858.8291657, 'MAE': 52903917.733007334, 'MAPE': 33.763603560698954}
+Checking seasonality patterns...
+Finding the optimal SARIMA parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(2, 0, 3)x(0, 0, 0, 24) - AIC: 20626.99145496644
+2: SARIMA(2, 0, 3)x(0, 0, 1, 24) - AIC: 19684.950997557386
+3: SARIMA(2, 0, 3)x(0, 1, 0, 24) - AIC: 19882.194454539793
+4: SARIMA(2, 0, 3)x(1, 0, 0, 24) - AIC: 19745.078043195404
+5: SARIMA(2, 0, 3)x(0, 0, 2, 24) - AIC: 18709.577263966275
+6: SARIMA(2, 0, 3)x(0, 1, 1, 24) - AIC: 18760.078444061048
+7: SARIMA(2, 0, 3)x(0, 2, 0, 24) - AIC: 19480.224666372254
+8: SARIMA(2, 0, 3)x(1, 0, 1, 24) - AIC: 19647.553974126466
+9: SARIMA(2, 0, 3)x(1, 1, 0, 24) - AIC: 18895.654470782934
+10: SARIMA(2, 0, 3)x(2, 0, 0, 24) - AIC: 18785.81028286656
+11: SARIMA(2, 0, 3)x(0, 0, 3, 24) - AIC: 17751.25842850457
+12: SARIMA(2, 0, 3)x(0, 1, 2, 24) - AIC: 17801.756330328142
+13: SARIMA(2, 0, 3)x(0, 2, 1, 24) - AIC: 18222.4627524459 (Non-invertible warning)
+14: SARIMA(2, 0, 3)x(1, 0, 2, 24) - AIC: 18702.39389317485
+15: SARIMA(2, 0, 3)x(1, 1, 1, 24) - AIC: 18760.609103312905
+16: SARIMA(2, 0, 3)x(1, 2, 0, 24) - AIC: 18388.29165329458
+17: SARIMA(2, 0, 3)x(2, 0, 1, 24) - AIC: 18777.964131309684
+18: SARIMA(2, 0, 3)x(2, 1, 0, 24) - AIC: 17901.316716726167
+19: SARIMA(2, 0, 3)x(3, 0, 0, 24) - AIC: 17834.935481241293
+20: SARIMA(2, 0, 3)x(0, 1, 3, 24) - AIC: 16875.88181481954
+21: SARIMA(2, 0, 3)x(0, 2, 2, 24) - AIC: 17214.98512954147
+22: SARIMA(2, 0, 3)x(1, 0, 3, 24) - AIC: 17739.86021290003
+23: SARIMA(2, 0, 3)x(1, 1, 2, 24) - AIC: 17803.53159590131
+24: SARIMA(2, 0, 3)x(1, 2, 1, 24) - AIC: 18182.99302160812
+25: SARIMA(2, 0, 3)x(2, 0, 2, 24) - AIC: 18691.994702306212
+26: SARIMA(2, 0, 3)x(2, 1, 1, 24) - AIC: 17880.855380397596
+27: SARIMA(2, 0, 3)x(2, 2, 0, 24) - AIC: 17349.790886354698
+28: SARIMA(2, 0, 3)x(3, 0, 1, 24) - AIC: 17815.882312154576
+29: SARIMA(2, 0, 3)x(3, 1, 0, 24) - AIC: 16962.82335444381
+30: SARIMA(2, 0, 3)x(0, 2, 3, 24) - AIC: 16255.240532672224
+31: SARIMA(2, 0, 3)x(1, 1, 3, 24) - AIC: 16877.15936010125
+32: SARIMA(2, 0, 3)x(1, 2, 2, 24) - AIC: 17215.80913835038 (Non-invertible warning)
+33: SARIMA(2, 0, 3)x(2, 0, 3, 24) - AIC: 17740.304570084954
+34: SARIMA(2, 0, 3)x(2, 1, 2, 24) - AIC: 17804.2560463033
+35: SARIMA(2, 0, 3)x(2, 2, 1, 24) - AIC: 17294.907551771685
+36: SARIMA(2, 0, 3)x(3, 0, 2, 24) - AIC: 17817.024894509534
+37: SARIMA(2, 0, 3)x(3, 1, 1, 24) - AIC: 16955.06544398547
+38: SARIMA(2, 0, 3)x(3, 2, 0, 24) - AIC: 16368.386092560528
+39: SARIMA(2, 0, 3)x(1, 2, 3, 24) - AIC: 16256.170071295463
+40: SARIMA(2, 0, 3)x(2, 1, 3, 24) - AIC: 16873.928644473846
+41: SARIMA(2, 0, 3)x(2, 2, 2, 24) - AIC: 17216.456393694563
+42: SARIMA(2, 0, 3)x(3, 0, 3, 24) - AIC: 17739.07350144288
+43: SARIMA(2, 0, 3)x(3, 1, 2, 24) - AIC: 16956.71299805357
+44: SARIMA(2, 0, 3)x(3, 2, 1, 24) - AIC: 16335.908467545745
+45: SARIMA(2, 0, 3)x(2, 2, 3, 24) - AIC: 16256.9837755754 (Non-invertible warning)
+46: SARIMA(2, 0, 3)x(3, 1, 3, 24) - AIC: 16876.158558646806
+47: SARIMA(2, 0, 3)x(3, 2, 2, 24) - AIC: 16337.545625174987
+48: SARIMA(2, 0, 3)x(3, 2, 3, 24) - AIC: 16258.936959678982
+Best SARIMA model: SARIMA(2, 0, 3)x(0, 2, 3, 24) with AIC: 16255.240532672224
+Training SARIMA model with order (2, 0, 3) and seasonal_order (0, 2, 3, 24)...
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            9     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.52829D+01    |proj g|=  5.02180D-02
+
+At iterate    5    f=  1.52609D+01    |proj g|=  8.07696D-03
+
+At iterate   10    f=  1.52606D+01    |proj g|=  4.72005D-04
+
+At iterate   15    f=  1.52606D+01    |proj g|=  2.92941D-04
+
+At iterate   20    f=  1.52606D+01    |proj g|=  2.36712D-05
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    9     21     24      1     0     0   1.390D-05   1.526D+01
+  F =   15.260564410406225     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 9509190929649978.0000
+  RMSE: 97515080.5242
+  MAE: 61865178.8042
+  MAPE: 31.9756
+{'evaluation': {'MSE': 9509190929649978.0, 'RMSE': 97515080.52424495, 'MAE': 61865178.80424918, 'MAPE': 31.97559221733794}, 'predictions': time
+2018-02-28 02:00:00    2.196567e+07
+2018-02-28 03:00:00    2.196567e+07
+2018-02-28 04:00:00    2.975662e+07
+2018-02-28 05:00:00    2.779498e+07
+2018-02-28 06:00:00    3.553979e+07
+                           ...     
+2018-03-05 11:00:00    9.223453e+07
+2018-03-05 12:00:00    1.431557e+08
+2018-03-05 13:00:00    1.019443e+08
+2018-03-05 14:00:00    9.605802e+07
+2018-03-05 15:00:00    1.165246e+08
+Freq: H, Name: forecast, Length: 134, dtype: float64, 'actual': time
+2018-02-28 02:00:00    4.756585e+07
+2018-02-28 03:00:00    4.027964e+07
+2018-02-28 04:00:00    3.709350e+07
+2018-02-28 05:00:00    3.955855e+07
+2018-02-28 06:00:00    4.913865e+07
+                           ...     
+2018-03-05 11:00:00    1.720958e+08
+2018-03-05 12:00:00    1.814631e+08
+2018-03-05 13:00:00    1.991866e+08
+2018-03-05 14:00:00    2.937393e+08
+2018-03-05 15:00:00    1.036111e+08
+Freq: H, Name: down, Length: 134, dtype: float64, 'model': <statsmodels.tsa.statespace.sarimax.SARIMAXResultsWrapper object at 0x1553f4fb1a90>, 'hourly_pattern': hour
+0     1.282840e+08
+1     8.205490e+07
+2     6.940633e+07
+3     4.891293e+07
+4     3.858132e+07
+5     3.491058e+07
+6     4.336484e+07
+7     6.578010e+07
+8     8.289395e+07
+9     9.007260e+07
+10    1.108367e+08
+11    1.154671e+08
+12    1.173666e+08
+13    1.504477e+08
+14    1.756303e+08
+15    1.665078e+08
+16    1.825804e+08
+17    2.121852e+08
+18    1.905954e+08
+19    2.175594e+08
+20    2.192841e+08
+21    2.149508e+08
+22    2.521037e+08
+23    2.168958e+08
+Name: down, dtype: float64}
+[ojurek@login01 network_traffic_forecasting]$ python -m main
+
+===== LOADING DATA =====
+
+======= FROM STATION: PobleSec =======
+Original data points: 15927
+Aggregated data points: 532
+Reduction ratio: 0.03
+Original data points: 3982
+Aggregated data points: 134
+Reduction ratio: 0.03
+Checking seasonality patterns...
+Finding the optimal SARIMA parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(2, 0, 3)x(0, 1, 3, 24) - AIC: 16875.88181481954
+Best SARIMA model: SARIMA(2, 0, 3)x(0, 1, 3, 24) with AIC: 16875.88181481954
+Training SARIMA model with order (2, 0, 3) and seasonal_order (0, 1, 3, 24)...
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            9     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.59259D+01    |proj g|=  1.87690D-01
+
+At iterate    5    f=  1.58487D+01    |proj g|=  2.95636D-02
+
+At iterate   10    f=  1.58442D+01    |proj g|=  5.13358D-03
+
+At iterate   15    f=  1.58441D+01    |proj g|=  6.56675D-04
+
+At iterate   20    f=  1.58440D+01    |proj g|=  4.92073D-03
+
+At iterate   25    f=  1.58439D+01    |proj g|=  3.38406D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    9     29     36      1     0     0   1.354D-05   1.584D+01
+  F =   15.843873886108589     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 7910063119722229.0000
+  RMSE: 88938535.6284
+  MAE: 53942863.8814
+  MAPE: 27.5208
+{'evaluation': {'MSE': 7910063119722229.0, 'RMSE': 88938535.62838906, 'MAE': 53942863.88135241, 'MAPE': 27.52075717435984}, 'predictions': time
+2018-02-28 02:00:00    2.678688e+07
+2018-02-28 03:00:00    2.678688e+07
+2018-02-28 04:00:00    3.097087e+07
+2018-02-28 05:00:00    2.986977e+07
+2018-02-28 06:00:00    3.796680e+07
+                           ...     
+2018-03-05 11:00:00    1.110780e+08
+2018-03-05 12:00:00    1.200137e+08
+2018-03-05 13:00:00    1.334872e+08
+2018-03-05 14:00:00    1.445555e+08
+2018-03-05 15:00:00    1.463958e+08
+Freq: H, Name: forecast, Length: 134, dtype: float64, 'actual': time
+2018-02-28 02:00:00    4.756585e+07
+2018-02-28 03:00:00    4.027964e+07
+2018-02-28 04:00:00    3.709350e+07
+2018-02-28 05:00:00    3.955855e+07
+2018-02-28 06:00:00    4.913865e+07
+                           ...     
+2018-03-05 11:00:00    1.720958e+08
+2018-03-05 12:00:00    1.814631e+08
+2018-03-05 13:00:00    1.991866e+08
+2018-03-05 14:00:00    2.937393e+08
+2018-03-05 15:00:00    1.036111e+08
+Freq: H, Name: down, Length: 134, dtype: float64, 'model': <statsmodels.tsa.statespace.sarimax.SARIMAXResultsWrapper object at 0x1553f4f1d048>, 'hourly_pattern': hour
+0     1.282840e+08
+1     8.205490e+07
+2     6.940633e+07
+3     4.891293e+07
+4     3.858132e+07
+5     3.491058e+07
+6     4.336484e+07
+7     6.578010e+07
+8     8.289395e+07
+9     9.007260e+07
+10    1.108367e+08
+11    1.154671e+08
+12    1.173666e+08
+13    1.504477e+08
+14    1.756303e+08
+15    1.665078e+08
+16    1.825804e+08
+17    2.121852e+08
+18    1.905954e+08
+19    2.175594e+08
+20    2.192841e+08
+21    2.149508e+08
+22    2.521037e+08
+23    2.168958e+08
+Name: down, dtype: float64}

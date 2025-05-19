@@ -131,6 +131,7 @@ def create_dataloader(dataset, batch_size=32, seq_length=6, forecast_horizon=1, 
     return dataloader
 
 def main():
+    return
     train_poblesec, test_poblesec = load_data(POBLESEC_ST)
     train_dataset = NetworkDataset(train_poblesec, 'down')
 
@@ -192,4 +193,3 @@ def main():
                 print(f"  Input: {batch['timestamps'][i]}")
                 print(f"  Target: {batch['target_timestamps'][i]}")
                 print()
-main()

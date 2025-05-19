@@ -86,12 +86,19 @@ class SARIMAPredictor():
         print("Note: This can take some time for hourly data")
         
         # Define parameter ranges
-        p = range(0, max_p + 1)
-        d = range(0, max_d + 1)
-        q = range(0, max_q + 1)
-        P = range(0, max_P + 1)
-        D = range(0, max_D + 1)
-        Q = range(0, max_Q + 1)
+        # p = range(0, max_p + 1)
+        # d = range(0, max_d + 1)
+        # q = range(0, max_q + 1)
+        # P = range(0, max_P + 1)
+        # D = range(0, max_D + 1)
+        # Q = range(0, max_Q + 1)
+        p = [2]
+        d = [0]
+        q = [3]
+        P = [0]
+        D = [1]
+        Q = [3]
+        
         
         # Create parameter combinations - start with simpler models
         pdq = list(itertools.product(p, d, q))
@@ -202,8 +209,8 @@ class SARIMAPredictor():
         print("Finding the optimal SARIMA parameters...")
         order, seasonal_order = self.find_best_sarima_parameters(
             train_series, 
-            max_p=5, max_d=2, max_q=5,  # Limit non-seasonal params
-            max_P=5, max_D=2, max_Q=5,  # Limit seasonal params
+            max_p=4, max_d=2, max_q=4,  # Limit non-seasonal params
+            max_P=3, max_D=2, max_Q=3,  # Limit seasonal params
             s=seasonal_period
         )
         
@@ -211,86 +218,89 @@ class SARIMAPredictor():
         sarima_model = self.train_sarima_model(train_series, order, seasonal_order)
         
         print(f"Generating forecast for {len(test_series)} steps...")
-        prediction = sarima_model.forecast(steps=len(test_series))
+        raw_prediction = sarima_model.forecast(steps=len(test_series))
         
-        # Reset indices for comparison
-        prediction = pd.Series(prediction).reset_index(drop=True)
-        test_actual = test_series.reset_index(drop=True)
+        prediction = pd.Series(
+            data=raw_prediction,
+            index=test_series.index,
+            name='forecast'
+        )
         
+        prediction = prediction.ffill().bfill()
+
         # Evaluate the forecast
-        evaluation = self.evaluate_forecast(test_actual, prediction)
+        evaluation = self.evaluate_forecast(test_series, prediction)
         print(f"\nEvaluation metrics for {target_column} traffic:")
         for metric, value in evaluation.items():
             print(f"  {metric}: {value:.4f}")
         
-        # Plot the forecast vs actual
-        plt.figure(figsize=(15, 7))
-        plt.plot(test_actual.values, label='Actual')
-        plt.plot(prediction.values, label='Forecast', color='red')
-        plt.title(f'SARIMA Forecast vs Actual for {target_column.capitalize()} Traffic')
-        plt.xlabel('Time Steps')
-        plt.ylabel('Traffic Volume')
-        plt.legend()
-        plt.grid(True, linestyle='--', alpha=0.7)
-        plt.tight_layout()
-        plt.savefig(f'sarima_forecast_{target_column}.png')
-        plt.close()
+        # # Plot the forecast vs actual
+        # plt.figure(figsize=(15, 7))
+        # plt.plot(test_actual.values, label='Actual')
+        # plt.plot(prediction.values, label='Forecast', color='red')
+        # plt.title(f'SARIMA Forecast vs Actual for {target_column.capitalize()} Traffic')
+        # plt.xlabel('Time Steps')
+        # plt.ylabel('Traffic Volume')
+        # plt.legend()
+        # plt.grid(True, linestyle='--', alpha=0.7)
+        # plt.tight_layout()
+        # plt.savefig(f'sarima_forecast_{target_column}.png')
+        # plt.close()
         
         # Return results
         return {
             'evaluation': evaluation,
             'predictions': prediction,
-            'actual': test_actual,
+            'actual': test_series,
             'model': sarima_model,
             'hourly_pattern': hour_stats
         }
 
 
-def main():
-    sarima = SARIMAPredictor()
+# def main():
+#     sarima = SARIMAPredictor()
     
-    print("\n===== LOADING DATA =====")
-    train_poblesec, test_poblesec = load_data(POBLESEC_ST)
+#     # train_poblesec, test_poblesec = load_data(POBLESEC_ST)
 
-    print("\n===== PREDICTING DOWNLINK TRAFFIC WITH SEASONALITY =====")
-    down_results = sarima.predict_network_traffic(train_poblesec, test_poblesec, target_column='down')
+#     # print("\n===== PREDICTING DOWNLINK TRAFFIC WITH SEASONALITY =====")
+#     # down_results = sarima.predict_network_traffic(train_poblesec, test_poblesec, target_column='down')
     
-    # Optional: Also predict uplink traffic
-    # print("\n===== PREDICTING UPLINK TRAFFIC WITH SEASONALITY =====")
-    # up_results = sarima.predict_network_traffic(train_poblesec, test_poblesec, target_column='up')
+#     # # Optional: Also predict uplink traffic
+#     # # print("\n===== PREDICTING UPLINK TRAFFIC WITH SEASONALITY =====")
+#     # # up_results = sarima.predict_network_traffic(train_poblesec, test_poblesec, target_column='up')
     
-    # Print summary
-    print("\n===== SUMMARY OF RESULTS =====")
-    print(f"Downlink Traffic RMSE: {down_results['evaluation']['RMSE']:.4f}")
-    # print(f"Uplink Traffic RMSE: {up_results['evaluation']['RMSE']:.4f}")
+#     # # Print summary
+#     # print("\n===== SUMMARY OF RESULTS =====")
+#     # print(f"Downlink Traffic RMSE: {down_results['evaluation']['RMSE']:.4f}")
+#     # # print(f"Uplink Traffic RMSE: {up_results['evaluation']['RMSE']:.4f}")
     
-    # Compare with the previous ARIMA results
-    print("\n===== COMPARING WITH ORIGINAL ARIMA RESULTS =====")
-    print("Previous ARIMA RMSE: 139823620.3378")
-    print(f"SARIMA RMSE: {down_results['evaluation']['RMSE']:.4f}")
+#     # # Compare with the previous ARIMA results
+#     # print("\n===== COMPARING WITH ORIGINAL ARIMA RESULTS =====")
+#     # print("Previous ARIMA RMSE: 139823620.3378")
+#     # print(f"SARIMA RMSE: {down_results['evaluation']['RMSE']:.4f}")
     
-    improvement = (139823620.3378 - down_results['evaluation']['RMSE']) / 139823620.3378 * 100
-    print(f"Improvement: {improvement:.2f}%")
+#     # improvement = (139823620.3378 - down_results['evaluation']['RMSE']) / 139823620.3378 * 100
+#     # print(f"Improvement: {improvement:.2f}%")
 
-    print(down_results)
-    # arima = ARIMAPredictor()
-    # ## ---- LOADING AND PREPROCESSING DATA ------
-    # print("\n===== LOADING AND PREPROCESSING DATA =====")
-    # train_poblesec, test_poblesec = load_data(POBLESEC_ST)   
-    # plt.figure(figsize=(20,4))
-    # plt.plot(train_poblesec, label='Train Set')
-    # plt.plot(test_poblesec, label='Test Set', color='orange')
+#     # print(down_results)
+#     # arima = ARIMAPredictor()
+#     # ## ---- LOADING AND PREPROCESSING DATA ------
+#     # print("\n===== LOADING AND PREPROCESSING DATA =====")
+#     # train_poblesec, test_poblesec = load_data(POBLESEC_ST)   
+#     # plt.figure(figsize=(20,4))
+#     # plt.plot(train_poblesec, label='Train Set')
+#     # plt.plot(test_poblesec, label='Test Set', color='orange')
 
-    # plt.plot(train_poblesec.index, train_poblesec['down']);  
-    # plt.show()
+#     # plt.plot(train_poblesec.index, train_poblesec['down']);  
+#     # plt.show()
 
-    # print("\n===== PREDICTING DOWNLINK TRAFFIC =====")
-    # down_results = arima.predict_network_traffic(train_poblesec, test_poblesec, target_column='down')
-    # print("\n===== PREDICTING UPLINK TRAFFIC =====")
-    # up_results = arima.predict_network_traffic(train_poblesec, test_poblesec, target_column='up')
+#     # print("\n===== PREDICTING DOWNLINK TRAFFIC =====")
+#     # down_results = arima.predict_network_traffic(train_poblesec, test_poblesec, target_column='down')
+#     # print("\n===== PREDICTING UPLINK TRAFFIC =====")
+#     # up_results = arima.predict_network_traffic(train_poblesec, test_poblesec, target_column='up')
     
-    # # Print summary
-    # print("\n===== SUMMARY OF RESULTS =====")
-    # print(f"Downlink Traffic RMSE: {down_results['RMSE']:.4f}")
-    # print(f"Uplink Traffic RMSE: {up_results['RMSE']:.4f}")
-main()    
+#     # # Print summary
+#     # print("\n===== SUMMARY OF RESULTS =====")
+#     # print(f"Downlink Traffic RMSE: {down_results['RMSE']:.4f}")
+#     # print(f"Uplink Traffic RMSE: {up_results['RMSE']:.4f}")
+# main()    
