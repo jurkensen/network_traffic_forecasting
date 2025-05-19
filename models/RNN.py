@@ -307,7 +307,7 @@ def main():
     # Load and prepare data
     train_data, test_data = load_data(POBLESEC_ST)
     train_data, test_data = aggregate_data(train_data), aggregate_data(test_data)
-
+    
     # Create datasets
     train_dataset = NetworkDataset(train_data, 'down')
     test_dataset = NetworkDataset(test_data, 'down')

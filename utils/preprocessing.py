@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import glob
 from utils.config import *
+from sklearn.preprocessing import MinMaxScaler
 
 def load_data(station_path):
     print("\n===== LOADING DATA =====")
@@ -105,3 +106,26 @@ def aggregate_data(df, interval_minutes=1):
     print(f"Reduction ratio: {len(aggregated_df)/len(df):.2f}")
     
     return aggregated_df
+
+def normalize_column(df, column_name, feature_range=(0,1)):
+    """Normalize a single column using MinMaxScaler"""
+    scaler = MinMaxScaler(feature_range=feature_range)
+    # Get the column as a DataFrame to preserve index
+    column_data = df[[column_name]]
+    # Fit and transform
+    normalized_data = scaler.fit_transform(column_data)
+    # Return as DataFrame with original index
+    normalized_column = pd.DataFrame(normalized_data, index=df.index, columns=[column_name])
+    return normalized_column, scaler
+
+def normalize_df_minmax(df, feature_range=(0, 1)):
+    """Normalize a dataframe using MinMaxScaler (default 0-1 range)"""
+    scaler = MinMaxScaler(feature_range=feature_range)
+    # Store DataFrame index and columns
+    index = df.index
+    columns = df.columns
+    # Fit and transform
+    normalized_data = scaler.fit_transform(df)
+    # Return as DataFrame with original index and columns
+    normalized_df = pd.DataFrame(normalized_data, index=index, columns=columns)
+    return normalized_df, scaler

@@ -119,7 +119,7 @@ def create_dataloader(dataset, batch_size=32, seq_length=6, forecast_horizon=1, 
     batch_sampler = TimeSeriesBatchSampler(
         dataset, 
         batch_size=adjusted_batch_size, 
-        stride=batch_size
+        stride=1
     )    
     # Create DataLoader
     dataloader = DataLoader(
