@@ -518,3 +518,16 @@ Freq: H, Name: down, Length: 134, dtype: float64, 'model': <statsmodels.tsa.stat
 22    2.521037e+08
 23    2.168958e+08
 Name: down, dtype: float64}
+
+WITH PREPROCESSING OUTLIERS
+Training ARIMA model with order (2, 0, 3)...
+Generating forecast for 134 steps...
+
+Evaluation metrics for down traffic:
+  MSE: 6388943171676806.0000
+  RMSE: 79930864.9501
+  MAE: 50530075.0477
+  MAPE: 30.4769
+
+  IMPROVEMENT
+  

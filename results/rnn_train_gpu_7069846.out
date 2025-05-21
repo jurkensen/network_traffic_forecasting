@@ -1,0 +1,62 @@
+Job started at Tue May 20 18:06:01 CEST 2025
+Running on host: gpu009
+Using device: cuda
+
+===== LOADING DATA =====
+
+======= FROM STATION: PobleSec =======
+Original data points: 15927
+Aggregated data points: 532
+Reduction ratio: 0.03
+Original data points: 3982
+Aggregated data points: 134
+Reduction ratio: 0.03
+Checking data validity...
+Data validity check completed.
+RNN_MLP(
+  (rnn): RNN(11, 128, batch_first=True)
+  (fc1): Linear(in_features=128, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=1, bias=True)
+  (relu): ReLU()
+)
+Total parameters: 34689
+Training on cuda...
+Epoch [1/30], Train Loss: 0.015518
+Epoch [2/30], Train Loss: 0.013494
+Epoch [3/30], Train Loss: 0.013021
+Epoch [4/30], Train Loss: 0.012218
+Epoch [5/30], Train Loss: 0.013351
+Epoch [6/30], Train Loss: 0.011869
+Epoch [7/30], Train Loss: 0.011273
+Epoch [8/30], Train Loss: 0.011445
+Epoch [9/30], Train Loss: 0.011170
+Epoch [10/30], Train Loss: 0.011370
+Epoch [11/30], Train Loss: 0.010264
+Epoch [12/30], Train Loss: 0.011137
+Epoch [13/30], Train Loss: 0.011631
+Epoch [14/30], Train Loss: 0.011873
+Epoch [15/30], Train Loss: 0.011211
+Epoch [16/30], Train Loss: 0.012196
+Epoch [17/30], Train Loss: 0.012144
+Epoch [18/30], Train Loss: 0.011254
+Epoch [19/30], Train Loss: 0.010146
+Epoch [20/30], Train Loss: 0.010190
+Epoch [21/30], Train Loss: 0.009214
+Epoch [22/30], Train Loss: 0.009205
+Epoch [23/30], Train Loss: 0.009401
+Epoch [24/30], Train Loss: 0.008313
+Epoch [25/30], Train Loss: 0.008358
+Epoch [26/30], Train Loss: 0.007430
+Epoch [27/30], Train Loss: 0.007478
+Epoch [28/30], Train Loss: 0.008174
+Epoch [29/30], Train Loss: 0.007566
+Epoch [30/30], Train Loss: 0.008350
+
+Test Results:
+MSE: 7258576991005574.0000
+RMSE: 85197282.7677
+MAE: 51539848.1627
+MAPE: 29.6061
+R²: 0.3509
+Model saved to 'rnn_mlp_model.pth'
+Job completed at Tue May 20 18:07:17 CEST 2025

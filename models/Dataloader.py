@@ -131,16 +131,17 @@ def create_dataloader(dataset, batch_size=32, seq_length=6, forecast_horizon=1, 
     return dataloader
 
 def main():
-    return
     train_poblesec, test_poblesec = load_data(POBLESEC_ST)
+    train_poblesec, test_poblesec = aggregate_data(train_poblesec), aggregate_data(test_poblesec)
+    train_poblesec, test_poblesec = preprocess_outliers(train_poblesec), preprocess_outliers(test_poblesec)
     train_dataset = NetworkDataset(train_poblesec, 'down')
 
     print(f"Dataset has {len(train_dataset)} entries")
 
     train_loader = create_dataloader(
             train_dataset, 
-            batch_size=4,  
-            seq_length=6,
+            batch_size=32,  
+            seq_length=12,
             forecast_horizon=1
         )
     
@@ -193,3 +194,4 @@ def main():
                 print(f"  Input: {batch['timestamps'][i]}")
                 print(f"  Target: {batch['target_timestamps'][i]}")
                 print()
+main()

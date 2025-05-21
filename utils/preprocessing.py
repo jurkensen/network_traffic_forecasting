@@ -129,3 +129,18 @@ def normalize_df_minmax(df, feature_range=(0, 1)):
     # Return as DataFrame with original index and columns
     normalized_df = pd.DataFrame(normalized_data, index=index, columns=columns)
     return normalized_df, scaler
+
+def preprocess_outliers(df, cap_percentile=99, floor_percentile=1):
+    """
+    Preprocess data using flooring and capping technique 
+    as described in the paper
+    """
+    df_processed = df.copy()
+    for col in df_processed.columns:
+        # Get floor and cap values (1st and 99th percentiles)
+        floor_val = df_processed[col].quantile(floor_percentile/100)
+        cap_val = df_processed[col].quantile(cap_percentile/100)
+        
+        df_processed[col] = df_processed[col].clip(lower=floor_val, upper=cap_val)
+    
+    return df_processed

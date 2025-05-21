@@ -104,8 +104,8 @@ class ARIMAPredictor():
         test_series = df_test[target_column]
 
         print("Finding the optimal ARIMA parameters..")
-        # order = self.find_best_arima_parameters(train_series)
-        order = (2,0,3)
+        order = self.find_best_arima_parameters(train_series)
+        # order = (2,0,3)
         print(f"Training ARIMA model with order {order}...")    
         arima_model = self.train_arima_model(train_series, order)
 

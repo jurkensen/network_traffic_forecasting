@@ -20,7 +20,6 @@ class RNN_MLP(nn.Module):
             hidden_size=self.rnn_hidden_size, 
             num_layers=1, 
             batch_first=True,
-            nonlinearity='tanh'  # Using tanh for better gradient stability
         )
         
         # MLP parameters
@@ -28,22 +27,7 @@ class RNN_MLP(nn.Module):
         self.fc2 = nn.Linear(128, output_size)
         self.relu = nn.ReLU()
         
-        # Initialize weights for better stability
-        self._initialize_weights()
-    
-    def _initialize_weights(self):
-        # Initialize RNN weights with a small uniform distribution
-        for name, param in self.rnn.named_parameters():
-            if 'weight' in name:
-                nn.init.xavier_uniform_(param)
-            elif 'bias' in name:
-                nn.init.constant_(param, 0.0)
-                
-        # Initialize linear layers
-        nn.init.xavier_uniform_(self.fc1.weight)
-        nn.init.zeros_(self.fc1.bias)
-        nn.init.xavier_uniform_(self.fc2.weight)
-        nn.init.zeros_(self.fc2.bias)
+
     
     def forward(self, x):
         # Check for NaN in input
@@ -87,7 +71,7 @@ def check_data_validity(dataloader):
     print("Data validity check completed.")
 
 def train_model(model, train_loader, val_loader=None, epochs=25, learning_rate=0.0005, 
-                device='cpu', grad_clip_value=1.0):
+                device='cpu'):
     """
     Train the model with gradient clipping and learning rate scheduling
     
@@ -97,9 +81,7 @@ def train_model(model, train_loader, val_loader=None, epochs=25, learning_rate=0
         val_loader: DataLoader for validation data (optional)
         epochs: Number of training epochs
         learning_rate: Learning rate for optimizer
-        device: Device to train on ('cpu' or 'cuda')
-        grad_clip_value: Maximum gradient norm for gradient clipping
-    
+        device: Device to train on ('cpu' or 'cuda')    
     Returns:
         Trained model and training history
     """
@@ -107,15 +89,9 @@ def train_model(model, train_loader, val_loader=None, epochs=25, learning_rate=0
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-5)
     
-    # Add learning rate scheduler
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='min', factor=0.5, patience=5, verbose=True
-    )
-    
     # Training history
     history = {
         'train_loss': [],
-        'learning_rates': []
     }
     
     print(f"Training on {device}...")
@@ -141,93 +117,153 @@ def train_model(model, train_loader, val_loader=None, epochs=25, learning_rate=0
             # Backward and optimize
             optimizer.zero_grad()
             loss.backward()
-            
-            # Gradient clipping to prevent exploding gradients
-            torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip_value)
-            
+                        
             optimizer.step()
             
             train_loss += loss.item()
             num_batches += 1
-            
-            # Print batch progress every 20 batches
-            if (batch_idx + 1) % 20 == 0:
-                print(f'  Batch [{batch_idx+1}/{len(train_loader)}], Loss: {loss.item():.6f}')
-        
+                    
         # Calculate average training loss
         avg_train_loss = train_loss / max(num_batches, 1)  # Avoid division by zero
         history['train_loss'].append(avg_train_loss)
+
         
-        # Update learning rate based on training loss
-        scheduler.step(avg_train_loss)
-        
-        # Store current learning rate
-        current_lr = optimizer.param_groups[0]['lr']
-        history['learning_rates'].append(current_lr)
-        
-        print(f'Epoch [{epoch+1}/{epochs}], Train Loss: {avg_train_loss:.6f}, LR: {current_lr:.6f}')
+        print(f'Epoch [{epoch+1}/{epochs}], Train Loss: {avg_train_loss:.6f}')
     
     return model, history
 
-def evaluate_model(model, test_loader, device='cpu'):
+def evaluate_model(model, train_data, test_loader, scaler, device='cpu'):
     """
-    Evaluate the model on test data
-    
+    Evaluate the model on test data and average predictions for the same timestamp
+   
     Args:
         model: Trained model
+        train_data: Training data (for column information)
         test_loader: DataLoader for test data
+        scaler: Scaler object used to normalize/denormalize data
         device: Device to evaluate on
-    
+   
     Returns:
         Dictionary of evaluation metrics
     """
     model = model.to(device)
     model.eval()
-    
-    all_targets = []
-    all_predictions = []
-    all_timestamps = []
-    
+   
+    # Dictionary to collect all predictions by timestamp
+    predictions_by_timestamp = {}
+    targets_by_timestamp = {}
+   
     with torch.no_grad():
         for batch in test_loader:
             features = batch['features'].to(device)
             targets = batch['target'].squeeze().cpu().numpy()
-            
+           
             # Get predictions
             outputs = model(features).squeeze().cpu().numpy()
-            
-            # Store predictions and targets
-            all_predictions.extend(outputs)
-            all_targets.extend(targets)
-            
-            # Store timestamps for plotting
+           
+            # Process timestamps and organize predictions by timestamp
             if isinstance(batch['target_timestamps'][0], list):
                 # Multi-step forecasting
-                for ts_list in batch['target_timestamps']:
-                    all_timestamps.extend(ts_list)
+                for i, ts_list in enumerate(batch['target_timestamps']):
+                    for j, ts in enumerate(ts_list):
+                        # Convert timestamp to string for dictionary key
+                        ts_key = str(ts)
+                        
+                        # Initialize lists if this timestamp hasn't been seen before
+                        if ts_key not in predictions_by_timestamp:
+                            predictions_by_timestamp[ts_key] = []
+                            targets_by_timestamp[ts_key] = []
+                            
+                        # Add this prediction and target
+                        if isinstance(outputs, np.ndarray) and outputs.ndim > 0 and i < len(outputs):
+                            pred_val = outputs[i, j] if outputs.ndim > 1 else outputs[i]
+                            predictions_by_timestamp[ts_key].append(pred_val)
+                            
+                            targ_val = targets[i, j] if targets.ndim > 1 else targets[i]
+                            targets_by_timestamp[ts_key].append(targ_val)
             else:
                 # Single-step forecasting
-                all_timestamps.extend(batch['target_timestamps'])
+                for i in range(len(batch['target_timestamps'])):
+                    ts = batch['target_timestamps'][i]
+                    ts_key = str(ts)
+                    
+                    # Initialize lists if this timestamp hasn't been seen before
+                    if ts_key not in predictions_by_timestamp:
+                        predictions_by_timestamp[ts_key] = []
+                        targets_by_timestamp[ts_key] = []
+                    
+                    # Add this prediction and target
+                    if i < len(outputs):
+                        pred_val = outputs[i]
+                        predictions_by_timestamp[ts_key].append(pred_val)
+                        
+                        targ_val = targets[i] if i < len(targets) else None
+                        if targ_val is not None:
+                            targets_by_timestamp[ts_key].append(targ_val)
+    
+    # Average the predictions for each timestamp
+    unique_timestamps = sorted(predictions_by_timestamp.keys())
+    avg_predictions = []
+    avg_targets = []
+    timestamps = []
+    
+    for ts_key in unique_timestamps:
+        # Average predictions for this timestamp
+        if predictions_by_timestamp[ts_key]:
+            avg_pred = np.mean(predictions_by_timestamp[ts_key])
+            avg_predictions.append(avg_pred)
+            
+            # For targets, we should have the same value for each timestamp, but average to be safe
+            avg_targ = np.mean(targets_by_timestamp[ts_key]) if targets_by_timestamp[ts_key] else None
+            if avg_targ is not None:
+                avg_targets.append(avg_targ)
+                timestamps.append(pd.Timestamp(ts_key))
+    
+    print(f"Collected predictions for {len(unique_timestamps)} unique timestamps")
+    print(f"Number of averaged predictions: {len(avg_predictions)}")
+    print(f"Number of averaged targets: {len(avg_targets)}")
     
     # Convert to numpy arrays
-    all_targets = np.array(all_targets)
-    all_predictions = np.array(all_predictions)
+    avg_predictions = np.array(avg_predictions)
+    avg_targets = np.array(avg_targets)
     
-    # Calculate error metrics
-    mse = mean_squared_error(all_targets, all_predictions)
+    # Denormalize predictions and targets
+    target_column_idx = train_data.columns.get_loc('down')  # Get column index of target
+    
+    # Create arrays filled with zeros (placeholder values)
+    targets_denorm_array = np.zeros((len(avg_targets), len(train_data.columns)))
+    preds_denorm_array = np.zeros((len(avg_predictions), len(train_data.columns)))
+    
+    # Set target values at the right column
+    targets_denorm_array[:, target_column_idx] = avg_targets
+    preds_denorm_array[:, target_column_idx] = avg_predictions
+    
+    # Inverse transform
+    targets_denorm_array = scaler.inverse_transform(targets_denorm_array)
+    preds_denorm_array = scaler.inverse_transform(preds_denorm_array)
+    
+    # Extract just the target column after denormalization
+    denorm_targets = targets_denorm_array[:, target_column_idx]
+    denorm_predictions = preds_denorm_array[:, target_column_idx]
+    
+    mse = mean_squared_error(denorm_targets, denorm_predictions)
     rmse = np.sqrt(mse)
-    mae = mean_absolute_error(all_targets, all_predictions)
-    r2 = r2_score(all_targets, all_predictions)
+    mae = mean_absolute_error(denorm_targets, denorm_predictions)
+    mask = denorm_targets != 0
+    mape = np.mean(np.abs((denorm_targets[mask] - denorm_predictions[mask]) / denorm_targets[mask])) * 100
+    
+    r2 = r2_score(denorm_targets, denorm_predictions)
     
     # Create results dictionary
     results = {
         'mse': mse,
         'rmse': rmse,
         'mae': mae,
+        'mape': mape,
         'r2': r2,
-        'predictions': all_predictions,
-        'targets': all_targets,
-        'timestamps': all_timestamps
+        'predictions': denorm_predictions,
+        'targets': denorm_targets,
+        'timestamps': timestamps
     }
     
     return results
@@ -242,13 +278,26 @@ def plot_predictions(results, title="Model Predictions vs Actual Values"):
     """
     plt.figure(figsize=(12, 6))
     
-    # If timestamps are datetime objects, convert to matplotlib dates
-    timestamps = results['timestamps']
+    indices = range(len(results['targets']))
+    max_points = 100
+    targets = results['targets']
+    predictions = results['predictions']
+
+    data_length = len(targets)
+    if data_length > max_points:
+        step = data_length // max_points
+    else:
+        step = 1
     
-    # Plot actual vs predicted
-    plt.plot(timestamps, results['targets'], label='Actual', marker='o', linestyle='-', markersize=4)
-    plt.plot(timestamps, results['predictions'], label='Predicted', marker='x', linestyle='-', markersize=4)
+    # Downsample by taking every 'step' points
+    indices = range(0, data_length, step)
+    downsampled_targets = targets[::step]
+    downsampled_predictions = predictions[::step]
     
+    # Plot downsampled data
+    plt.plot(indices, downsampled_targets, 'o-', label='Actual', markersize=4, alpha=0.7)
+    plt.plot(indices, downsampled_predictions, 'x-', label='Predicted', markersize=4, alpha=0.7)
+
     plt.title(title)
     plt.xlabel('Time')
     plt.ylabel('Value')
@@ -266,7 +315,7 @@ def plot_predictions(results, title="Model Predictions vs Actual Values"):
     plt.figtext(0.02, 0.02, metrics_text, fontsize=10, bbox=dict(facecolor='white', alpha=0.8))
     
     plt.tight_layout()
-    plt.show()
+    plt.savefig('RNN_predictions_25_epochs.png')
 
 def plot_loss_history(history):
     """
@@ -275,25 +324,20 @@ def plot_loss_history(history):
     Args:
         history: Training history from train_model
     """
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10), sharex=True)
+    plt.figure(figsize=(12, 6))
+
     
     # Plot loss
-    ax1.plot(history['train_loss'], label='Training Loss')
-    ax1.set_title('Loss Over Time')
-    ax1.set_ylabel('Loss')
-    ax1.legend()
-    ax1.grid(True)
-    
-    # Plot learning rate
-    if 'learning_rates' in history:
-        ax2.plot(history['learning_rates'], color='red')
-        ax2.set_title('Learning Rate')
-        ax2.set_xlabel('Epoch')
-        ax2.set_ylabel('Learning Rate')
-        ax2.grid(True)
+    plt.plot(history['train_loss'], label='Training Loss')
+    plt.title('Loss Over Time')
+    plt.ylabel('Loss')
+    plt.xlabel('Epoch #')
+    plt.legend()
+    plt.grid(True)
     
     plt.tight_layout()
     plt.show()
+    plt.savefig('loss_history_50_epochs.png')
 
 def main():
     # Set random seed for reproducibility
@@ -307,43 +351,31 @@ def main():
     # Load and prepare data
     train_data, test_data = load_data(POBLESEC_ST)
     train_data, test_data = aggregate_data(train_data), aggregate_data(test_data)
+    train_data, test_data = preprocess_outliers(train_data), preprocess_outliers(test_data)
+    normalized_train_data, scaler = normalize_df_minmax(train_data)
+
+    normalized_test_data = pd.DataFrame(
+        scaler.transform(test_data),
+        index=test_data.index,
+        columns=test_data.columns
+    )
     
     # Create datasets
-    train_dataset = NetworkDataset(train_data, 'down')
-    test_dataset = NetworkDataset(test_data, 'down')
+    train_dataset = NetworkDataset(normalized_train_data, 'down')
+    test_dataset = NetworkDataset(normalized_test_data, 'down')
     
     # Create dataloaders
     train_loader = create_dataloader(
         train_dataset, 
         batch_size=32,  
-        seq_length=6,
+        seq_length=12,
         forecast_horizon=1
     )
-    print(f"Dataset has {len(train_loader)} batches")
-    for batch_idx, batch in enumerate(train_loader):
-        if batch_idx > 1:  # Just look at the first couple of batches
-            break
-            
-        print(f"\n--- Batch {batch_idx+1} ---")
-        
-        # Print batch information
-        features = batch['features']
-        targets = batch['target']
-        timestamps = batch['timestamps']
-        target_timestamps = batch['target_timestamps']
-        
-        print(f"Batch features shape: {features.shape}")
-        print(f"Batch targets shape: {targets.shape}")
-        
-        # Print details of first sequence in batch
-        print("\nFirst sequence in batch:")
-        print(f"  Input timestamps: {timestamps[0]}")
-        print(f"  Target timestamp: {target_timestamps[0]}")
 
     test_loader = create_dataloader(
         test_dataset, 
         batch_size=32,  
-        seq_length=6,
+        seq_length=12,
         forecast_horizon=1
     )
     
@@ -366,23 +398,24 @@ def main():
         model=model,
         train_loader=train_loader,
         val_loader=None,
-        epochs=50,
-        learning_rate=0.0003,  # Reduced learning rate
+        epochs=30,
+        learning_rate=0.0003,  
         device=device,
-        grad_clip_value=1.0  # Add gradient clipping
     )
     
     # Plot training history
     plot_loss_history(history)
     
+
     # Evaluate model
-    test_results = evaluate_model(trained_model, test_loader, device)
+    test_results = evaluate_model(trained_model, train_data, test_loader, scaler, device)
     
     # Print evaluation metrics
     print("\nTest Results:")
     print(f"MSE: {test_results['mse']:.4f}")
     print(f"RMSE: {test_results['rmse']:.4f}")
     print(f"MAE: {test_results['mae']:.4f}")
+    print(f"MAPE: {test_results['mape']:.4f}")
     print(f"R²: {test_results['r2']:.4f}")
     
     # Plot predictions

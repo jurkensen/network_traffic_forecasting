@@ -89,15 +89,15 @@ class SARIMAPredictor():
         # p = range(0, max_p + 1)
         # d = range(0, max_d + 1)
         # q = range(0, max_q + 1)
-        # P = range(0, max_P + 1)
-        # D = range(0, max_D + 1)
-        # Q = range(0, max_Q + 1)
+        P = range(0, max_P + 1)
+        D = range(0, max_D + 1)
+        Q = range(0, max_Q + 1)
         p = [2]
         d = [0]
         q = [3]
-        P = [0]
-        D = [1]
-        Q = [3]
+        # P = [0]
+        # D = [1]
+        # Q = [3]
         
         
         # Create parameter combinations - start with simpler models
