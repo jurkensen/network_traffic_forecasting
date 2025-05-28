@@ -5,12 +5,9 @@ from models.Dataloader import *
 from typing import List
 
 class RNN(torch.nn.Module):
-    def __init__(self, input_dim: int, rnn_hidden_size: int = 128, num_rnn_layers: int = 2, rnn_dropout: float = 0.2,
-                 layer_units: List[int] = [128, 64], num_outputs: int = 2, init_weights: bool = True,
-                 matrix_rep: bool = False, exogenous_dim: int = 0):
+    def __init__(self, input_dim: int, rnn_hidden_size: int = 128, num_rnn_layers: int = 2, rnn_dropout: float = 0.0,
+                 layer_units: List[int] = [128, 64], num_outputs: int = 2, init_weights: bool = True, exogenous_dim: int = 0):
         super(RNN, self).__init__()
-
-        self.is_matrix = matrix_rep
 
         activation = torch.nn.ReLU()
 
@@ -35,17 +32,14 @@ class RNN(torch.nn.Module):
             self.MLP_layers.apply(self._init_weights)
 
     def forward(self, x, exogenous_data=None, device="cpu"):
-        if not self.is_matrix:
-            x = x.view([x.size(0), -1, x.size(1)])
-        else:
-            x = x.reshape(x.size(0), x.size(1), x.size(2))
+        x = x.reshape(x.size(0), x.size(1), x.size(2))
 
         h0 = torch.zeros(self.layer_dim, x.size(0), self.hidden_dim).requires_grad_().to(device)
 
         out, _ = self.rnn(x, h0.detach())
         out = out[:, -1, :]
 
-        if exogenous_data is not None and self.is_matrix:
+        if exogenous_data is not None:
             out = torch.cat((out, exogenous_data), dim=1)
 
         out = self.MLP_layers(out)

@@ -128,20 +128,20 @@ class SARIMAPredictor():
         print(f"Best SARIMA model: SARIMA{best_order}x{best_seasonal_order} with AIC: {best_aic}")
         return best_order, best_seasonal_order
 
-    def predict_network_traffic(self, df_train, df_test, target_column, interval_minutes=60):
+    def predict_network_traffic(self, df_train, df_test, target_column, interval_minutes=60, order=None, seasonal_order=None):
         """
         Predict network traffic for a specific target column using SARIMA
         """     
         seasonal_period = int(1440 / interval_minutes) # For hourly data, season = 24 hours
-        
-        print("Finding the optimal SARIMA parameters...")
-        order, seasonal_order = self.find_best_sarima_parameters(
-            df_train, 
-            max_p=3, max_d=2, max_q=3,  # Limit non-seasonal params
-            max_P=3, max_D=2, max_Q=3,  # Limit seasonal params
-            s=seasonal_period,
-            target_column=target_column
-        )
+        if order is None or seasonal_order is None:
+            print("No SARIMA parameters provided, finding optimal parameters...")
+            order, seasonal_order = self.find_best_sarima_parameters(
+                df_train, 
+                max_p=3, max_d=1, max_q=3,  # Limit non-seasonal params
+                max_P=3, max_D=1, max_Q=3,  # Limit seasonal params
+                s=seasonal_period,
+                target_column=target_column
+            )
         
         print(f"Training SARIMA model with order {order} and seasonal_order {seasonal_order}...")   
         sarima_model = self.train_sarima_model(df_train, order, seasonal_order, target_column=target_column)

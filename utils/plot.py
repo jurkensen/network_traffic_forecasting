@@ -29,16 +29,16 @@ def plot_weekday_means(df, col_name='down', title='Mean Downlink by Day of Week'
     plt.show()
     plt.savefig(f"{title.replace(' ', '_')}.png")
 
-def plot_forecast(test_set, prediction, order, seasonal_order, target_column, interval_minutes=1):
-        # Plot the forecast vs actual
-        plt.figure(figsize=(15, 7))
-        plt.plot(test_set, label='Actual')
-        plt.plot(prediction, label='Forecast', color='red')
-        plt.title(f'SARIMA {order}, {seasonal_order} Forecast vs Actual for {target_column.capitalize()} Traffic for Interval {interval_minutes} minutes')
-        plt.xlabel('Time Steps')
-        plt.ylabel('Bitrate')
-        plt.legend()
-        plt.grid(True, linestyle='--', alpha=0.7)
-        plt.tight_layout()
-        plt.savefig(f'sarima_forecast_interval_{interval_minutes}_with_exog.png')
-        plt.close()
+def plot_forecast(test_set, prediction, order, seasonal_order, target_column, interval_minutes=1, file_name='sarima_forecast'):
+    # Plot the forecast vs actual
+    plt.figure(figsize=(15, 7))
+    plt.plot(test_set, label='Actual')
+    plt.plot(prediction, label='Forecast', color='red')
+    plt.title(f'SARIMA {order}, {seasonal_order} Forecast vs Actual for {target_column.capitalize()} Traffic for Interval {interval_minutes} minutes')
+    plt.xlabel('Time Steps')
+    plt.ylabel('Bitrate')
+    plt.legend()
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.savefig(f'{file_name}.png')
+    plt.close()

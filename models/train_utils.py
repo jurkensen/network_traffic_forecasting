@@ -1,6 +1,7 @@
 from utils.config import *
 from utils.preprocessing import load_all_data, handle_missing_values, handle_outliers, aggregate_data, normalize_df_minmax, split_data
 from models.RNN import RNN  
+import utils.plot as plot_utils
 from models.Dataloader import create_dataloader
 
 import torch
@@ -30,7 +31,7 @@ def train(model: torch.nn.Module,
           log_per: int = 1):
     """Trains a neural network defined as torch module."""
     
-    best_model, best_val_loss = None, -1
+    best_model, best_val_loss = None, float('inf')
     train_loss_history, train_rmse_history = [], []
     val_loss_history, val_rmse_history = [], []
 
@@ -82,12 +83,14 @@ def train(model: torch.nn.Module,
         plt.plot(val_loss_history, label="Val MSE")
         plt.legend()
         plt.show()
+        plt.savefig("train_val_loss.png")
         plt.close()
 
         plt.plot(train_rmse_history, label="Train RMSE")
         plt.plot(val_rmse_history, label="Val RMSE")
         plt.legend()
         plt.show()
+        plt.savefig("train_val_rmse.png")
         plt.close()
         print(f"Best Validation Loss: {best_val_loss}")
 
@@ -137,7 +140,129 @@ def accumulate_metric(y_true, y_pred):
     r2 = r2_score(y_true, y_pred)
 
     return mse, rmse, mae, r2
+def accumulate_metric_original_scale(y_true_scaled, y_pred_scaled, scaler, target_columns, all_columns):
+    """Calculate metrics in original scale"""
+    
+    # Convert to numpy if needed
+    if not isinstance(y_true_scaled, np.ndarray):
+        y_true_scaled = y_true_scaled.cpu().numpy()
+    if not isinstance(y_pred_scaled, np.ndarray):
+        y_pred_scaled = y_pred_scaled.cpu().numpy()
+    
+    # Inverse transform to original scale
+    y_true_original = inverse_transform_targets(y_true_scaled, scaler, target_columns, all_columns)
+    y_pred_original = inverse_transform_targets(y_pred_scaled, scaler, target_columns, all_columns)
+    
+    # Calculate metrics in original scale
+    mse = mean_squared_error(y_true_original, y_pred_original)
+    rmse = math.sqrt(mse)
+    mae = mean_absolute_error(y_true_original, y_pred_original)
+    r2 = r2_score(y_true_original, y_pred_original)
+    
+    # Also calculate scaled metrics for comparison
+    mse_scaled = mean_squared_error(y_true_scaled, y_pred_scaled)
+    rmse_scaled = math.sqrt(mse_scaled)
+    mae_scaled = mean_absolute_error(y_true_scaled, y_pred_scaled)
+    r2_scaled = r2_score(y_true_scaled, y_pred_scaled)
+    
+    
+    plt.figure(figsize=(15, 7))
+    plt.plot(y_true_original, label='Actual')
+    plt.plot(y_pred_original, label='Forecast', color='red')
+    plt.title(f'RNN Forecast vs Actual for {target_columns[0].capitalize()} Traffic')
+    plt.xlabel('Time Steps')
+    plt.ylabel('Bitrate')
+    plt.legend()
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.savefig(f'RNN_forecast.png')
+    plt.close()
 
+    return {
+        'original_scale': {
+            'mse': mse,
+            'rmse': rmse,
+            'mae': mae,
+            'r2': r2
+        },
+        'scaled': {
+            'mse': mse_scaled,
+            'rmse': rmse_scaled,
+            'mae': mae_scaled,
+            'r2': r2_scaled
+        }
+    }
+def test_with_original_scale(model, data, criterion, device, scaler, target_columns, all_columns):
+    """Test model and return metrics in both original and scaled space"""
+    model.to(device)
+    model.eval()
+    y_true, y_pred = [], []
+    loss = 0.
+    
+    with torch.no_grad():
+        for x, exogenous, y in data:
+            x, y = x.to(device), y.to(device)
+
+            if exogenous is not None and len(exogenous) > 0:
+                exogenous = exogenous.to(device)
+            else:
+                exogenous = None
+
+            out = model(x, exogenous, device)
+
+            if criterion is not None:
+                loss += criterion(out, y).item()
+
+            y_true.extend(y.cpu())
+            y_pred.extend(out.cpu())
+
+    loss /= len(data.dataset)
+
+    y_true = torch.stack(y_true).numpy()
+    y_pred = torch.stack(y_pred).numpy()
+    
+    # Calculate metrics in both scales
+    metrics = accumulate_metric_original_scale(y_true, y_pred, scaler, target_columns, all_columns)
+    metrics['loss'] = loss
+    
+    return metrics
+
+def inverse_transform_targets(y_scaled, scaler, target_columns, all_columns):
+    """
+    Inverse transform only the target columns back to original scale
+    
+    Args:
+        y_scaled: Scaled target values (numpy array)
+        scaler: The fitted MinMaxScaler used for normalization
+        target_columns: List of target column names
+        all_columns: List of all column names in original order
+    
+    Returns:
+        y_original: Targets in original scale
+    """
+    # Get indices of target columns
+    target_indices = [all_columns.index(col) for col in target_columns]
+    
+    # Create a dummy array with all features (we only care about target columns)
+    if len(y_scaled.shape) == 1:
+        # Single target case
+        dummy_array = np.zeros((len(y_scaled), len(all_columns)))
+        dummy_array[:, target_indices[0]] = y_scaled
+    else:
+        # Multiple targets case
+        dummy_array = np.zeros((y_scaled.shape[0], len(all_columns)))
+        for i, idx in enumerate(target_indices):
+            dummy_array[:, idx] = y_scaled[:, i]
+    
+    # Inverse transform the entire array
+    original_scale = scaler.inverse_transform(dummy_array)
+    
+    # Extract only the target columns
+    if len(target_columns) == 1:
+        return original_scale[:, target_indices[0]]
+    else:
+        return original_scale[:, target_indices]
+    
 def main():
     df_all = load_all_data(POBLESEC_ST)
     df_all = handle_missing_values(df_all)
@@ -145,21 +270,35 @@ def main():
     df_all = aggregate_data(df_all, 60)
     df_all, scaler = normalize_df_minmax(df_all, feature_range=(0, 1))
     df_train, df_val, df_test = split_data(df_all, 0.6, 0.2, 0.2) 
-
-    print(df_train.shape)
-    print(df_train.columns)
+    original_columns = list(df_all.columns) 
 
 
     train_loader = create_dataloader(df_train, target_columns=['down'], batch_size=32, seq_length=10)
     val_loader = create_dataloader(df_val, target_columns=['down'], batch_size=32, seq_length=10)
     test_loader = create_dataloader(df_test, target_columns=['down'], batch_size=32, seq_length=10)
-    model = RNN(input_dim=len(df_train.columns), rnn_hidden_size=128, num_rnn_layers=2, rnn_dropout=0.2,
-                layer_units=[128, 64], num_outputs=1, init_weights=True, matrix_rep=False, exogenous_dim=0)
-    model = train(model, train_loader, val_loader, epochs=1, lr=0.001, max_grad_norm=5.0, plot_history=False)
-       
-    # test_loss, test_mse, test_rmse, test_mae, test_r2 = test(model, test_loader, nn.MSELoss(), device="cuda" if cuda.is_available() else "cpu")
-    # print(f"Test Loss: {test_loss}, Test MSE: {test_mse}, Test RMSE: {test_rmse}, "
-    #       f"Test MAE: {test_mae}, Test R2: {test_r2}")
+    model = RNN(input_dim=len(df_train.columns), rnn_hidden_size=128, num_rnn_layers=2, rnn_dropout=0.0,
+                layer_units=[128, 64], num_outputs=1, init_weights=True, exogenous_dim=0)
+    print(model)
+    model = train(model, train_loader, val_loader, epochs=20, lr=0.001, max_grad_norm=0.0, plot_history=True)
+    test_metrics = test_with_original_scale(model, test_loader, nn.MSELoss(), 
+                                           device="cuda" if cuda.is_available() else "cpu",
+                                           scaler=scaler, target_columns=['down'], 
+                                           all_columns=original_columns)
+    
+    print("\n" + "="*50)
+    print("FINAL TEST RESULTS")
+    print("="*50)
+    print("Original Scale Metrics:")
+    print(f"  RMSE: {test_metrics['original_scale']['rmse']:.2f}")
+    print(f"  MAE:  {test_metrics['original_scale']['mae']:.2f}")
+    print(f"  R²:   {test_metrics['original_scale']['r2']:.4f}")
+    print(f"  MSE:  {test_metrics['original_scale']['mse']:.2f}")
+    
+    print("\nScaled Metrics (0-1 range):")
+    print(f"  RMSE: {test_metrics['scaled']['rmse']:.6f}")
+    print(f"  MAE:  {test_metrics['scaled']['mae']:.6f}")
+    print(f"  R²:   {test_metrics['scaled']['r2']:.4f}")
+    print(f"  Loss: {test_metrics['loss']:.6f}")
 
 if __name__ == "__main__":
     main()
