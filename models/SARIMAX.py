@@ -137,8 +137,8 @@ class SARIMAPredictor():
             print("No SARIMA parameters provided, finding optimal parameters...")
             order, seasonal_order = self.find_best_sarima_parameters(
                 df_train, 
-                max_p=3, max_d=1, max_q=3,  # Limit non-seasonal params
-                max_P=3, max_D=1, max_Q=3,  # Limit seasonal params
+                max_p=2, max_d=1, max_q=2,  # Limit non-seasonal params
+                max_P=2, max_D=1, max_Q=2,  # Limit seasonal params
                 s=seasonal_period,
                 target_column=target_column
             )

@@ -41,7 +41,6 @@ def train(model: torch.nn.Module,
     for epoch in range(epochs):
         model.to(device)
         model.train()
-        epoch_loss = []
         
         for x, exogenous, y in train_loader:
             x, y = x.to(device), y.to(device)
@@ -58,20 +57,17 @@ def train(model: torch.nn.Module,
             if max_grad_norm > 0.:
                 clip_grad_norm_(model.parameters(), max_grad_norm)
             optimizer.step()
-            epoch_loss.append(loss.item())
         
-        train_loss = sum(epoch_loss) / len(epoch_loss)
-
-        _, train_mse, train_rmse, train_mae, train_r2 = test(model, train_loader, criterion, device)
+        train_loss, train_mse, train_rmse, train_mae, train_r2 = test(model, train_loader, criterion, device)
         val_loss, val_mse, val_rmse, val_mae, val_r2 = test(model, val_loader, criterion, device)
         if (epoch + 1) % log_per == 0:
             print(f"Epoch {epoch + 1} [Train]: loss {train_loss}, mse: {train_mse}, "
                   f"rmse: {train_rmse}, mae {train_mae}, r2: {train_r2}")
             print(f"Epoch {epoch + 1} [Val]: loss {val_loss}, mse: {val_mse}, "
                   f"rmse: {val_rmse}, mae {val_mae}, r2: {val_r2}")
-        train_loss_history.append(train_mse)
+        train_loss_history.append(train_loss)
         train_rmse_history.append(train_rmse)
-        val_loss_history.append(val_mse)
+        val_loss_history.append(val_loss)
         val_rmse_history.append(val_rmse)
     
         if val_loss < best_val_loss:
@@ -264,22 +260,23 @@ def inverse_transform_targets(y_scaled, scaler, target_columns, all_columns):
         return original_scale[:, target_indices]
     
 def main():
+    torch.manual_seed(42)
     df_all = load_all_data(POBLESEC_ST)
     df_all = handle_missing_values(df_all)
     df_all = handle_outliers(df_all, 5, 95) 
-    df_all = aggregate_data(df_all, 60)
+    df_all = aggregate_data(df_all, 30)
     df_all, scaler = normalize_df_minmax(df_all, feature_range=(0, 1))
     df_train, df_val, df_test = split_data(df_all, 0.6, 0.2, 0.2) 
     original_columns = list(df_all.columns) 
 
 
-    train_loader = create_dataloader(df_train, target_columns=['down'], batch_size=32, seq_length=10)
-    val_loader = create_dataloader(df_val, target_columns=['down'], batch_size=32, seq_length=10)
-    test_loader = create_dataloader(df_test, target_columns=['down'], batch_size=32, seq_length=10)
-    model = RNN(input_dim=len(df_train.columns), rnn_hidden_size=128, num_rnn_layers=2, rnn_dropout=0.0,
+    train_loader = create_dataloader(df_train, target_columns=['down'], batch_size=32, seq_length=12)
+    val_loader = create_dataloader(df_val, target_columns=['down'], batch_size=32, seq_length=12)
+    test_loader = create_dataloader(df_test, target_columns=['down'], batch_size=32, seq_length=12)
+    model = RNN(input_dim=len(df_train.columns), rnn_hidden_size=128, num_rnn_layers=2, rnn_dropout=0.3,
                 layer_units=[128, 64], num_outputs=1, init_weights=True, exogenous_dim=0)
     print(model)
-    model = train(model, train_loader, val_loader, epochs=20, lr=0.001, max_grad_norm=0.0, plot_history=True)
+    model = train(model, train_loader, val_loader, epochs=100, lr=0.0001, max_grad_norm=5.0, plot_history=True)
     test_metrics = test_with_original_scale(model, test_loader, nn.MSELoss(), 
                                            device="cuda" if cuda.is_available() else "cpu",
                                            scaler=scaler, target_columns=['down'], 

@@ -1,0 +1,32 @@
+==================================================
+FINAL TEST RESULTS
+==================================================
+Original Scale Metrics:
+  RMSE: 57566732.17
+  MAE:  39177262.77
+  R²:   0.5736
+  MSE:  3313928653152811.50
+
+Scaled Metrics (0-1 range):
+  RMSE: 0.154713
+  MAE:  0.105291
+  R²:   0.5736
+  Loss: 0.000754
+
+RNN(
+  (rnn): RNN(11, 128, num_layers=2, batch_first=True, dropout=0.3)
+  (MLP_layers): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=128, out_features=64, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+)
+
+  lr = 0.0001
+  max_grad_norm = 5.0
+  rnn_dropout = 0.3
+  epochs = 50
+  seq_length = 12
+  batch_size = 32

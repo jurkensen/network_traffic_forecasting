@@ -1,0 +1,2155 @@
+Job started at Tue Jun  3 03:25:42 CEST 2025
+Running on host: cmp096
+Original data points: 19909
+Aggregated data points: 665
+Reduction ratio: 0.03
+Using 16 CPUs for parallel processing
+
+===== Processing train split: 12.00 =====
+No SARIMA parameters provided, finding optimal parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(0, 0, 0)x(0, 0, 0, 24) - AIC: 428.15116225342933
+2: SARIMA(0, 0, 0)x(0, 0, 1, 24) - AIC: 10.0 (warning)
+3: SARIMA(0, 0, 0)x(0, 0, 2, 24) - AIC: 12.0 (warning)
+4: SARIMA(0, 0, 0)x(0, 1, 0, 24) - AIC: 8.0
+5: SARIMA(0, 0, 0)x(0, 1, 1, 24) - AIC: 10.0 (warning)
+6: SARIMA(0, 0, 0)x(0, 1, 2, 24) - AIC: 12.0 (warning)
+7: SARIMA(0, 0, 0)x(1, 0, 0, 24) - AIC: 10.0 (warning)
+8: SARIMA(0, 0, 0)x(1, 0, 1, 24) - AIC: 12.0 (warning)
+9: SARIMA(0, 0, 0)x(1, 0, 2, 24) - AIC: 14.0 (warning)
+10: SARIMA(0, 0, 0)x(1, 1, 0, 24) - AIC: 10.0 (warning)
+11: SARIMA(0, 0, 0)x(1, 1, 1, 24) - AIC: 12.0 (warning)
+12: SARIMA(0, 0, 0)x(1, 1, 2, 24) - AIC: 14.0 (warning)
+13: SARIMA(0, 0, 0)x(2, 0, 0, 24) - AIC: 12.0 (warning)
+14: SARIMA(0, 0, 0)x(2, 0, 1, 24) - AIC: 14.0 (warning)
+15: SARIMA(0, 0, 0)x(2, 0, 2, 24) - AIC: 16.0 (warning)
+16: SARIMA(0, 0, 0)x(2, 1, 0, 24) - AIC: 12.0 (warning)
+17: SARIMA(0, 0, 0)x(2, 1, 1, 24) - AIC: 14.0 (warning)
+18: SARIMA(0, 0, 0)x(2, 1, 2, 24) - AIC: 16.0 (warning)
+19: SARIMA(0, 0, 1)x(0, 0, 0, 24) - AIC: 365.9138307259394
+20: SARIMA(0, 0, 1)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+21: SARIMA(0, 0, 1)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+22: SARIMA(0, 0, 1)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+23: SARIMA(0, 0, 1)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+24: SARIMA(0, 0, 1)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+25: SARIMA(0, 0, 1)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+26: SARIMA(0, 0, 1)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+27: SARIMA(0, 0, 1)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+28: SARIMA(0, 0, 1)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+29: SARIMA(0, 0, 1)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+30: SARIMA(0, 0, 1)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+31: SARIMA(0, 0, 1)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+32: SARIMA(0, 0, 1)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+33: SARIMA(0, 0, 1)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+34: SARIMA(0, 0, 1)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+35: SARIMA(0, 0, 1)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+36: SARIMA(0, 0, 1)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+37: SARIMA(0, 0, 2)x(0, 0, 0, 24) - AIC: 333.1354163541637
+38: SARIMA(0, 0, 2)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+39: SARIMA(0, 0, 2)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+40: SARIMA(0, 0, 2)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+41: SARIMA(0, 0, 2)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+42: SARIMA(0, 0, 2)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+43: SARIMA(0, 0, 2)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+44: SARIMA(0, 0, 2)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+45: SARIMA(0, 0, 2)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+46: SARIMA(0, 0, 2)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+47: SARIMA(0, 0, 2)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+48: SARIMA(0, 0, 2)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+49: SARIMA(0, 0, 2)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+50: SARIMA(0, 0, 2)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+51: SARIMA(0, 0, 2)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+52: SARIMA(0, 0, 2)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+53: SARIMA(0, 0, 2)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+54: SARIMA(0, 0, 2)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+55: SARIMA(0, 1, 0)x(0, 0, 0, 24) - AIC: 378.15819688788565
+56: SARIMA(0, 1, 0)x(0, 0, 1, 24) - AIC: 10.0 (warning)
+57: SARIMA(0, 1, 0)x(0, 0, 2, 24) - AIC: 12.0 (warning)
+58: SARIMA(0, 1, 0)x(0, 1, 0, 24) - AIC: 8.0
+59: SARIMA(0, 1, 0)x(0, 1, 1, 24) - AIC: 10.0 (warning)
+60: SARIMA(0, 1, 0)x(0, 1, 2, 24) - AIC: 12.0 (warning)
+61: SARIMA(0, 1, 0)x(1, 0, 0, 24) - AIC: 10.0 (warning)
+62: SARIMA(0, 1, 0)x(1, 0, 1, 24) - AIC: 12.0 (warning)
+63: SARIMA(0, 1, 0)x(1, 0, 2, 24) - AIC: 14.0 (warning)
+64: SARIMA(0, 1, 0)x(1, 1, 0, 24) - AIC: 10.0 (warning)
+65: SARIMA(0, 1, 0)x(1, 1, 1, 24) - AIC: 12.0 (warning)
+66: SARIMA(0, 1, 0)x(1, 1, 2, 24) - AIC: 14.0 (warning)
+67: SARIMA(0, 1, 0)x(2, 0, 0, 24) - AIC: 12.0 (warning)
+68: SARIMA(0, 1, 0)x(2, 0, 1, 24) - AIC: 14.0 (warning)
+69: SARIMA(0, 1, 0)x(2, 0, 2, 24) - AIC: 16.0 (warning)
+70: SARIMA(0, 1, 0)x(2, 1, 0, 24) - AIC: 12.0 (warning)
+71: SARIMA(0, 1, 0)x(2, 1, 1, 24) - AIC: 14.0 (warning)
+72: SARIMA(0, 1, 0)x(2, 1, 2, 24) - AIC: 16.0 (warning)
+73: SARIMA(0, 1, 1)x(0, 0, 0, 24) - AIC: 329.90613294277523
+74: SARIMA(0, 1, 1)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+75: SARIMA(0, 1, 1)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+76: SARIMA(0, 1, 1)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+77: SARIMA(0, 1, 1)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+78: SARIMA(0, 1, 1)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+79: SARIMA(0, 1, 1)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+80: SARIMA(0, 1, 1)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+81: SARIMA(0, 1, 1)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+82: SARIMA(0, 1, 1)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+83: SARIMA(0, 1, 1)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+84: SARIMA(0, 1, 1)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+85: SARIMA(0, 1, 1)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+86: SARIMA(0, 1, 1)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+87: SARIMA(0, 1, 1)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+88: SARIMA(0, 1, 1)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+89: SARIMA(0, 1, 1)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+90: SARIMA(0, 1, 1)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+91: SARIMA(0, 1, 2)x(0, 0, 0, 24) - AIC: 294.3040264091159
+92: SARIMA(0, 1, 2)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+93: SARIMA(0, 1, 2)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+94: SARIMA(0, 1, 2)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+95: SARIMA(0, 1, 2)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+96: SARIMA(0, 1, 2)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+97: SARIMA(0, 1, 2)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+98: SARIMA(0, 1, 2)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+99: SARIMA(0, 1, 2)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+100: SARIMA(0, 1, 2)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+101: SARIMA(0, 1, 2)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+102: SARIMA(0, 1, 2)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+103: SARIMA(0, 1, 2)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+104: SARIMA(0, 1, 2)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+105: SARIMA(0, 1, 2)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+106: SARIMA(0, 1, 2)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+107: SARIMA(0, 1, 2)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+108: SARIMA(0, 1, 2)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+109: SARIMA(1, 0, 0)x(0, 0, 0, 24) - AIC: 411.22568132032507
+110: SARIMA(1, 0, 0)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+111: SARIMA(1, 0, 0)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+112: SARIMA(1, 0, 0)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+113: SARIMA(1, 0, 0)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+114: SARIMA(1, 0, 0)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+115: SARIMA(1, 0, 0)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+116: SARIMA(1, 0, 0)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+117: SARIMA(1, 0, 0)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+118: SARIMA(1, 0, 0)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+119: SARIMA(1, 0, 0)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+120: SARIMA(1, 0, 0)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+121: SARIMA(1, 0, 0)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+122: SARIMA(1, 0, 0)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+123: SARIMA(1, 0, 0)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+124: SARIMA(1, 0, 0)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+125: SARIMA(1, 0, 0)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+126: SARIMA(1, 0, 0)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+127: SARIMA(1, 0, 1)x(0, 0, 0, 24) - AIC: 366.8175076638625
+128: SARIMA(1, 0, 1)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+129: SARIMA(1, 0, 1)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+130: SARIMA(1, 0, 1)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+131: SARIMA(1, 0, 1)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+132: SARIMA(1, 0, 1)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+133: SARIMA(1, 0, 1)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+134: SARIMA(1, 0, 1)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+135: SARIMA(1, 0, 1)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+136: SARIMA(1, 0, 1)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+137: SARIMA(1, 0, 1)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+138: SARIMA(1, 0, 1)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+139: SARIMA(1, 0, 1)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+140: SARIMA(1, 0, 1)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+141: SARIMA(1, 0, 1)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+142: SARIMA(1, 0, 1)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+===== Processing train split: 24.00 =====
+No SARIMA parameters provided, finding optimal parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(0, 0, 0)x(0, 0, 0, 24) - AIC: 918.0441134554823
+2: SARIMA(0, 0, 0)x(0, 0, 1, 24) - AIC: 10.0 (warning)
+3: SARIMA(0, 0, 0)x(0, 0, 2, 24) - AIC: 12.0 (warning)
+4: SARIMA(0, 0, 0)x(0, 1, 0, 24) - AIC: 8.0
+5: SARIMA(0, 0, 0)x(0, 1, 1, 24) - AIC: 10.0 (warning)
+6: SARIMA(0, 0, 0)x(0, 1, 2, 24) - AIC: 12.0 (warning)
+7: SARIMA(0, 0, 0)x(1, 0, 0, 24) - AIC: 10.0 (warning)
+8: SARIMA(0, 0, 0)x(1, 0, 1, 24) - AIC: 12.0 (warning)
+9: SARIMA(0, 0, 0)x(1, 0, 2, 24) - AIC: 14.0 (warning)
+10: SARIMA(0, 0, 0)x(1, 1, 0, 24) - AIC: 10.0 (warning)
+11: SARIMA(0, 0, 0)x(1, 1, 1, 24) - AIC: 12.0 (warning)
+12: SARIMA(0, 0, 0)x(1, 1, 2, 24) - AIC: 14.0 (warning)
+13: SARIMA(0, 0, 0)x(2, 0, 0, 24) - AIC: 12.0 (warning)
+14: SARIMA(0, 0, 0)x(2, 0, 1, 24) - AIC: 14.0 (warning)
+15: SARIMA(0, 0, 0)x(2, 0, 2, 24) - AIC: 16.0 (warning)
+16: SARIMA(0, 0, 0)x(2, 1, 0, 24) - AIC: 12.0 (warning)
+17: SARIMA(0, 0, 0)x(2, 1, 1, 24) - AIC: 14.0 (warning)
+18: SARIMA(0, 0, 0)x(2, 1, 2, 24) - AIC: 16.0 (warning)
+19: SARIMA(0, 0, 1)x(0, 0, 0, 24) - AIC: 827.859078623462
+20: SARIMA(0, 0, 1)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+21: SARIMA(0, 0, 1)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+22: SARIMA(0, 0, 1)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+23: SARIMA(0, 0, 1)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+24: SARIMA(0, 0, 1)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+25: SARIMA(0, 0, 1)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+26: SARIMA(0, 0, 1)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+27: SARIMA(0, 0, 1)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+28: SARIMA(0, 0, 1)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+29: SARIMA(0, 0, 1)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+30: SARIMA(0, 0, 1)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+31: SARIMA(0, 0, 1)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+32: SARIMA(0, 0, 1)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+33: SARIMA(0, 0, 1)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+34: SARIMA(0, 0, 1)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+35: SARIMA(0, 0, 1)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+36: SARIMA(0, 0, 1)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+37: SARIMA(0, 0, 2)x(0, 0, 0, 24) - AIC: 792.1642462865154
+38: SARIMA(0, 0, 2)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+39: SARIMA(0, 0, 2)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+40: SARIMA(0, 0, 2)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+41: SARIMA(0, 0, 2)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+42: SARIMA(0, 0, 2)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+43: SARIMA(0, 0, 2)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+44: SARIMA(0, 0, 2)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+45: SARIMA(0, 0, 2)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+46: SARIMA(0, 0, 2)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+47: SARIMA(0, 0, 2)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+48: SARIMA(0, 0, 2)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+49: SARIMA(0, 0, 2)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+50: SARIMA(0, 0, 2)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+51: SARIMA(0, 0, 2)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+52: SARIMA(0, 0, 2)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+53: SARIMA(0, 0, 2)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+54: SARIMA(0, 0, 2)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+55: SARIMA(0, 1, 0)x(0, 0, 0, 24) - AIC: 885.0609923057051
+56: SARIMA(0, 1, 0)x(0, 0, 1, 24) - AIC: 10.0 (warning)
+57: SARIMA(0, 1, 0)x(0, 0, 2, 24) - AIC: 12.0 (warning)
+58: SARIMA(0, 1, 0)x(0, 1, 0, 24) - AIC: 8.0
+59: SARIMA(0, 1, 0)x(0, 1, 1, 24) - AIC: 10.0 (warning)
+60: SARIMA(0, 1, 0)x(0, 1, 2, 24) - AIC: 12.0 (warning)
+61: SARIMA(0, 1, 0)x(1, 0, 0, 24) - AIC: 10.0 (warning)
+62: SARIMA(0, 1, 0)x(1, 0, 1, 24) - AIC: 12.0 (warning)
+63: SARIMA(0, 1, 0)x(1, 0, 2, 24) - AIC: 14.0 (warning)
+64: SARIMA(0, 1, 0)x(1, 1, 0, 24) - AIC: 10.0 (warning)
+65: SARIMA(0, 1, 0)x(1, 1, 1, 24) - AIC: 12.0 (warning)
+66: SARIMA(0, 1, 0)x(1, 1, 2, 24) - AIC: 14.0 (warning)
+67: SARIMA(0, 1, 0)x(2, 0, 0, 24) - AIC: 12.0 (warning)
+68: SARIMA(0, 1, 0)x(2, 0, 1, 24) - AIC: 14.0 (warning)
+69: SARIMA(0, 1, 0)x(2, 0, 2, 24) - AIC: 16.0 (warning)
+70: SARIMA(0, 1, 0)x(2, 1, 0, 24) - AIC: 12.0 (warning)
+71: SARIMA(0, 1, 0)x(2, 1, 1, 24) - AIC: 14.0 (warning)
+72: SARIMA(0, 1, 0)x(2, 1, 2, 24) - AIC: 16.0 (warning)
+73: SARIMA(0, 1, 1)x(0, 0, 0, 24) - AIC: 798.8542290326409
+74: SARIMA(0, 1, 1)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+75: SARIMA(0, 1, 1)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+76: SARIMA(0, 1, 1)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+77: SARIMA(0, 1, 1)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+78: SARIMA(0, 1, 1)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+79: SARIMA(0, 1, 1)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+80: SARIMA(0, 1, 1)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+81: SARIMA(0, 1, 1)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+82: SARIMA(0, 1, 1)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+83: SARIMA(0, 1, 1)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+84: SARIMA(0, 1, 1)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+85: SARIMA(0, 1, 1)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+86: SARIMA(0, 1, 1)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+87: SARIMA(0, 1, 1)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+88: SARIMA(0, 1, 1)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+89: SARIMA(0, 1, 1)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+90: SARIMA(0, 1, 1)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+91: SARIMA(0, 1, 2)x(0, 0, 0, 24) - AIC: 763.0412815664786
+92: SARIMA(0, 1, 2)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+93: SARIMA(0, 1, 2)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+94: SARIMA(0, 1, 2)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+95: SARIMA(0, 1, 2)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+96: SARIMA(0, 1, 2)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+97: SARIMA(0, 1, 2)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+98: SARIMA(0, 1, 2)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+99: SARIMA(0, 1, 2)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+100: SARIMA(0, 1, 2)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+101: SARIMA(0, 1, 2)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+102: SARIMA(0, 1, 2)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+103: SARIMA(0, 1, 2)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+104: SARIMA(0, 1, 2)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+105: SARIMA(0, 1, 2)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+106: SARIMA(0, 1, 2)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+107: SARIMA(0, 1, 2)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+108: SARIMA(0, 1, 2)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+109: SARIMA(1, 0, 0)x(0, 0, 0, 24) - AIC: 868.9780287795521
+110: SARIMA(1, 0, 0)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+111: SARIMA(1, 0, 0)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+112: SARIMA(1, 0, 0)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+113: SARIMA(1, 0, 0)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+114: SARIMA(1, 0, 0)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+115: SARIMA(1, 0, 0)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+116: SARIMA(1, 0, 0)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+117: SARIMA(1, 0, 0)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+118: SARIMA(1, 0, 0)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+119: SARIMA(1, 0, 0)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+120: SARIMA(1, 0, 0)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+121: SARIMA(1, 0, 0)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+122: SARIMA(1, 0, 0)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+123: SARIMA(1, 0, 0)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+124: SARIMA(1, 0, 0)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+125: SARIMA(1, 0, 0)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+126: SARIMA(1, 0, 0)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+127: SARIMA(1, 0, 1)x(0, 0, 0, 24) - AIC: 829.8382388040712
+128: SARIMA(1, 0, 1)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+129: SARIMA(1, 0, 1)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+130: SARIMA(1, 0, 1)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+131: SARIMA(1, 0, 1)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+132: SARIMA(1, 0, 1)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+133: SARIMA(1, 0, 1)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+134: SARIMA(1, 0, 1)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+135: SARIMA(1, 0, 1)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+136: SARIMA(1, 0, 1)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+137: SARIMA(1, 0, 1)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+138: SARIMA(1, 0, 1)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+139: SARIMA(1, 0, 1)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+140: SARIMA(1, 0, 1)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+141: SARIMA(1, 0, 1)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+142: SARIMA(1, 0, 1)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+143: SARIMA(1, 0, 1)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+143: SARIMA(1, 0, 1)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+144: SARIMA(1, 0, 1)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+145: SARIMA(1, 0, 2)x(0, 0, 0, 24) - AIC: 333.5840589878526
+146: SARIMA(1, 0, 2)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+147: SARIMA(1, 0, 2)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+148: SARIMA(1, 0, 2)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+149: SARIMA(1, 0, 2)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+150: SARIMA(1, 0, 2)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+151: SARIMA(1, 0, 2)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+152: SARIMA(1, 0, 2)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+153: SARIMA(1, 0, 2)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+154: SARIMA(1, 0, 2)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+155: SARIMA(1, 0, 2)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+156: SARIMA(1, 0, 2)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+157: SARIMA(1, 0, 2)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+158: SARIMA(1, 0, 2)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+159: SARIMA(1, 0, 2)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+160: SARIMA(1, 0, 2)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+161: SARIMA(1, 0, 2)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+162: SARIMA(1, 0, 2)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+163: SARIMA(1, 1, 0)x(0, 0, 0, 24) - AIC: 364.78572988426953
+164: SARIMA(1, 1, 0)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+165: SARIMA(1, 1, 0)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+166: SARIMA(1, 1, 0)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+167: SARIMA(1, 1, 0)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+168: SARIMA(1, 1, 0)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+169: SARIMA(1, 1, 0)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+170: SARIMA(1, 1, 0)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+171: SARIMA(1, 1, 0)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+172: SARIMA(1, 1, 0)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+173: SARIMA(1, 1, 0)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+174: SARIMA(1, 1, 0)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+175: SARIMA(1, 1, 0)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+176: SARIMA(1, 1, 0)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+177: SARIMA(1, 1, 0)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+178: SARIMA(1, 1, 0)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+179: SARIMA(1, 1, 0)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+180: SARIMA(1, 1, 0)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+181: SARIMA(1, 1, 1)x(0, 0, 0, 24) - AIC: 329.741305760999
+182: SARIMA(1, 1, 1)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+183: SARIMA(1, 1, 1)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+184: SARIMA(1, 1, 1)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+185: SARIMA(1, 1, 1)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+186: SARIMA(1, 1, 1)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+187: SARIMA(1, 1, 1)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+188: SARIMA(1, 1, 1)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+189: SARIMA(1, 1, 1)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+190: SARIMA(1, 1, 1)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+191: SARIMA(1, 1, 1)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+192: SARIMA(1, 1, 1)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+193: SARIMA(1, 1, 1)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+194: SARIMA(1, 1, 1)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+195: SARIMA(1, 1, 1)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+196: SARIMA(1, 1, 1)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+197: SARIMA(1, 1, 1)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+198: SARIMA(1, 1, 1)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+199: SARIMA(1, 1, 2)x(0, 0, 0, 24) - AIC: 295.67951867494514 (warning)
+200: SARIMA(1, 1, 2)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+201: SARIMA(1, 1, 2)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+202: SARIMA(1, 1, 2)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+203: SARIMA(1, 1, 2)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+204: SARIMA(1, 1, 2)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+205: SARIMA(1, 1, 2)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+206: SARIMA(1, 1, 2)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+207: SARIMA(1, 1, 2)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+208: SARIMA(1, 1, 2)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+209: SARIMA(1, 1, 2)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+210: SARIMA(1, 1, 2)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+211: SARIMA(1, 1, 2)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+212: SARIMA(1, 1, 2)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+213: SARIMA(1, 1, 2)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+214: SARIMA(1, 1, 2)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+215: SARIMA(1, 1, 2)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+216: SARIMA(1, 1, 2)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+217: SARIMA(2, 0, 0)x(0, 0, 0, 24) - AIC: 365.66190801806005
+218: SARIMA(2, 0, 0)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+219: SARIMA(2, 0, 0)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+220: SARIMA(2, 0, 0)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+221: SARIMA(2, 0, 0)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+222: SARIMA(2, 0, 0)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+223: SARIMA(2, 0, 0)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+224: SARIMA(2, 0, 0)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+225: SARIMA(2, 0, 0)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+226: SARIMA(2, 0, 0)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+227: SARIMA(2, 0, 0)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+228: SARIMA(2, 0, 0)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+229: SARIMA(2, 0, 0)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+230: SARIMA(2, 0, 0)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+231: SARIMA(2, 0, 0)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+232: SARIMA(2, 0, 0)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+233: SARIMA(2, 0, 0)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+234: SARIMA(2, 0, 0)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+235: SARIMA(2, 0, 1)x(0, 0, 0, 24) - AIC: 364.51541581482735
+236: SARIMA(2, 0, 1)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+237: SARIMA(2, 0, 1)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+238: SARIMA(2, 0, 1)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+239: SARIMA(2, 0, 1)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+240: SARIMA(2, 0, 1)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+241: SARIMA(2, 0, 1)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+242: SARIMA(2, 0, 1)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+243: SARIMA(2, 0, 1)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+244: SARIMA(2, 0, 1)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+245: SARIMA(2, 0, 1)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+246: SARIMA(2, 0, 1)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+247: SARIMA(2, 0, 1)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+248: SARIMA(2, 0, 1)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+249: SARIMA(2, 0, 1)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+250: SARIMA(2, 0, 1)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+251: SARIMA(2, 0, 1)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+252: SARIMA(2, 0, 1)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+253: SARIMA(2, 0, 2)x(0, 0, 0, 24) - AIC: 322.5174125029334 (warning)
+254: SARIMA(2, 0, 2)x(0, 0, 1, 24) - AIC: 18.0 (warning)
+255: SARIMA(2, 0, 2)x(0, 0, 2, 24) - AIC: 20.0 (warning)
+256: SARIMA(2, 0, 2)x(0, 1, 0, 24) - AIC: 16.0 (warning)
+257: SARIMA(2, 0, 2)x(0, 1, 1, 24) - AIC: 18.0 (warning)
+258: SARIMA(2, 0, 2)x(0, 1, 2, 24) - AIC: 20.0 (warning)
+259: SARIMA(2, 0, 2)x(1, 0, 0, 24) - AIC: 18.0 (warning)
+260: SARIMA(2, 0, 2)x(1, 0, 1, 24) - AIC: 20.0 (warning)
+261: SARIMA(2, 0, 2)x(1, 0, 2, 24) - AIC: 22.0 (warning)
+262: SARIMA(2, 0, 2)x(1, 1, 0, 24) - AIC: 18.0 (warning)
+263: SARIMA(2, 0, 2)x(1, 1, 1, 24) - AIC: 20.0 (warning)
+264: SARIMA(2, 0, 2)x(1, 1, 2, 24) - AIC: 22.0 (warning)
+265: SARIMA(2, 0, 2)x(2, 0, 0, 24) - AIC: 20.0 (warning)
+266: SARIMA(2, 0, 2)x(2, 0, 1, 24) - AIC: 22.0 (warning)
+267: SARIMA(2, 0, 2)x(2, 0, 2, 24) - AIC: 24.0 (warning)
+268: SARIMA(2, 0, 2)x(2, 1, 0, 24) - AIC: 20.0 (warning)
+269: SARIMA(2, 0, 2)x(2, 1, 1, 24) - AIC: 22.0 (warning)
+270: SARIMA(2, 0, 2)x(2, 1, 2, 24) - AIC: 24.0 (warning)
+271: SARIMA(2, 1, 0)x(0, 0, 0, 24) - AIC: 332.0485188856263
+272: SARIMA(2, 1, 0)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+273: SARIMA(2, 1, 0)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+274: SARIMA(2, 1, 0)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+275: SARIMA(2, 1, 0)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+276: SARIMA(2, 1, 0)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+277: SARIMA(2, 1, 0)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+278: SARIMA(2, 1, 0)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+279: SARIMA(2, 1, 0)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+280: SARIMA(2, 1, 0)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+281: SARIMA(2, 1, 0)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+282: SARIMA(2, 1, 0)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+283: SARIMA(2, 1, 0)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+284: SARIMA(2, 1, 0)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+285: SARIMA(2, 1, 0)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+144: SARIMA(1, 0, 1)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+145: SARIMA(1, 0, 2)x(0, 0, 0, 24) - AIC: 792.831619108187
+146: SARIMA(1, 0, 2)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+147: SARIMA(1, 0, 2)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+148: SARIMA(1, 0, 2)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+149: SARIMA(1, 0, 2)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+150: SARIMA(1, 0, 2)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+151: SARIMA(1, 0, 2)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+152: SARIMA(1, 0, 2)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+153: SARIMA(1, 0, 2)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+154: SARIMA(1, 0, 2)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+155: SARIMA(1, 0, 2)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+156: SARIMA(1, 0, 2)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+157: SARIMA(1, 0, 2)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+158: SARIMA(1, 0, 2)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+159: SARIMA(1, 0, 2)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+160: SARIMA(1, 0, 2)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+161: SARIMA(1, 0, 2)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+162: SARIMA(1, 0, 2)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+163: SARIMA(1, 1, 0)x(0, 0, 0, 24) - AIC: 839.0174592900943
+164: SARIMA(1, 1, 0)x(0, 0, 1, 24) - AIC: 12.0 (warning)
+165: SARIMA(1, 1, 0)x(0, 0, 2, 24) - AIC: 14.0 (warning)
+166: SARIMA(1, 1, 0)x(0, 1, 0, 24) - AIC: 10.0 (warning)
+167: SARIMA(1, 1, 0)x(0, 1, 1, 24) - AIC: 12.0 (warning)
+168: SARIMA(1, 1, 0)x(0, 1, 2, 24) - AIC: 14.0 (warning)
+169: SARIMA(1, 1, 0)x(1, 0, 0, 24) - AIC: 12.0 (warning)
+170: SARIMA(1, 1, 0)x(1, 0, 1, 24) - AIC: 14.0 (warning)
+171: SARIMA(1, 1, 0)x(1, 0, 2, 24) - AIC: 16.0 (warning)
+172: SARIMA(1, 1, 0)x(1, 1, 0, 24) - AIC: 12.0 (warning)
+173: SARIMA(1, 1, 0)x(1, 1, 1, 24) - AIC: 14.0 (warning)
+174: SARIMA(1, 1, 0)x(1, 1, 2, 24) - AIC: 16.0 (warning)
+175: SARIMA(1, 1, 0)x(2, 0, 0, 24) - AIC: 14.0 (warning)
+176: SARIMA(1, 1, 0)x(2, 0, 1, 24) - AIC: 16.0 (warning)
+177: SARIMA(1, 1, 0)x(2, 0, 2, 24) - AIC: 18.0 (warning)
+178: SARIMA(1, 1, 0)x(2, 1, 0, 24) - AIC: 14.0 (warning)
+179: SARIMA(1, 1, 0)x(2, 1, 1, 24) - AIC: 16.0 (warning)
+180: SARIMA(1, 1, 0)x(2, 1, 2, 24) - AIC: 18.0 (warning)
+181: SARIMA(1, 1, 1)x(0, 0, 0, 24) - AIC: 800.8469061120558 (warning)
+182: SARIMA(1, 1, 1)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+183: SARIMA(1, 1, 1)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+184: SARIMA(1, 1, 1)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+185: SARIMA(1, 1, 1)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+186: SARIMA(1, 1, 1)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+187: SARIMA(1, 1, 1)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+188: SARIMA(1, 1, 1)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+189: SARIMA(1, 1, 1)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+190: SARIMA(1, 1, 1)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+191: SARIMA(1, 1, 1)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+192: SARIMA(1, 1, 1)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+193: SARIMA(1, 1, 1)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+194: SARIMA(1, 1, 1)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+195: SARIMA(1, 1, 1)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+196: SARIMA(1, 1, 1)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+197: SARIMA(1, 1, 1)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+198: SARIMA(1, 1, 1)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+199: SARIMA(1, 1, 2)x(0, 0, 0, 24) - AIC: 764.5415539887098
+200: SARIMA(1, 1, 2)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+201: SARIMA(1, 1, 2)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+202: SARIMA(1, 1, 2)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+203: SARIMA(1, 1, 2)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+204: SARIMA(1, 1, 2)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+205: SARIMA(1, 1, 2)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+206: SARIMA(1, 1, 2)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+207: SARIMA(1, 1, 2)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+208: SARIMA(1, 1, 2)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+209: SARIMA(1, 1, 2)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+210: SARIMA(1, 1, 2)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+211: SARIMA(1, 1, 2)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+212: SARIMA(1, 1, 2)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+213: SARIMA(1, 1, 2)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+214: SARIMA(1, 1, 2)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+215: SARIMA(1, 1, 2)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+216: SARIMA(1, 1, 2)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+217: SARIMA(2, 0, 0)x(0, 0, 0, 24) - AIC: 827.7357165282375
+218: SARIMA(2, 0, 0)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+219: SARIMA(2, 0, 0)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+220: SARIMA(2, 0, 0)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+221: SARIMA(2, 0, 0)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+222: SARIMA(2, 0, 0)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+223: SARIMA(2, 0, 0)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+224: SARIMA(2, 0, 0)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+225: SARIMA(2, 0, 0)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+226: SARIMA(2, 0, 0)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+227: SARIMA(2, 0, 0)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+228: SARIMA(2, 0, 0)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+229: SARIMA(2, 0, 0)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+230: SARIMA(2, 0, 0)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+231: SARIMA(2, 0, 0)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+232: SARIMA(2, 0, 0)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+233: SARIMA(2, 0, 0)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+234: SARIMA(2, 0, 0)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+235: SARIMA(2, 0, 1)x(0, 0, 0, 24) - AIC: 829.0541052287371
+236: SARIMA(2, 0, 1)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+237: SARIMA(2, 0, 1)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+238: SARIMA(2, 0, 1)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+239: SARIMA(2, 0, 1)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+240: SARIMA(2, 0, 1)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+241: SARIMA(2, 0, 1)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+242: SARIMA(2, 0, 1)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+243: SARIMA(2, 0, 1)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+244: SARIMA(2, 0, 1)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+245: SARIMA(2, 0, 1)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+246: SARIMA(2, 0, 1)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+247: SARIMA(2, 0, 1)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+248: SARIMA(2, 0, 1)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+249: SARIMA(2, 0, 1)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+250: SARIMA(2, 0, 1)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+251: SARIMA(2, 0, 1)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+252: SARIMA(2, 0, 1)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+253: SARIMA(2, 0, 2)x(0, 0, 0, 24) - AIC: 791.1479574735253
+254: SARIMA(2, 0, 2)x(0, 0, 1, 24) - AIC: 18.0 (warning)
+255: SARIMA(2, 0, 2)x(0, 0, 2, 24) - AIC: 20.0 (warning)
+256: SARIMA(2, 0, 2)x(0, 1, 0, 24) - AIC: 16.0 (warning)
+257: SARIMA(2, 0, 2)x(0, 1, 1, 24) - AIC: 18.0 (warning)
+258: SARIMA(2, 0, 2)x(0, 1, 2, 24) - AIC: 20.0 (warning)
+259: SARIMA(2, 0, 2)x(1, 0, 0, 24) - AIC: 18.0 (warning)
+260: SARIMA(2, 0, 2)x(1, 0, 1, 24) - AIC: 20.0 (warning)
+261: SARIMA(2, 0, 2)x(1, 0, 2, 24) - AIC: 22.0 (warning)
+262: SARIMA(2, 0, 2)x(1, 1, 0, 24) - AIC: 18.0 (warning)
+263: SARIMA(2, 0, 2)x(1, 1, 1, 24) - AIC: 20.0 (warning)
+264: SARIMA(2, 0, 2)x(1, 1, 2, 24) - AIC: 22.0 (warning)
+265: SARIMA(2, 0, 2)x(2, 0, 0, 24) - AIC: 20.0 (warning)
+266: SARIMA(2, 0, 2)x(2, 0, 1, 24) - AIC: 22.0 (warning)
+267: SARIMA(2, 0, 2)x(2, 0, 2, 24) - AIC: 24.0 (warning)
+268: SARIMA(2, 0, 2)x(2, 1, 0, 24) - AIC: 20.0 (warning)
+269: SARIMA(2, 0, 2)x(2, 1, 1, 24) - AIC: 22.0 (warning)
+270: SARIMA(2, 0, 2)x(2, 1, 2, 24) - AIC: 24.0 (warning)
+271: SARIMA(2, 1, 0)x(0, 0, 0, 24) - AIC: 803.2738890891349
+272: SARIMA(2, 1, 0)x(0, 0, 1, 24) - AIC: 14.0 (warning)
+273: SARIMA(2, 1, 0)x(0, 0, 2, 24) - AIC: 16.0 (warning)
+274: SARIMA(2, 1, 0)x(0, 1, 0, 24) - AIC: 12.0 (warning)
+275: SARIMA(2, 1, 0)x(0, 1, 1, 24) - AIC: 14.0 (warning)
+276: SARIMA(2, 1, 0)x(0, 1, 2, 24) - AIC: 16.0 (warning)
+277: SARIMA(2, 1, 0)x(1, 0, 0, 24) - AIC: 14.0 (warning)
+278: SARIMA(2, 1, 0)x(1, 0, 1, 24) - AIC: 16.0 (warning)
+279: SARIMA(2, 1, 0)x(1, 0, 2, 24) - AIC: 18.0 (warning)
+280: SARIMA(2, 1, 0)x(1, 1, 0, 24) - AIC: 14.0 (warning)
+281: SARIMA(2, 1, 0)x(1, 1, 1, 24) - AIC: 16.0 (warning)
+282: SARIMA(2, 1, 0)x(1, 1, 2, 24) - AIC: 18.0 (warning)
+283: SARIMA(2, 1, 0)x(2, 0, 0, 24) - AIC: 16.0 (warning)
+284: SARIMA(2, 1, 0)x(2, 0, 1, 24) - AIC: 18.0 (warning)
+285: SARIMA(2, 1, 0)x(2, 0, 2, 24) - AIC: 20.0 (warning)
+286: SARIMA(2, 1, 0)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+287: SARIMA(2, 1, 0)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+===== Processing train split: 84.00 =====
+No SARIMA parameters provided, finding optimal parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(0, 0, 0)x(0, 0, 0, 24) - AIC: 3508.387855200103
+2: SARIMA(0, 0, 0)x(0, 0, 1, 24) - AIC: 2308.2211326733445 (warning)
+3: SARIMA(0, 0, 0)x(0, 0, 2, 24) - AIC: 1380.7221353668765 (warning)
+4: SARIMA(0, 0, 0)x(0, 1, 0, 24) - AIC: 2494.199460184349
+5: SARIMA(0, 0, 0)x(0, 1, 1, 24) - AIC: 1377.0776143057574 (warning)
+6: SARIMA(0, 0, 0)x(0, 1, 2, 24) - AIC: 435.2075759220057 (warning)
+7: SARIMA(0, 0, 0)x(1, 0, 0, 24) - AIC: 2343.1566435486816
+8: SARIMA(0, 0, 0)x(1, 0, 1, 24) - AIC: 2319.4766491351243 (warning)
+9: SARIMA(0, 0, 0)x(1, 0, 2, 24) - AIC: 1381.4438201613489 (warning)
+10: SARIMA(0, 0, 0)x(1, 1, 0, 24) - AIC: 1417.5567681216844
+11: SARIMA(0, 0, 0)x(1, 1, 1, 24) - AIC: 1374.6701459097878 (warning)
+12: SARIMA(0, 0, 0)x(1, 1, 2, 24) - AIC: 436.8575643909796 (warning)
+13: SARIMA(0, 0, 0)x(2, 0, 0, 24) - AIC: 1419.294846969659
+14: SARIMA(0, 0, 0)x(2, 0, 1, 24) - AIC: 1442.7773977313216 (warning)
+15: SARIMA(0, 0, 0)x(2, 0, 2, 24) - AIC: 1380.39538986544 (warning)
+16: SARIMA(0, 0, 0)x(2, 1, 0, 24) - AIC: 473.36337874306685
+17: SARIMA(0, 0, 0)x(2, 1, 1, 24) - AIC: 474.9211915277262 (warning)
+18: SARIMA(0, 0, 0)x(2, 1, 2, 24) - AIC: 438.8459752628867 (warning)
+19: SARIMA(0, 0, 1)x(0, 0, 0, 24) - AIC: 3155.5624575898887
+20: SARIMA(0, 0, 1)x(0, 0, 1, 24) - AIC: 2245.199735379752 (warning)
+21: SARIMA(0, 0, 1)x(0, 0, 2, 24) - AIC: 1316.1640809919304 (warning)
+22: SARIMA(0, 0, 1)x(0, 1, 0, 24) - AIC: 2256.757952393874
+23: SARIMA(0, 0, 1)x(0, 1, 1, 24) - AIC: 1320.7749429401542 (warning)
+24: SARIMA(0, 0, 1)x(0, 1, 2, 24) - AIC: 391.47810621751324 (warning)
+25: SARIMA(0, 0, 1)x(1, 0, 0, 24) - AIC: 2319.5545324666805
+26: SARIMA(0, 0, 1)x(1, 0, 1, 24) - AIC: 2241.4803404459562 (warning)
+27: SARIMA(0, 0, 1)x(1, 0, 2, 24) - AIC: 1316.3529514845047 (warning)
+28: SARIMA(0, 0, 1)x(1, 1, 0, 24) - AIC: 1397.6555047689326
+29: SARIMA(0, 0, 1)x(1, 1, 1, 24) - AIC: 1322.6421265996382 (warning)
+30: SARIMA(0, 0, 1)x(1, 1, 2, 24) - AIC: 393.32866888057526 (warning)
+31: SARIMA(0, 0, 1)x(2, 0, 0, 24) - AIC: 1392.3877833226293
+32: SARIMA(0, 0, 1)x(2, 0, 1, 24) - AIC: 1393.4803408522364 (warning)
+33: SARIMA(0, 0, 1)x(2, 0, 2, 24) - AIC: 1315.7706277697812 (warning)
+34: SARIMA(0, 0, 1)x(2, 1, 0, 24) - AIC: 470.36177660263274
+35: SARIMA(0, 0, 1)x(2, 1, 1, 24) - AIC: 471.2647293780757 (warning)
+36: SARIMA(0, 0, 1)x(2, 1, 2, 24) - AIC: 394.95540150248337 (warning)
+37: SARIMA(0, 0, 2)x(0, 0, 0, 24) - AIC: 3118.474161734787
+38: SARIMA(0, 0, 2)x(0, 0, 1, 24) - AIC: 2208.276999146577 (warning)
+39: SARIMA(0, 0, 2)x(0, 0, 2, 24) - AIC: 1275.5769904420642 (warning)
+40: SARIMA(0, 0, 2)x(0, 1, 0, 24) - AIC: 2220.396057664214
+41: SARIMA(0, 0, 2)x(0, 1, 1, 24) - AIC: 1282.160477146793 (warning)
+42: SARIMA(0, 0, 2)x(0, 1, 2, 24) - AIC: 355.72464263453855 (warning)
+43: SARIMA(0, 0, 2)x(1, 0, 0, 24) - AIC: 2320.3759929363523
+44: SARIMA(0, 0, 2)x(1, 0, 1, 24) - AIC: 2204.5183033241424 (warning)
+45: SARIMA(0, 0, 2)x(1, 0, 2, 24) - AIC: 1276.8224115446637 (warning)
+46: SARIMA(0, 0, 2)x(1, 1, 0, 24) - AIC: 1399.7603289086082
+47: SARIMA(0, 0, 2)x(1, 1, 1, 24) - AIC: 1284.0027996614645 (warning)
+48: SARIMA(0, 0, 2)x(1, 1, 2, 24) - AIC: 357.7771058275608 (warning)
+49: SARIMA(0, 0, 2)x(2, 0, 0, 24) - AIC: 1394.0501594057084
+50: SARIMA(0, 0, 2)x(2, 0, 1, 24) - AIC: 1395.0830450687045 (warning)
+51: SARIMA(0, 0, 2)x(2, 0, 2, 24) - AIC: 1277.0541922203927 (warning)
+52: SARIMA(0, 0, 2)x(2, 1, 0, 24) - AIC: 470.0300900801154
+53: SARIMA(0, 0, 2)x(2, 1, 1, 24) - AIC: 472.2142448776368 (warning)
+54: SARIMA(0, 0, 2)x(2, 1, 2, 24) - AIC: 359.65228320276776 (warning)
+55: SARIMA(0, 1, 0)x(0, 0, 0, 24) - AIC: 3438.221759026292
+56: SARIMA(0, 1, 0)x(0, 0, 1, 24) - AIC: 2255.7406163899927 (warning)
+57: SARIMA(0, 1, 0)x(0, 0, 2, 24) - AIC: 1306.2600921284745 (warning)
+58: SARIMA(0, 1, 0)x(0, 1, 0, 24) - AIC: 2457.50960752479
+59: SARIMA(0, 1, 0)x(0, 1, 1, 24) - AIC: 1323.3152424973307 (warning)
+60: SARIMA(0, 1, 0)x(0, 1, 2, 24) - AIC: 394.6550800049283 (warning)
+61: SARIMA(0, 1, 0)x(1, 0, 0, 24) - AIC: 2284.9838966509706
+62: SARIMA(0, 1, 0)x(1, 0, 1, 24) - AIC: 2239.936925242465 (warning)
+63: SARIMA(0, 1, 0)x(1, 0, 2, 24) - AIC: 1306.87753818872 (warning)
+64: SARIMA(0, 1, 0)x(1, 1, 0, 24) - AIC: 1371.427941780232
+65: SARIMA(0, 1, 0)x(1, 1, 1, 24) - AIC: 1323.4737666635262 (warning)
+66: SARIMA(0, 1, 0)x(1, 1, 2, 24) - AIC: 396.4144381791032 (warning)
+67: SARIMA(0, 1, 0)x(2, 0, 0, 24) - AIC: 1342.0522449469074
+68: SARIMA(0, 1, 0)x(2, 0, 1, 24) - AIC: 1358.875489467133 (warning)
+69: SARIMA(0, 1, 0)x(2, 0, 2, 24) - AIC: 1306.1443852180762 (warning)
+70: SARIMA(0, 1, 0)x(2, 1, 0, 24) - AIC: 419.4029927289175
+71: SARIMA(0, 1, 0)x(2, 1, 1, 24) - AIC: 434.6735493133619 (warning)
+72: SARIMA(0, 1, 0)x(2, 1, 2, 24) - AIC: 398.0635295405868 (warning)
+73: SARIMA(0, 1, 1)x(0, 0, 0, 24) - AIC: 3116.2763726098456
+74: SARIMA(0, 1, 1)x(0, 0, 1, 24) - AIC: 2200.866463131648 (warning)
+75: SARIMA(0, 1, 1)x(0, 0, 2, 24) - AIC: 1270.53177479362 (warning)
+76: SARIMA(0, 1, 1)x(0, 1, 0, 24) - AIC: 2234.2292678376116
+77: SARIMA(0, 1, 1)x(0, 1, 1, 24) - AIC: 1283.3727245132145 (warning)
+78: SARIMA(0, 1, 1)x(0, 1, 2, 24) - AIC: 356.9256704434639 (warning)
+79: SARIMA(0, 1, 1)x(1, 0, 0, 24) - AIC: 2277.6542721281553
+80: SARIMA(0, 1, 1)x(1, 0, 1, 24) - AIC: 2197.0121617268446 (warning)
+81: SARIMA(0, 1, 1)x(1, 0, 2, 24) - AIC: 1271.1386883903288 (warning)
+82: SARIMA(0, 1, 1)x(1, 1, 0, 24) - AIC: 1369.7225467946791
+83: SARIMA(0, 1, 1)x(1, 1, 1, 24) - AIC: 1284.6690010937375 (warning)
+84: SARIMA(0, 1, 1)x(1, 1, 2, 24) - AIC: 358.95430439572107 (warning)
+85: SARIMA(0, 1, 1)x(2, 0, 0, 24) - AIC: 1346.4536585630456
+86: SARIMA(0, 1, 1)x(2, 0, 1, 24) - AIC: 1347.6885736180607 (warning)
+87: SARIMA(0, 1, 1)x(2, 0, 2, 24) - AIC: 1270.9113115561042 (warning)
+88: SARIMA(0, 1, 1)x(2, 1, 0, 24) - AIC: 434.13028694747857
+89: SARIMA(0, 1, 1)x(2, 1, 1, 24) - AIC: 435.7941545653605 (warning)
+90: SARIMA(0, 1, 1)x(2, 1, 2, 24) - AIC: 360.8554972481109 (warning)
+91: SARIMA(0, 1, 2)x(0, 0, 0, 24) - AIC: 3053.529584408734
+92: SARIMA(0, 1, 2)x(0, 0, 1, 24) - AIC: 2140.580556221492 (warning)
+93: SARIMA(0, 1, 2)x(0, 0, 2, 24) - AIC: 1226.3786186103741 (warning)
+94: SARIMA(0, 1, 2)x(0, 1, 0, 24) - AIC: 2183.2610493825528
+95: SARIMA(0, 1, 2)x(0, 1, 1, 24) - AIC: 1243.1699423394018 (warning)
+96: SARIMA(0, 1, 2)x(0, 1, 2, 24) - AIC: 318.9959641118213 (warning)
+97: SARIMA(0, 1, 2)x(1, 0, 0, 24) - AIC: 2256.519942249022
+98: SARIMA(0, 1, 2)x(1, 0, 1, 24) - AIC: 2140.6414409157283 (warning)
+99: SARIMA(0, 1, 2)x(1, 0, 2, 24) - AIC: 1228.373218356814 (warning)
+100: SARIMA(0, 1, 2)x(1, 1, 0, 24) - AIC: 1361.531420165274
+101: SARIMA(0, 1, 2)x(1, 1, 1, 24) - AIC: 1243.5607444072398 (warning)
+102: SARIMA(0, 1, 2)x(1, 1, 2, 24) - AIC: 320.8789591621182 (warning)
+103: SARIMA(0, 1, 2)x(2, 0, 0, 24) - AIC: 1340.6873646770318
+104: SARIMA(0, 1, 2)x(2, 0, 1, 24) - AIC: 1342.2543428678082 (warning)
+105: SARIMA(0, 1, 2)x(2, 0, 2, 24) - AIC: 1230.1224258287687 (warning)
+106: SARIMA(0, 1, 2)x(2, 1, 0, 24) - AIC: 432.78695606231065
+107: SARIMA(0, 1, 2)x(2, 1, 1, 24) - AIC: 434.5067483847053 (warning)
+108: SARIMA(0, 1, 2)x(2, 1, 2, 24) - AIC: 322.81673446438094 (warning)
+109: SARIMA(1, 0, 0)x(0, 0, 0, 24) - AIC: 3202.6902671552416
+110: SARIMA(1, 0, 0)x(0, 0, 1, 24) - AIC: 2289.835907463251 (warning)
+111: SARIMA(1, 0, 0)x(0, 0, 2, 24) - AIC: 1365.8874238049843 (warning)
+112: SARIMA(1, 0, 0)x(0, 1, 0, 24) - AIC: 2299.6081978714474
+113: SARIMA(1, 0, 0)x(0, 1, 1, 24) - AIC: 1363.6870119113046 (warning)
+114: SARIMA(1, 0, 0)x(0, 1, 2, 24) - AIC: 431.2641315086704 (warning)
+115: SARIMA(1, 0, 0)x(1, 0, 0, 24) - AIC: 2290.117653303591
+116: SARIMA(1, 0, 0)x(1, 0, 1, 24) - AIC: 2290.654038842269 (warning)
+117: SARIMA(1, 0, 0)x(1, 0, 2, 24) - AIC: 1366.8178044720644 (warning)
+118: SARIMA(1, 0, 0)x(1, 1, 0, 24) - AIC: 1364.233497848648
+119: SARIMA(1, 0, 0)x(1, 1, 1, 24) - AIC: 1363.5179636793775 (warning)
+120: SARIMA(1, 0, 0)x(1, 1, 2, 24) - AIC: 433.21815372492847 (warning)
+121: SARIMA(1, 0, 0)x(2, 0, 0, 24) - AIC: 1365.3131276416364
+===== Processing train split: 168.00 =====
+No SARIMA parameters provided, finding optimal parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(0, 0, 0)x(0, 0, 0, 24) - AIC: 7182.984846970884
+2: SARIMA(0, 0, 0)x(0, 0, 1, 24) - AIC: 5576.945929957561
+3: SARIMA(0, 0, 0)x(0, 0, 2, 24) - AIC: 4653.4104544771335 (warning)
+4: SARIMA(0, 0, 0)x(0, 1, 0, 24) - AIC: 6211.473996809364
+5: SARIMA(0, 0, 0)x(0, 1, 1, 24) - AIC: 4669.861767601768
+6: SARIMA(0, 0, 0)x(0, 1, 2, 24) - AIC: 3709.4558121219175 (warning)
+7: SARIMA(0, 0, 0)x(1, 0, 0, 24) - AIC: 5613.937963993107
+8: SARIMA(0, 0, 0)x(1, 0, 1, 24) - AIC: 5563.207798833703
+9: SARIMA(0, 0, 0)x(1, 0, 2, 24) - AIC: 4642.6776113536735 (warning)
+10: SARIMA(0, 0, 0)x(1, 1, 0, 24) - AIC: 4706.696422311523
+11: SARIMA(0, 0, 0)x(1, 1, 1, 24) - AIC: 4666.133851899319
+12: SARIMA(0, 0, 0)x(1, 1, 2, 24) - AIC: 3710.8934116324776 (warning)
+13: SARIMA(0, 0, 0)x(2, 0, 0, 24) - AIC: 4686.743558901313
+14: SARIMA(0, 0, 0)x(2, 0, 1, 24) - AIC: 4680.208233467187
+15: SARIMA(0, 0, 0)x(2, 0, 2, 24) - AIC: 4650.474015693133 (warning)
+16: SARIMA(0, 0, 0)x(2, 1, 0, 24) - AIC: 3746.150001798467
+17: SARIMA(0, 0, 0)x(2, 1, 1, 24) - AIC: 3738.9361917057904
+18: SARIMA(0, 0, 0)x(2, 1, 2, 24) - AIC: 3712.3911729667207 (warning)
+19: SARIMA(0, 0, 1)x(0, 0, 0, 24) - AIC: 6417.70116374771
+20: SARIMA(0, 0, 1)x(0, 0, 1, 24) - AIC: 5505.755774493453
+21: SARIMA(0, 0, 1)x(0, 0, 2, 24) - AIC: 4579.575891294745 (warning)
+22: SARIMA(0, 0, 1)x(0, 1, 0, 24) - AIC: 5567.5766073640825
+23: SARIMA(0, 0, 1)x(0, 1, 1, 24) - AIC: 4598.491902848841
+24: SARIMA(0, 0, 1)x(0, 1, 2, 24) - AIC: 3652.6114838256194 (warning)
+25: SARIMA(0, 0, 1)x(1, 0, 0, 24) - AIC: 5579.782964225942
+26: SARIMA(0, 0, 1)x(1, 0, 1, 24) - AIC: 5485.508160566053
+27: SARIMA(0, 0, 1)x(1, 0, 2, 24) - AIC: 4566.109806711058 (warning)
+28: SARIMA(0, 0, 1)x(1, 1, 0, 24) - AIC: 4679.030662521434
+29: SARIMA(0, 0, 1)x(1, 1, 1, 24) - AIC: 4597.926054462511
+30: SARIMA(0, 0, 1)x(1, 1, 2, 24) - AIC: 3653.9941267315653 (warning)
+31: SARIMA(0, 0, 1)x(2, 0, 0, 24) - AIC: 4655.767019755693
+32: SARIMA(0, 0, 1)x(2, 0, 1, 24) - AIC: 4644.200901464514
+33: SARIMA(0, 0, 1)x(2, 0, 2, 24) - AIC: 4564.833532287935 (warning)
+34: SARIMA(0, 0, 1)x(2, 1, 0, 24) - AIC: 3739.107140687947
+35: SARIMA(0, 0, 1)x(2, 1, 1, 24) - AIC: 3736.5276910367775
+36: SARIMA(0, 0, 1)x(2, 1, 2, 24) - AIC: 3655.5372843150567 (warning)
+37: SARIMA(0, 0, 2)x(0, 0, 0, 24) - AIC: 6380.62330725183
+38: SARIMA(0, 0, 2)x(0, 0, 1, 24) - AIC: 5469.053958197666
+39: SARIMA(0, 0, 2)x(0, 0, 2, 24) - AIC: 4541.562865752131 (warning)
+40: SARIMA(0, 0, 2)x(0, 1, 0, 24) - AIC: 5531.173892847477
+41: SARIMA(0, 0, 2)x(0, 1, 1, 24) - AIC: 4560.196195015617
+42: SARIMA(0, 0, 2)x(0, 1, 2, 24) - AIC: 3612.7944609170786 (warning)
+43: SARIMA(0, 0, 2)x(1, 0, 0, 24) - AIC: 5580.910397772294
+44: SARIMA(0, 0, 2)x(1, 0, 1, 24) - AIC: 5449.5182705489715
+45: SARIMA(0, 0, 2)x(1, 0, 2, 24) - AIC: 4529.90356451653 (warning)
+46: SARIMA(0, 0, 2)x(1, 1, 0, 24) - AIC: 4679.739565441785
+47: SARIMA(0, 0, 2)x(1, 1, 1, 24) - AIC: 4559.541739790755
+48: SARIMA(0, 0, 2)x(1, 1, 2, 24) - AIC: 3613.9943264400185 (warning)
+49: SARIMA(0, 0, 2)x(2, 0, 0, 24) - AIC: 4657.400227118737
+50: SARIMA(0, 0, 2)x(2, 0, 1, 24) - AIC: 4645.204454152357 (warning)
+51: SARIMA(0, 0, 2)x(2, 0, 2, 24) - AIC: 4533.953784164679 (warning)
+52: SARIMA(0, 0, 2)x(2, 1, 0, 24) - AIC: 3739.4127131130244
+53: SARIMA(0, 0, 2)x(2, 1, 1, 24) - AIC: 3736.5117609364793
+54: SARIMA(0, 0, 2)x(2, 1, 2, 24) - AIC: 3615.421021126632 (warning)
+55: SARIMA(0, 1, 0)x(0, 0, 0, 24) - AIC: 7104.606521213019
+56: SARIMA(0, 1, 0)x(0, 0, 1, 24) - AIC: 5502.106924538439
+57: SARIMA(0, 1, 0)x(0, 0, 2, 24) - AIC: 4580.0944680884895 (warning)
+58: SARIMA(0, 1, 0)x(0, 1, 0, 24) - AIC: 6167.256138014818
+59: SARIMA(0, 1, 0)x(0, 1, 1, 24) - AIC: 4616.697180969343
+60: SARIMA(0, 1, 0)x(0, 1, 2, 24) - AIC: 3680.399944792842 (warning)
+61: SARIMA(0, 1, 0)x(1, 0, 0, 24) - AIC: 5545.45347355012
+62: SARIMA(0, 1, 0)x(1, 0, 1, 24) - AIC: 5496.94974513472
+63: SARIMA(0, 1, 0)x(1, 0, 2, 24) - AIC: 4575.196620835738 (warning)
+64: SARIMA(0, 1, 0)x(1, 1, 0, 24) - AIC: 4669.131010008546
+65: SARIMA(0, 1, 0)x(1, 1, 1, 24) - AIC: 4609.165973430151
+66: SARIMA(0, 1, 0)x(1, 1, 2, 24) - AIC: 3681.1700843832928 (warning)
+67: SARIMA(0, 1, 0)x(2, 0, 0, 24) - AIC: 4615.979931358844
+68: SARIMA(0, 1, 0)x(2, 0, 1, 24) - AIC: 4610.581262405906
+69: SARIMA(0, 1, 0)x(2, 0, 2, 24) - AIC: 4567.89035018307 (warning)
+70: SARIMA(0, 1, 0)x(2, 1, 0, 24) - AIC: 3726.2753031014636
+71: SARIMA(0, 1, 0)x(2, 1, 1, 24) - AIC: 3717.647346981439
+72: SARIMA(0, 1, 0)x(2, 1, 2, 24) - AIC: 3683.164483083475 (warning)
+73: SARIMA(0, 1, 1)x(0, 0, 0, 24) - AIC: 6358.92641322001
+74: SARIMA(0, 1, 1)x(0, 0, 1, 24) - AIC: 5439.0531341799815
+75: SARIMA(0, 1, 1)x(0, 0, 2, 24) - AIC: 4521.420735090318 (warning)
+76: SARIMA(0, 1, 1)x(0, 1, 0, 24) - AIC: 5550.371142546224
+77: SARIMA(0, 1, 1)x(0, 1, 1, 24) - AIC: 4565.582433719773
+78: SARIMA(0, 1, 1)x(0, 1, 2, 24) - AIC: 3633.9658727471556 (warning)
+79: SARIMA(0, 1, 1)x(1, 0, 0, 24) - AIC: 5516.789054206541
+80: SARIMA(0, 1, 1)x(1, 0, 1, 24) - AIC: 5436.806428706444
+81: SARIMA(0, 1, 1)x(1, 0, 2, 24) - AIC: 4520.39116312338 (warning)
+82: SARIMA(0, 1, 1)x(1, 1, 0, 24) - AIC: 4662.242453122939
+83: SARIMA(0, 1, 1)x(1, 1, 1, 24) - AIC: 4567.577432498524
+84: SARIMA(0, 1, 1)x(1, 1, 2, 24) - AIC: 3635.262655187078 (warning)
+85: SARIMA(0, 1, 1)x(2, 0, 0, 24) - AIC: 4599.484852094492
+86: SARIMA(0, 1, 1)x(2, 0, 1, 24) - AIC: 4595.8289786212645
+87: SARIMA(0, 1, 1)x(2, 0, 2, 24) - AIC: 4519.914753593305 (warning)
+88: SARIMA(0, 1, 1)x(2, 1, 0, 24) - AIC: 3720.9260844779615
+89: SARIMA(0, 1, 1)x(2, 1, 1, 24) - AIC: 3712.380717496769
+90: SARIMA(0, 1, 1)x(2, 1, 2, 24) - AIC: 3637.137347945145 (warning)
+91: SARIMA(0, 1, 2)x(0, 0, 0, 24) - AIC: 6296.685234159071
+92: SARIMA(0, 1, 2)x(0, 0, 1, 24) - AIC: 5380.142222382607
+93: SARIMA(0, 1, 2)x(0, 0, 2, 24) - AIC: 4468.164947619496 (warning)
+94: SARIMA(0, 1, 2)x(0, 1, 0, 24) - AIC: 5496.677757173621
+95: SARIMA(0, 1, 2)x(0, 1, 1, 24) - AIC: 4520.427330567928
+96: SARIMA(0, 1, 2)x(0, 1, 2, 24) - AIC: 3586.6150338080206 (warning)
+97: SARIMA(0, 1, 2)x(1, 0, 0, 24) - AIC: 5495.828837281249
+98: SARIMA(0, 1, 2)x(1, 0, 1, 24) - AIC: 5382.234929553297
+99: SARIMA(0, 1, 2)x(1, 0, 2, 24) - AIC: 4468.368230006094 (warning)
+100: SARIMA(0, 1, 2)x(1, 1, 0, 24) - AIC: 4645.402741980779
+101: SARIMA(0, 1, 2)x(1, 1, 1, 24) - AIC: 4521.627446105915
+102: SARIMA(0, 1, 2)x(1, 1, 2, 24) - AIC: 3588.0855610729395 (warning)
+103: SARIMA(0, 1, 2)x(2, 0, 0, 24) - AIC: 4581.26594712605
+104: SARIMA(0, 1, 2)x(2, 0, 1, 24) - AIC: 4583.21107604428
+105: SARIMA(0, 1, 2)x(2, 0, 2, 24) - AIC: 4470.268514452138 (warning)
+106: SARIMA(0, 1, 2)x(2, 1, 0, 24) - AIC: 3709.7960781215
+107: SARIMA(0, 1, 2)x(2, 1, 1, 24) - AIC: 3706.8751341778825
+108: SARIMA(0, 1, 2)x(2, 1, 2, 24) - AIC: 3589.597346891089 (warning)
+109: SARIMA(1, 0, 0)x(0, 0, 0, 24) - AIC: 6457.118772628136
+110: SARIMA(1, 0, 0)x(0, 0, 1, 24) - AIC: 5542.699832590533
+111: SARIMA(1, 0, 0)x(0, 0, 2, 24) - AIC: 4618.935071898316 (warning)
+112: SARIMA(1, 0, 0)x(0, 1, 0, 24) - AIC: 5604.113980006025
+113: SARIMA(1, 0, 0)x(0, 1, 1, 24) - AIC: 4631.088697665428
+114: SARIMA(1, 0, 0)x(0, 1, 2, 24) - AIC: 3694.6037029687454 (warning)
+115: SARIMA(1, 0, 0)x(1, 0, 0, 24) - AIC: 5540.903271198056
+116: SARIMA(1, 0, 0)x(1, 0, 1, 24) - AIC: 5532.272522430514
+117: SARIMA(1, 0, 0)x(1, 0, 2, 24) - AIC: 4614.4540235343375 (warning)
+118: SARIMA(1, 0, 0)x(1, 1, 0, 24) - AIC: 4639.363578007352
+119: SARIMA(1, 0, 0)x(1, 1, 1, 24) - AIC: 4632.665259756976
+120: SARIMA(1, 0, 0)x(1, 1, 2, 24) - AIC: 3695.828529165568 (warning)
+121: SARIMA(1, 0, 0)x(2, 0, 0, 24) - AIC: 4616.738667908104
+122: SARIMA(1, 0, 0)x(2, 0, 1, 24) - AIC: 4614.4205614721695 (warning)
+123: SARIMA(1, 0, 0)x(2, 0, 2, 24) - AIC: 4616.900998447766 (warning)
+124: SARIMA(1, 0, 0)x(2, 1, 0, 24) - AIC: 3700.881095076832
+125: SARIMA(1, 0, 0)x(2, 1, 1, 24) - AIC: 3696.6759122545377
+126: SARIMA(1, 0, 0)x(2, 1, 2, 24) - AIC: 3696.697694744206 (warning)
+127: SARIMA(1, 0, 1)x(0, 0, 0, 24) - AIC: 6417.682735755143
+128: SARIMA(1, 0, 1)x(0, 0, 1, 24) - AIC: 5505.981556474273
+===== Processing train split: 336.00 =====
+No SARIMA parameters provided, finding optimal parameters...
+Starting grid search for optimal SARIMA parameters...
+Note: This can take some time for hourly data
+1: SARIMA(0, 0, 0)x(0, 0, 0, 24) - AIC: 14606.638515325078
+2: SARIMA(0, 0, 0)x(0, 0, 1, 24) - AIC: 12071.251679491932
+3: SARIMA(0, 0, 0)x(0, 0, 2, 24) - AIC: 11144.652772504789
+4: SARIMA(0, 0, 0)x(0, 1, 0, 24) - AIC: 13698.603417345912
+5: SARIMA(0, 0, 0)x(0, 1, 1, 24) - AIC: 11177.323377150424
+6: SARIMA(0, 0, 0)x(0, 1, 2, 24) - AIC: 10197.893384025623
+7: SARIMA(0, 0, 0)x(1, 0, 0, 24) - AIC: 12106.220644148363
+8: SARIMA(0, 0, 0)x(1, 0, 1, 24) - AIC: 12038.328787930597
+9: SARIMA(0, 0, 0)x(1, 0, 2, 24) - AIC: 11118.127383951562
+10: SARIMA(0, 0, 0)x(1, 1, 0, 24) - AIC: 11237.035487029014
+11: SARIMA(0, 0, 0)x(1, 1, 1, 24) - AIC: 11171.966240939182
+12: SARIMA(0, 0, 0)x(1, 1, 2, 24) - AIC: 10183.31323876342
+13: SARIMA(0, 0, 0)x(2, 0, 0, 24) - AIC: 11176.27866950128
+14: SARIMA(0, 0, 0)x(2, 0, 1, 24) - AIC: 11157.966664594282
+15: SARIMA(0, 0, 0)x(2, 0, 2, 24) - AIC: 11119.682689157566 (warning)
+16: SARIMA(0, 0, 0)x(2, 1, 0, 24) - AIC: 10248.285757549813
+17: SARIMA(0, 0, 0)x(2, 1, 1, 24) - AIC: 10225.257454593877
+18: SARIMA(0, 0, 0)x(2, 1, 2, 24) - AIC: 10182.43852364973
+19: SARIMA(0, 0, 1)x(0, 0, 0, 24) - AIC: 12871.707105496973
+20: SARIMA(0, 0, 1)x(0, 0, 1, 24) - AIC: 11949.652871595268
+21: SARIMA(0, 0, 1)x(0, 0, 2, 24) - AIC: 11016.506447383685
+22: SARIMA(0, 0, 1)x(0, 1, 0, 24) - AIC: 12069.456619235816
+23: SARIMA(0, 0, 1)x(0, 1, 1, 24) - AIC: 11041.819900581278
+24: SARIMA(0, 0, 1)x(0, 1, 2, 24) - AIC: 10091.073908182774
+25: SARIMA(0, 0, 1)x(1, 0, 0, 24) - AIC: 12017.070645687558
+26: SARIMA(0, 0, 1)x(1, 0, 1, 24) - AIC: 11890.948835664844
+27: SARIMA(0, 0, 1)x(1, 0, 2, 24) - AIC: 10973.814561210726
+28: SARIMA(0, 0, 1)x(1, 1, 0, 24) - AIC: 11141.443531920031
+29: SARIMA(0, 0, 1)x(1, 1, 1, 24) - AIC: 11040.264505531673
+30: SARIMA(0, 0, 1)x(1, 1, 2, 24) - AIC: 10091.888481609369
+31: SARIMA(0, 0, 1)x(2, 0, 0, 24) - AIC: 11079.826601730138
+32: SARIMA(0, 0, 1)x(2, 0, 1, 24) - AIC: 11051.314972008831
+33: SARIMA(0, 0, 1)x(2, 0, 2, 24) - AIC: 10971.960262935685
+34: SARIMA(0, 0, 1)x(2, 1, 0, 24) - AIC: 10185.885359744458
+35: SARIMA(0, 0, 1)x(2, 1, 1, 24) - AIC: 10174.391338449883
+36: SARIMA(0, 0, 1)x(2, 1, 2, 24) - AIC: 10091.910885144443
+37: SARIMA(0, 0, 2)x(0, 0, 0, 24) - AIC: 12828.677853598314
+38: SARIMA(0, 0, 2)x(0, 0, 1, 24) - AIC: 11908.78804218262
+39: SARIMA(0, 0, 2)x(0, 0, 2, 24) - AIC: 10972.664416729349
+40: SARIMA(0, 0, 2)x(0, 1, 0, 24) - AIC: 12030.571613044944
+41: SARIMA(0, 0, 2)x(0, 1, 1, 24) - AIC: 10996.607596667422
+42: SARIMA(0, 0, 2)x(0, 1, 2, 24) - AIC: 10048.984243840974
+43: SARIMA(0, 0, 2)x(1, 0, 0, 24) - AIC: 12014.50196208499
+44: SARIMA(0, 0, 2)x(1, 0, 1, 24) - AIC: 11848.993698857237
+45: SARIMA(0, 0, 2)x(1, 0, 2, 24) - AIC: 10929.661101241567
+46: SARIMA(0, 0, 2)x(1, 1, 0, 24) - AIC: 11137.732675938403
+47: SARIMA(0, 0, 2)x(1, 1, 1, 24) - AIC: 10994.618411402495
+48: SARIMA(0, 0, 2)x(1, 1, 2, 24) - AIC: 10050.315485147103
+49: SARIMA(0, 0, 2)x(2, 0, 0, 24) - AIC: 11077.279454620599
+50: SARIMA(0, 0, 2)x(2, 0, 1, 24) - AIC: 11046.677149278668
+51: SARIMA(0, 0, 2)x(2, 0, 2, 24) - AIC: 10934.524375536157 (warning)
+52: SARIMA(0, 0, 2)x(2, 1, 0, 24) - AIC: 10182.22394377648
+53: SARIMA(0, 0, 2)x(2, 1, 1, 24) - AIC: 10170.505715539914
+54: SARIMA(0, 0, 2)x(2, 1, 2, 24) - AIC: 10050.638940912657
+55: SARIMA(0, 1, 0)x(0, 0, 0, 24) - AIC: 14444.797925001842
+56: SARIMA(0, 1, 0)x(0, 0, 1, 24) - AIC: 11918.973188447068
+57: SARIMA(0, 1, 0)x(0, 0, 2, 24) - AIC: 11007.985170781512
+58: SARIMA(0, 1, 0)x(0, 1, 0, 24) - AIC: 13617.686129600195
+59: SARIMA(0, 1, 0)x(0, 1, 1, 24) - AIC: 11040.078383606009
+60: SARIMA(0, 1, 0)x(0, 1, 2, 24) - AIC: 10099.805681089118
+61: SARIMA(0, 1, 0)x(1, 0, 0, 24) - AIC: 11963.609607235874
+62: SARIMA(0, 1, 0)x(1, 0, 1, 24) - AIC: 11920.926773147514
+63: SARIMA(0, 1, 0)x(1, 0, 2, 24) - AIC: 11010.144105060715
+64: SARIMA(0, 1, 0)x(1, 1, 0, 24) - AIC: 11155.92841106723
+65: SARIMA(0, 1, 0)x(1, 1, 1, 24) - AIC: 11034.097545700679
+66: SARIMA(0, 1, 0)x(1, 1, 2, 24) - AIC: 10103.022894961534
+67: SARIMA(0, 1, 0)x(2, 0, 0, 24) - AIC: 11035.11673696302
+68: SARIMA(0, 1, 0)x(2, 0, 1, 24) - AIC: 11037.22684743172
+69: SARIMA(0, 1, 0)x(2, 0, 2, 24) - AIC: 11008.37168292201
+70: SARIMA(0, 1, 0)x(2, 1, 0, 24) - AIC: 10187.824884847878
+71: SARIMA(0, 1, 0)x(2, 1, 1, 24) - AIC: 10144.07013242143
+72: SARIMA(0, 1, 0)x(2, 1, 2, 24) - AIC: 10109.404592311172
+73: SARIMA(0, 1, 1)x(0, 0, 0, 24) - AIC: 12792.541618198775
+74: SARIMA(0, 1, 1)x(0, 0, 1, 24) - AIC: 11876.914816452429
+75: SARIMA(0, 1, 1)x(0, 0, 2, 24) - AIC: 10955.556628748736
+76: SARIMA(0, 1, 1)x(0, 1, 0, 24) - AIC: 12104.329854610336
+77: SARIMA(0, 1, 1)x(0, 1, 1, 24) - AIC: 11033.292909772194
+78: SARIMA(0, 1, 1)x(0, 1, 2, 24) - AIC: 10103.272382650848
+79: SARIMA(0, 1, 1)x(1, 0, 0, 24) - AIC: 11957.935007557584
+80: SARIMA(0, 1, 1)x(1, 0, 1, 24) - AIC: 11878.757083275019
+81: SARIMA(0, 1, 1)x(1, 0, 2, 24) - AIC: 10957.173663965095
+82: SARIMA(0, 1, 1)x(1, 1, 0, 24) - AIC: 11166.01019670201
+83: SARIMA(0, 1, 1)x(1, 1, 1, 24) - AIC: 11034.04987135158
+84: SARIMA(0, 1, 1)x(1, 1, 2, 24) - AIC: 10104.901281141994
+85: SARIMA(0, 1, 1)x(2, 0, 0, 24) - AIC: 11031.814084037112
+86: SARIMA(0, 1, 1)x(2, 0, 1, 24) - AIC: 11033.3618546867
+87: SARIMA(0, 1, 1)x(2, 0, 2, 24) - AIC: 10956.202762218018
+88: SARIMA(0, 1, 1)x(2, 1, 0, 24) - AIC: 10210.402526141597
+89: SARIMA(0, 1, 1)x(2, 1, 1, 24) - AIC: 10181.551618325506
+90: SARIMA(0, 1, 1)x(2, 1, 2, 24) - AIC: 10106.045171518934
+91: SARIMA(0, 1, 2)x(0, 0, 0, 24) - AIC: 12687.384327175532
+92: SARIMA(0, 1, 2)x(0, 0, 1, 24) - AIC: 11776.367969107974
+93: SARIMA(0, 1, 2)x(0, 0, 2, 24) - AIC: 10867.547092226108
+94: SARIMA(0, 1, 2)x(0, 1, 0, 24) - AIC: 12005.846901168132
+95: SARIMA(0, 1, 2)x(0, 1, 1, 24) - AIC: 10967.162041546824
+96: SARIMA(0, 1, 2)x(0, 1, 2, 24) - AIC: 10032.637052858248
+97: SARIMA(0, 1, 2)x(1, 0, 0, 24) - AIC: 11892.076648010054
+98: SARIMA(0, 1, 2)x(1, 0, 1, 24) - AIC: 11775.656084584069
+99: SARIMA(0, 1, 2)x(1, 0, 2, 24) - AIC: 10869.52098932302
+100: SARIMA(0, 1, 2)x(1, 1, 0, 24) - AIC: 11114.851357573894
+101: SARIMA(0, 1, 2)x(1, 1, 1, 24) - AIC: 10966.487693695006
+102: SARIMA(0, 1, 2)x(1, 1, 2, 24) - AIC: 10034.617598483781
+103: SARIMA(0, 1, 2)x(2, 0, 0, 24) - AIC: 10980.659186794977
+104: SARIMA(0, 1, 2)x(2, 0, 1, 24) - AIC: 10981.361939871771 (warning)
+105: SARIMA(0, 1, 2)x(2, 0, 2, 24) - AIC: 10869.394018781493 (warning)
+106: SARIMA(0, 1, 2)x(2, 1, 0, 24) - AIC: 10164.836694763126
+107: SARIMA(0, 1, 2)x(2, 1, 1, 24) - AIC: 10151.779630118652
+108: SARIMA(0, 1, 2)x(2, 1, 2, 24) - AIC: 10035.68489658965
+109: SARIMA(1, 0, 0)x(0, 0, 0, 24) - AIC: 12904.821225656226
+110: SARIMA(1, 0, 0)x(0, 0, 1, 24) - AIC: 11983.042040749293
+111: SARIMA(1, 0, 0)x(0, 0, 2, 24) - AIC: 11052.19666300674
+112: SARIMA(1, 0, 0)x(0, 1, 0, 24) - AIC: 12111.033327775265
+113: SARIMA(1, 0, 0)x(0, 1, 1, 24) - AIC: 11065.427099697894
+114: SARIMA(1, 0, 0)x(0, 1, 2, 24) - AIC: 10129.88886471973
+115: SARIMA(1, 0, 0)x(1, 0, 0, 24) - AIC: 11976.559488338704
+116: SARIMA(1, 0, 0)x(1, 0, 1, 24) - AIC: 11936.547651380912
+117: SARIMA(1, 0, 0)x(1, 0, 2, 24) - AIC: 11018.659536702391
+118: SARIMA(1, 0, 0)x(1, 1, 0, 24) - AIC: 11100.4142651463
+119: SARIMA(1, 0, 0)x(1, 1, 1, 24) - AIC: 11065.721700411603
+120: SARIMA(1, 0, 0)x(1, 1, 2, 24) - AIC: 10131.6956169263
+121: SARIMA(1, 0, 0)x(2, 0, 0, 24) - AIC: 11039.481645817297
+122: SARIMA(1, 0, 0)x(2, 0, 1, 24) - AIC: 11018.648718165707
+123: SARIMA(1, 0, 0)x(2, 0, 2, 24) - AIC: 11015.894932502368
+124: SARIMA(1, 0, 0)x(2, 1, 0, 24) - AIC: 10147.391559324427
+125: SARIMA(1, 0, 0)x(2, 1, 1, 24) - AIC: 10130.963815853704
+126: SARIMA(1, 0, 0)x(2, 1, 2, 24) - AIC: 10132.38880114536
+127: SARIMA(1, 0, 1)x(0, 0, 0, 24) - AIC: 12864.692604850305
+128: SARIMA(1, 0, 1)x(0, 0, 1, 24) - AIC: 11943.942387090012
+129: SARIMA(1, 0, 1)x(0, 0, 2, 24) - AIC: 11006.765658767124
+130: SARIMA(1, 0, 1)x(0, 1, 0, 24) - AIC: 12065.46517090494
+131: SARIMA(1, 0, 1)x(0, 1, 1, 24) - AIC: 11022.85853353671
+132: SARIMA(1, 0, 1)x(0, 1, 2, 24) - AIC: 10082.152461453621
+133: SARIMA(1, 0, 1)x(1, 0, 0, 24) - AIC: 11974.104052841514
+122: SARIMA(1, 0, 0)x(2, 0, 1, 24) - AIC: 1367.2012950348715 (warning)
+123: SARIMA(1, 0, 0)x(2, 0, 2, 24) - AIC: 1366.0908871862816 (warning)
+124: SARIMA(1, 0, 0)x(2, 1, 0, 24) - AIC: 431.230009596802
+125: SARIMA(1, 0, 0)x(2, 1, 1, 24) - AIC: 433.21815264947634 (warning)
+126: SARIMA(1, 0, 0)x(2, 1, 2, 24) - AIC: 435.2181526584718 (warning)
+127: SARIMA(1, 0, 1)x(0, 0, 0, 24) - AIC: 3156.250464609949
+128: SARIMA(1, 0, 1)x(0, 0, 1, 24) - AIC: 2246.311728713104 (warning)
+129: SARIMA(1, 0, 1)x(0, 0, 2, 24) - AIC: 1314.9397172082006 (warning)
+130: SARIMA(1, 0, 1)x(0, 1, 0, 24) - AIC: 2258.3736308237617
+131: SARIMA(1, 0, 1)x(0, 1, 1, 24) - AIC: 1321.0745670204844 (warning)
+132: SARIMA(1, 0, 1)x(0, 1, 2, 24) - AIC: 393.56175206147435 (warning)
+133: SARIMA(1, 0, 1)x(1, 0, 0, 24) - AIC: 2283.4564831333323
+134: SARIMA(1, 0, 1)x(1, 0, 1, 24) - AIC: 2243.360567272934 (warning)
+135: SARIMA(1, 0, 1)x(1, 0, 2, 24) - AIC: 1315.6298220207914 (warning)
+136: SARIMA(1, 0, 1)x(1, 1, 0, 24) - AIC: 1361.5791811720724
+137: SARIMA(1, 0, 1)x(1, 1, 1, 24) - AIC: 1321.824758881411 (warning)
+138: SARIMA(1, 0, 1)x(1, 1, 2, 24) - AIC: 395.17036246291264 (warning)
+139: SARIMA(1, 0, 1)x(2, 0, 0, 24) - AIC: 1356.0482842848173
+140: SARIMA(1, 0, 1)x(2, 0, 1, 24) - AIC: 1356.4692845618988 (warning)
+141: SARIMA(1, 0, 1)x(2, 0, 2, 24) - AIC: 1315.7456071413417 (warning)
+142: SARIMA(1, 0, 1)x(2, 1, 0, 24) - AIC: 432.0365092914786
+143: SARIMA(1, 0, 1)x(2, 1, 1, 24) - AIC: 434.01177035116694 (warning)
+144: SARIMA(1, 0, 1)x(2, 1, 2, 24) - AIC: 396.9260401605841 (warning)
+145: SARIMA(1, 0, 2)x(0, 0, 0, 24) - AIC: 3116.2765828704382
+146: SARIMA(1, 0, 2)x(0, 0, 1, 24) - AIC: 2207.6478161766495 (warning)
+147: SARIMA(1, 0, 2)x(0, 0, 2, 24) - AIC: 1273.6121567656621 (warning)
+148: SARIMA(1, 0, 2)x(0, 1, 0, 24) - AIC: 2221.921692281284
+149: SARIMA(1, 0, 2)x(0, 1, 1, 24) - AIC: 1281.3108519505847 (warning)
+150: SARIMA(1, 0, 2)x(0, 1, 2, 24) - AIC: 357.59932540870636 (warning)
+151: SARIMA(1, 0, 2)x(1, 0, 0, 24) - AIC: 2280.724259421217
+152: SARIMA(1, 0, 2)x(1, 0, 1, 24) - AIC: 2194.02025974991 (warning)
+153: SARIMA(1, 0, 2)x(1, 0, 2, 24) - AIC: 1275.445932584449 (warning)
+154: SARIMA(1, 0, 2)x(1, 1, 0, 24) - AIC: 1362.2963340641727
+155: SARIMA(1, 0, 2)x(1, 1, 1, 24) - AIC: 1281.6011978413665 (warning)
+156: SARIMA(1, 0, 2)x(1, 1, 2, 24) - AIC: 359.6565632808184 (warning)
+157: SARIMA(1, 0, 2)x(2, 0, 0, 24) - AIC: 1357.2204573477727
+158: SARIMA(1, 0, 2)x(2, 0, 1, 24) - AIC: 1356.7726907391962 (warning)
+159: SARIMA(1, 0, 2)x(2, 0, 2, 24) - AIC: 1277.4306563841087 (warning)
+160: SARIMA(1, 0, 2)x(2, 1, 0, 24) - AIC: 434.35385167447555
+161: SARIMA(1, 0, 2)x(2, 1, 1, 24) - AIC: 436.32375366894865 (warning)
+162: SARIMA(1, 0, 2)x(2, 1, 2, 24) - AIC: 361.53102655689986 (warning)
+163: SARIMA(1, 1, 0)x(0, 0, 0, 24) - AIC: 3158.7797755163524
+164: SARIMA(1, 1, 0)x(0, 0, 1, 24) - AIC: 2242.5481345774333 (warning)
+165: SARIMA(1, 1, 0)x(0, 0, 2, 24) - AIC: 1308.383611521779 (warning)
+166: SARIMA(1, 1, 0)x(0, 1, 0, 24) - AIC: 2279.410644101443
+167: SARIMA(1, 1, 0)x(0, 1, 1, 24) - AIC: 1323.8674213269128 (warning)
+168: SARIMA(1, 1, 0)x(0, 1, 2, 24) - AIC: 396.4128341706985 (warning)
+169: SARIMA(1, 1, 0)x(1, 0, 0, 24) - AIC: 2244.2104490950137
+170: SARIMA(1, 1, 0)x(1, 0, 1, 24) - AIC: 2234.53207874296 (warning)
+171: SARIMA(1, 1, 0)x(1, 0, 2, 24) - AIC: 1309.0433784530128 (warning)
+172: SARIMA(1, 1, 0)x(1, 1, 0, 24) - AIC: 1329.8852321118702
+173: SARIMA(1, 1, 0)x(1, 1, 1, 24) - AIC: 1325.223564442451 (warning)
+174: SARIMA(1, 1, 0)x(1, 1, 2, 24) - AIC: 397.9908450300912 (warning)
+175: SARIMA(1, 1, 0)x(2, 0, 0, 24) - AIC: 1308.3798395277195
+176: SARIMA(1, 1, 0)x(2, 0, 1, 24) - AIC: 1309.571075397771 (warning)
+177: SARIMA(1, 1, 0)x(2, 0, 2, 24) - AIC: 1308.3978904312503 (warning)
+178: SARIMA(1, 1, 0)x(2, 1, 0, 24) - AIC: 396.2236813219544
+179: SARIMA(1, 1, 0)x(2, 1, 1, 24) - AIC: 397.8751070108113 (warning)
+180: SARIMA(1, 1, 0)x(2, 1, 2, 24) - AIC: 399.8751069854891 (warning)
+181: SARIMA(1, 1, 1)x(0, 0, 0, 24) - AIC: 3108.114730121518
+182: SARIMA(1, 1, 1)x(0, 0, 1, 24) - AIC: 2193.280951117924 (warning)
+183: SARIMA(1, 1, 1)x(0, 0, 2, 24) - AIC: 1271.8933393928326 (warning)
+184: SARIMA(1, 1, 1)x(0, 1, 0, 24) - AIC: 2229.1547519809556
+185: SARIMA(1, 1, 1)x(0, 1, 1, 24) - AIC: 1284.9445811364699 (warning)
+186: SARIMA(1, 1, 1)x(0, 1, 2, 24) - AIC: 359.7788167176442 (warning)
+187: SARIMA(1, 1, 1)x(1, 0, 0, 24) - AIC: 2231.283223526465
+188: SARIMA(1, 1, 1)x(1, 0, 1, 24) - AIC: 2193.6627081453353 (warning)
+189: SARIMA(1, 1, 1)x(1, 0, 2, 24) - AIC: 1272.6721422960977 (warning)
+190: SARIMA(1, 1, 1)x(1, 1, 0, 24) - AIC: 1327.5211253141345
+191: SARIMA(1, 1, 1)x(1, 1, 1, 24) - AIC: 1285.7957156734803 (warning)
+192: SARIMA(1, 1, 1)x(1, 1, 2, 24) - AIC: 360.770847545929 (warning)
+193: SARIMA(1, 1, 1)x(2, 0, 0, 24) - AIC: 1309.8002127536063
+194: SARIMA(1, 1, 1)x(2, 0, 1, 24) - AIC: 1311.3105198891326 (warning)
+195: SARIMA(1, 1, 1)x(2, 0, 2, 24) - AIC: 1272.7538114879715 (warning)
+196: SARIMA(1, 1, 1)x(2, 1, 0, 24) - AIC: 397.61775179762583
+197: SARIMA(1, 1, 1)x(2, 1, 1, 24) - AIC: 399.05854611309866 (warning)
+198: SARIMA(1, 1, 1)x(2, 1, 2, 24) - AIC: 362.66747175134265 (warning)
+199: SARIMA(1, 1, 2)x(0, 0, 0, 24) - AIC: 3055.522125777561
+200: SARIMA(1, 1, 2)x(0, 0, 1, 24) - AIC: 2142.5354435693953 (warning)
+201: SARIMA(1, 1, 2)x(0, 0, 2, 24) - AIC: 1227.2702263651915 (warning)
+202: SARIMA(1, 1, 2)x(0, 1, 0, 24) - AIC: 2185.2345975415606
+203: SARIMA(1, 1, 2)x(0, 1, 1, 24) - AIC: 1245.644228781567 (warning)
+204: SARIMA(1, 1, 2)x(0, 1, 2, 24) - AIC: 320.88393898013226 (warning)
+205: SARIMA(1, 1, 2)x(1, 0, 0, 24) - AIC: 2219.3754931562216
+206: SARIMA(1, 1, 2)x(1, 0, 1, 24) - AIC: 2142.626309227011 (warning)
+207: SARIMA(1, 1, 2)x(1, 0, 2, 24) - AIC: 1229.267826368015 (warning)
+208: SARIMA(1, 1, 2)x(1, 1, 0, 24) - AIC: 1324.7223688865497
+209: SARIMA(1, 1, 2)x(1, 1, 1, 24) - AIC: 1245.5253573241084 (warning)
+210: SARIMA(1, 1, 2)x(1, 1, 2, 24) - AIC: 322.80774359476504 (warning)
+211: SARIMA(1, 1, 2)x(2, 0, 0, 24) - AIC: 1302.3323172314217
+212: SARIMA(1, 1, 2)x(2, 0, 1, 24) - AIC: 1303.7723926850217 (warning)
+213: SARIMA(1, 1, 2)x(2, 0, 2, 24) - AIC: 1230.097293466132 (warning)
+214: SARIMA(1, 1, 2)x(2, 1, 0, 24) - AIC: 396.7167817744245 (warning)
+215: SARIMA(1, 1, 2)x(2, 1, 1, 24) - AIC: 398.9791312555234 (warning)
+216: SARIMA(1, 1, 2)x(2, 1, 2, 24) - AIC: 324.7915454666552 (warning)
+217: SARIMA(2, 0, 0)x(0, 0, 0, 24) - AIC: 3158.135041106298
+218: SARIMA(2, 0, 0)x(0, 0, 1, 24) - AIC: 2287.660852765879 (warning)
+219: SARIMA(2, 0, 0)x(0, 0, 2, 24) - AIC: 1367.3166620490608 (warning)
+220: SARIMA(2, 0, 0)x(0, 1, 0, 24) - AIC: 2260.1019213338404
+221: SARIMA(2, 0, 0)x(0, 1, 1, 24) - AIC: 1365.4038027163915 (warning)
+222: SARIMA(2, 0, 0)x(0, 1, 2, 24) - AIC: 432.7133276053744 (warning)
+223: SARIMA(2, 0, 0)x(1, 0, 0, 24) - AIC: 2250.5658417682066
+224: SARIMA(2, 0, 0)x(1, 0, 1, 24) - AIC: 2252.16878411304 (warning)
+225: SARIMA(2, 0, 0)x(1, 0, 2, 24) - AIC: 1368.6192687539174 (warning)
+226: SARIMA(2, 0, 0)x(1, 1, 0, 24) - AIC: 1323.5298820540945
+227: SARIMA(2, 0, 0)x(1, 1, 1, 24) - AIC: 1322.505648679415 (warning)
+228: SARIMA(2, 0, 0)x(1, 1, 2, 24) - AIC: 434.70892748609083 (warning)
+229: SARIMA(2, 0, 0)x(2, 0, 0, 24) - AIC: 1318.622974018874
+230: SARIMA(2, 0, 0)x(2, 0, 1, 24) - AIC: 1315.2957117384428 (warning)
+231: SARIMA(2, 0, 0)x(2, 0, 2, 24) - AIC: 1314.0176510103258 (warning)
+232: SARIMA(2, 0, 0)x(2, 1, 0, 24) - AIC: 393.7088688193669
+233: SARIMA(2, 0, 0)x(2, 1, 1, 24) - AIC: 395.70736041821283 (warning)
+234: SARIMA(2, 0, 0)x(2, 1, 2, 24) - AIC: 397.7073604227745 (warning)
+235: SARIMA(2, 0, 1)x(0, 0, 0, 24) - AIC: 3157.5983046177403
+236: SARIMA(2, 0, 1)x(0, 0, 1, 24) - AIC: 2247.9960971265627 (warning)
+237: SARIMA(2, 0, 1)x(0, 0, 2, 24) - AIC: 1316.2298461984021 (warning)
+238: SARIMA(2, 0, 1)x(0, 1, 0, 24) - AIC: 2259.9883366473045 (warning)
+239: SARIMA(2, 0, 1)x(0, 1, 1, 24) - AIC: 1321.503997735126 (warning)
+240: SARIMA(2, 0, 1)x(0, 1, 2, 24) - AIC: 394.86107119504203 (warning)
+241: SARIMA(2, 0, 1)x(1, 0, 0, 24) - AIC: 2247.708927943349
+242: SARIMA(2, 0, 1)x(1, 0, 1, 24) - AIC: 2245.3205636548428 (warning)
+243: SARIMA(2, 0, 1)x(1, 0, 2, 24) - AIC: 1317.4757870450221 (warning)
+129: SARIMA(1, 0, 1)x(0, 0, 2, 24) - AIC: 4576.863046086535 (warning)
+130: SARIMA(1, 0, 1)x(0, 1, 0, 24) - AIC: 5567.49508986326
+131: SARIMA(1, 0, 1)x(0, 1, 1, 24) - AIC: 4592.41635537055
+132: SARIMA(1, 0, 1)x(0, 1, 2, 24) - AIC: 3648.8529577214526 (warning)
+133: SARIMA(1, 0, 1)x(1, 0, 0, 24) - AIC: 5542.081168308498
+134: SARIMA(1, 0, 1)x(1, 0, 1, 24) - AIC: 5485.753298587277
+135: SARIMA(1, 0, 1)x(1, 0, 2, 24) - AIC: 4565.6883432450495 (warning)
+136: SARIMA(1, 0, 1)x(1, 1, 0, 24) - AIC: 4639.49576763929
+137: SARIMA(1, 0, 1)x(1, 1, 1, 24) - AIC: 4594.299831922748
+138: SARIMA(1, 0, 1)x(1, 1, 2, 24) - AIC: 3649.592663515755 (warning)
+139: SARIMA(1, 0, 1)x(2, 0, 0, 24) - AIC: 4618.250042717989
+140: SARIMA(1, 0, 1)x(2, 0, 1, 24) - AIC: 4604.882785659926 (warning)
+141: SARIMA(1, 0, 1)x(2, 0, 2, 24) - AIC: 4568.778750946057 (warning)
+142: SARIMA(1, 0, 1)x(2, 1, 0, 24) - AIC: 3699.651184342725
+143: SARIMA(1, 0, 1)x(2, 1, 1, 24) - AIC: 3696.118442535951
+144: SARIMA(1, 0, 1)x(2, 1, 2, 24) - AIC: 3650.7653406914087 (warning)
+145: SARIMA(1, 0, 2)x(0, 0, 0, 24) - AIC: 6382.011590996269
+146: SARIMA(1, 0, 2)x(0, 0, 1, 24) - AIC: 5469.7606867866325
+147: SARIMA(1, 0, 2)x(0, 0, 2, 24) - AIC: 4540.948206373898 (warning)
+148: SARIMA(1, 0, 2)x(0, 1, 0, 24) - AIC: 5529.5772676009765
+149: SARIMA(1, 0, 2)x(0, 1, 1, 24) - AIC: 4554.355871768813
+150: SARIMA(1, 0, 2)x(0, 1, 2, 24) - AIC: 3613.790873242158 (warning)
+151: SARIMA(1, 0, 2)x(1, 0, 0, 24) - AIC: 5543.58086742173
+152: SARIMA(1, 0, 2)x(1, 0, 1, 24) - AIC: 5446.822216819842
+153: SARIMA(1, 0, 2)x(1, 0, 2, 24) - AIC: 4528.421655536823 (warning)
+154: SARIMA(1, 0, 2)x(1, 1, 0, 24) - AIC: 4640.647684551268
+155: SARIMA(1, 0, 2)x(1, 1, 1, 24) - AIC: 4554.030647054935 (warning)
+156: SARIMA(1, 0, 2)x(1, 1, 2, 24) - AIC: 3615.1482232178714 (warning)
+157: SARIMA(1, 0, 2)x(2, 0, 0, 24) - AIC: 4619.315746534779
+158: SARIMA(1, 0, 2)x(2, 0, 1, 24) - AIC: 4605.141309236395
+159: SARIMA(1, 0, 2)x(2, 0, 2, 24) - AIC: 4530.60378635824 (warning)
+160: SARIMA(1, 0, 2)x(2, 1, 0, 24) - AIC: 3700.954302787193
+161: SARIMA(1, 0, 2)x(2, 1, 1, 24) - AIC: 3697.959772668466
+162: SARIMA(1, 0, 2)x(2, 1, 2, 24) - AIC: 3617.0058948255282 (warning)
+163: SARIMA(1, 1, 0)x(0, 0, 0, 24) - AIC: 6413.867623229918
+164: SARIMA(1, 1, 0)x(0, 0, 1, 24) - AIC: 5496.801667698084
+165: SARIMA(1, 1, 0)x(0, 0, 2, 24) - AIC: 4569.525514638466 (warning)
+166: SARIMA(1, 1, 0)x(0, 1, 0, 24) - AIC: 5598.35741228259
+167: SARIMA(1, 1, 0)x(0, 1, 1, 24) - AIC: 4607.53858287349
+168: SARIMA(1, 1, 0)x(0, 1, 2, 24) - AIC: 3676.379051038562 (warning)
+169: SARIMA(1, 1, 0)x(1, 0, 0, 24) - AIC: 5496.977648461025
+170: SARIMA(1, 1, 0)x(1, 0, 1, 24) - AIC: 5490.2819713951485
+171: SARIMA(1, 1, 0)x(1, 0, 2, 24) - AIC: 4565.981987220091 (warning)
+172: SARIMA(1, 1, 0)x(1, 1, 0, 24) - AIC: 4628.322198524635
+173: SARIMA(1, 1, 0)x(1, 1, 1, 24) - AIC: 4609.510190275342
+174: SARIMA(1, 1, 0)x(1, 1, 2, 24) - AIC: 3677.3594374085974 (warning)
+175: SARIMA(1, 1, 0)x(2, 0, 0, 24) - AIC: 4570.888943167324
+176: SARIMA(1, 1, 0)x(2, 0, 1, 24) - AIC: 4564.970927062699
+177: SARIMA(1, 1, 0)x(2, 0, 2, 24) - AIC: 4564.188688973895 (warning)
+178: SARIMA(1, 1, 0)x(2, 1, 0, 24) - AIC: 3687.2633437287773
+179: SARIMA(1, 1, 0)x(2, 1, 1, 24) - AIC: 3677.8736642888384
+180: SARIMA(1, 1, 0)x(2, 1, 2, 24) - AIC: 3679.350187282997 (warning)
+181: SARIMA(1, 1, 1)x(0, 0, 0, 24) - AIC: 6344.695628587297
+182: SARIMA(1, 1, 1)x(0, 0, 1, 24) - AIC: 5425.155836305694
+183: SARIMA(1, 1, 1)x(0, 0, 2, 24) - AIC: 4507.667528058957 (warning)
+184: SARIMA(1, 1, 1)x(0, 1, 0, 24) - AIC: 5537.385029595183
+185: SARIMA(1, 1, 1)x(0, 1, 1, 24) - AIC: 4563.875366635235
+186: SARIMA(1, 1, 1)x(0, 1, 2, 24) - AIC: 3631.9070819601407 (warning)
+187: SARIMA(1, 1, 1)x(1, 0, 0, 24) - AIC: 5462.559001021809
+188: SARIMA(1, 1, 1)x(1, 0, 1, 24) - AIC: 5427.124733744985
+189: SARIMA(1, 1, 1)x(1, 0, 2, 24) - AIC: 4508.8856744726345 (warning)
+190: SARIMA(1, 1, 1)x(1, 1, 0, 24) - AIC: 4611.372304267369
+191: SARIMA(1, 1, 1)x(1, 1, 1, 24) - AIC: 4565.348463463666
+192: SARIMA(1, 1, 1)x(1, 1, 2, 24) - AIC: 3632.445449242833 (warning)
+193: SARIMA(1, 1, 1)x(2, 0, 0, 24) - AIC: 4546.119608252576
+194: SARIMA(1, 1, 1)x(2, 0, 1, 24) - AIC: 4547.804953341928
+195: SARIMA(1, 1, 1)x(2, 0, 2, 24) - AIC: 4510.6575940007615 (warning)
+196: SARIMA(1, 1, 1)x(2, 1, 0, 24) - AIC: 3673.9463340820057
+197: SARIMA(1, 1, 1)x(2, 1, 1, 24) - AIC: 3671.7154557921463
+198: SARIMA(1, 1, 1)x(2, 1, 2, 24) - AIC: 3633.679131133517 (warning)
+199: SARIMA(1, 1, 2)x(0, 0, 0, 24) - AIC: 6297.453843405003
+200: SARIMA(1, 1, 2)x(0, 0, 1, 24) - AIC: 5381.075023346808
+201: SARIMA(1, 1, 2)x(0, 0, 2, 24) - AIC: 4470.086362356556 (warning)
+202: SARIMA(1, 1, 2)x(0, 1, 0, 24) - AIC: 5495.056782678742
+203: SARIMA(1, 1, 2)x(0, 1, 1, 24) - AIC: 4518.089081235148
+204: SARIMA(1, 1, 2)x(0, 1, 2, 24) - AIC: 3585.113976940284 (warning)
+205: SARIMA(1, 1, 2)x(1, 0, 0, 24) - AIC: 5456.650275806125
+206: SARIMA(1, 1, 2)x(1, 0, 1, 24) - AIC: 5383.099407424772
+207: SARIMA(1, 1, 2)x(1, 0, 2, 24) - AIC: 4470.173411451154 (warning)
+208: SARIMA(1, 1, 2)x(1, 1, 0, 24) - AIC: 4606.570530775127
+209: SARIMA(1, 1, 2)x(1, 1, 1, 24) - AIC: 4519.882723706096
+210: SARIMA(1, 1, 2)x(1, 1, 2, 24) - AIC: 3587.2439596461536 (warning)
+211: SARIMA(1, 1, 2)x(2, 0, 0, 24) - AIC: 4545.4294394474755
+212: SARIMA(1, 1, 2)x(2, 0, 1, 24) - AIC: 4547.422541356964
+213: SARIMA(1, 1, 2)x(2, 0, 2, 24) - AIC: 4471.995813252947 (warning)
+214: SARIMA(1, 1, 2)x(2, 1, 0, 24) - AIC: 3669.796802497775
+215: SARIMA(1, 1, 2)x(2, 1, 1, 24) - AIC: 3666.23365170446
+216: SARIMA(1, 1, 2)x(2, 1, 2, 24) - AIC: 3588.8566865741377 (warning)
+217: SARIMA(2, 0, 0)x(0, 0, 0, 24) - AIC: 6417.798249339884
+218: SARIMA(2, 0, 0)x(0, 0, 1, 24) - AIC: 5544.0686008405455
+219: SARIMA(2, 0, 0)x(0, 0, 2, 24) - AIC: 4620.959275238892 (warning)
+220: SARIMA(2, 0, 0)x(0, 1, 0, 24) - AIC: 5567.554322167922
+221: SARIMA(2, 0, 0)x(0, 1, 1, 24) - AIC: 4632.9388051579
+222: SARIMA(2, 0, 0)x(0, 1, 2, 24) - AIC: 3695.454667187216 (warning)
+223: SARIMA(2, 0, 0)x(1, 0, 0, 24) - AIC: 5504.652569611835
+224: SARIMA(2, 0, 0)x(1, 0, 1, 24) - AIC: 5494.436941827538
+225: SARIMA(2, 0, 0)x(1, 0, 2, 24) - AIC: 4615.729772209137 (warning)
+226: SARIMA(2, 0, 0)x(1, 1, 0, 24) - AIC: 4600.356429901777
+227: SARIMA(2, 0, 0)x(1, 1, 1, 24) - AIC: 4594.48395142419
+228: SARIMA(2, 0, 0)x(1, 1, 2, 24) - AIC: 3696.810547121722 (warning)
+229: SARIMA(2, 0, 0)x(2, 0, 0, 24) - AIC: 4575.080269806456
+230: SARIMA(2, 0, 0)x(2, 0, 1, 24) - AIC: 4572.057110786546 (warning)
+231: SARIMA(2, 0, 0)x(2, 0, 2, 24) - AIC: 4574.595132990544 (warning)
+232: SARIMA(2, 0, 0)x(2, 1, 0, 24) - AIC: 3658.872790321814
+233: SARIMA(2, 0, 0)x(2, 1, 1, 24) - AIC: 3655.268593456239
+234: SARIMA(2, 0, 0)x(2, 1, 2, 24) - AIC: 3654.9789609185964 (warning)
+235: SARIMA(2, 0, 1)x(0, 0, 0, 24) - AIC: 6419.339398574208
+236: SARIMA(2, 0, 1)x(0, 0, 1, 24) - AIC: 5506.310216135967
+237: SARIMA(2, 0, 1)x(0, 0, 2, 24) - AIC: 4576.95112931641 (warning)
+238: SARIMA(2, 0, 1)x(0, 1, 0, 24) - AIC: 5563.52831907441 (warning)
+239: SARIMA(2, 0, 1)x(0, 1, 1, 24) - AIC: 4592.110867779372 (warning)
+240: SARIMA(2, 0, 1)x(0, 1, 2, 24) - AIC: 3650.370634009983 (warning)
+241: SARIMA(2, 0, 1)x(1, 0, 0, 24) - AIC: 5504.12932575032
+242: SARIMA(2, 0, 1)x(1, 0, 1, 24) - AIC: 5483.3043928252255 (warning)
+243: SARIMA(2, 0, 1)x(1, 0, 2, 24) - AIC: 4561.521408556853 (warning)
+244: SARIMA(2, 0, 1)x(1, 1, 0, 24) - AIC: 4597.218143248318 (warning)
+245: SARIMA(2, 0, 1)x(1, 1, 1, 24) - AIC: 4593.14392832062 (warning)
+246: SARIMA(2, 0, 1)x(1, 1, 2, 24) - AIC: 3651.182670288273 (warning)
+247: SARIMA(2, 0, 1)x(2, 0, 0, 24) - AIC: 4574.414472589552
+248: SARIMA(2, 0, 1)x(2, 0, 1, 24) - AIC: 4561.482478305523 (warning)
+249: SARIMA(2, 0, 1)x(2, 0, 2, 24) - AIC: 4565.512648862715 (warning)
+250: SARIMA(2, 0, 1)x(2, 1, 0, 24) - AIC: 3658.1258889035325 (warning)
+251: SARIMA(2, 0, 1)x(2, 1, 1, 24) - AIC: 3654.0850892872377 (warning)
+252: SARIMA(2, 0, 1)x(2, 1, 2, 24) - AIC: 3652.295307598429 (warning)
+253: SARIMA(2, 0, 2)x(0, 0, 0, 24) - AIC: 6383.623749385677
+254: SARIMA(2, 0, 2)x(0, 0, 1, 24) - AIC: 5470.380012187834
+255: SARIMA(2, 0, 2)x(0, 0, 2, 24) - AIC: 4540.726297676208 (warning)
+256: SARIMA(2, 0, 2)x(0, 1, 0, 24) - AIC: 5526.050678907846 (warning)
+134: SARIMA(1, 0, 1)x(1, 0, 1, 24) - AIC: 11887.991318415772
+135: SARIMA(1, 0, 1)x(1, 0, 2, 24) - AIC: 10967.391812730753
+136: SARIMA(1, 0, 1)x(1, 1, 0, 24) - AIC: 11093.809822893067
+137: SARIMA(1, 0, 1)x(1, 1, 1, 24) - AIC: 11022.779917182736
+138: SARIMA(1, 0, 1)x(1, 1, 2, 24) - AIC: 10083.72485337299
+139: SARIMA(1, 0, 1)x(2, 0, 0, 24) - AIC: 11035.797250838026
+140: SARIMA(1, 0, 1)x(2, 0, 1, 24) - AIC: 11009.992234130534
+141: SARIMA(1, 0, 1)x(2, 0, 2, 24) - AIC: 10967.032855603366 (warning)
+142: SARIMA(1, 0, 1)x(2, 1, 0, 24) - AIC: 10140.271915639201
+143: SARIMA(1, 0, 1)x(2, 1, 1, 24) - AIC: 10127.321562396904
+144: SARIMA(1, 0, 1)x(2, 1, 2, 24) - AIC: 10084.310707882692
+145: SARIMA(1, 0, 2)x(0, 0, 0, 24) - AIC: 12829.118279759707
+146: SARIMA(1, 0, 2)x(0, 0, 1, 24) - AIC: 11908.44543168601
+147: SARIMA(1, 0, 2)x(0, 0, 2, 24) - AIC: 10970.859337482254
+148: SARIMA(1, 0, 2)x(0, 1, 0, 24) - AIC: 12028.510887920103
+149: SARIMA(1, 0, 2)x(0, 1, 1, 24) - AIC: 10984.785158868308
+150: SARIMA(1, 0, 2)x(0, 1, 2, 24) - AIC: 10045.927465663344
+151: SARIMA(1, 0, 2)x(1, 0, 0, 24) - AIC: 11976.131800657873
+152: SARIMA(1, 0, 2)x(1, 0, 1, 24) - AIC: 11847.025918061529
+153: SARIMA(1, 0, 2)x(1, 0, 2, 24) - AIC: 10931.158262465913
+154: SARIMA(1, 0, 2)x(1, 1, 0, 24) - AIC: 11095.146821449125
+155: SARIMA(1, 0, 2)x(1, 1, 1, 24) - AIC: 10984.647202113665
+156: SARIMA(1, 0, 2)x(1, 1, 2, 24) - AIC: 10047.462600950665
+157: SARIMA(1, 0, 2)x(2, 0, 0, 24) - AIC: 11037.80416192761
+158: SARIMA(1, 0, 2)x(2, 0, 1, 24) - AIC: 11009.37095317949
+159: SARIMA(1, 0, 2)x(2, 0, 2, 24) - AIC: 10931.34579162425 (warning)
+160: SARIMA(1, 0, 2)x(2, 1, 0, 24) - AIC: 10142.03668306709
+161: SARIMA(1, 0, 2)x(2, 1, 1, 24) - AIC: 10128.719480604801
+162: SARIMA(1, 0, 2)x(2, 1, 2, 24) - AIC: 10047.988562394678
+163: SARIMA(1, 1, 0)x(0, 0, 0, 24) - AIC: 12833.547965287384
+164: SARIMA(1, 1, 0)x(0, 0, 1, 24) - AIC: 11917.272098098862
+165: SARIMA(1, 1, 0)x(0, 0, 2, 24) - AIC: 10995.298105150303
+166: SARIMA(1, 1, 0)x(0, 1, 0, 24) - AIC: 12145.944976983654
+167: SARIMA(1, 1, 0)x(0, 1, 1, 24) - AIC: 11074.14678046908
+168: SARIMA(1, 1, 0)x(0, 1, 2, 24) - AIC: 10144.142646931072
+169: SARIMA(1, 1, 0)x(1, 0, 0, 24) - AIC: 11917.313921359424
+170: SARIMA(1, 1, 0)x(1, 0, 1, 24) - AIC: 11919.170603151226
+171: SARIMA(1, 1, 0)x(1, 0, 2, 24) - AIC: 10997.068897877401
+172: SARIMA(1, 1, 0)x(1, 1, 0, 24) - AIC: 11126.503032065611
+173: SARIMA(1, 1, 0)x(1, 1, 1, 24) - AIC: 11074.984197483032
+174: SARIMA(1, 1, 0)x(1, 1, 2, 24) - AIC: 10145.596672430564
+175: SARIMA(1, 1, 0)x(2, 0, 0, 24) - AIC: 10995.291300054665
+176: SARIMA(1, 1, 0)x(2, 0, 1, 24) - AIC: 10997.280970835125
+177: SARIMA(1, 1, 0)x(2, 0, 2, 24) - AIC: 10996.831642835758
+178: SARIMA(1, 1, 0)x(2, 1, 0, 24) - AIC: 10171.052616444924
+179: SARIMA(1, 1, 0)x(2, 1, 1, 24) - AIC: 10145.275808045297
+180: SARIMA(1, 1, 0)x(2, 1, 2, 24) - AIC: 10146.825474809782
+181: SARIMA(1, 1, 1)x(0, 0, 0, 24) - AIC: 12739.76302635139
+182: SARIMA(1, 1, 1)x(0, 0, 1, 24) - AIC: 11820.96593999293
+183: SARIMA(1, 1, 1)x(0, 0, 2, 24) - AIC: 10904.114107512036
+184: SARIMA(1, 1, 1)x(0, 1, 0, 24) - AIC: 12054.394389006318
+185: SARIMA(1, 1, 1)x(0, 1, 1, 24) - AIC: 11022.13157920733
+186: SARIMA(1, 1, 1)x(0, 1, 2, 24) - AIC: 10090.032763054296
+187: SARIMA(1, 1, 1)x(1, 0, 0, 24) - AIC: 11858.056278391348
+188: SARIMA(1, 1, 1)x(1, 0, 1, 24) - AIC: 11818.564533769579
+189: SARIMA(1, 1, 1)x(1, 0, 2, 24) - AIC: 10903.784611818894
+190: SARIMA(1, 1, 1)x(1, 1, 0, 24) - AIC: 11089.292530534149
+191: SARIMA(1, 1, 1)x(1, 1, 1, 24) - AIC: 11021.31298426404
+192: SARIMA(1, 1, 1)x(1, 1, 2, 24) - AIC: 10090.745542886234
+193: SARIMA(1, 1, 1)x(2, 0, 0, 24) - AIC: 10942.453761416633
+194: SARIMA(1, 1, 1)x(2, 0, 1, 24) - AIC: 10942.354723791312
+195: SARIMA(1, 1, 1)x(2, 0, 2, 24) - AIC: 10904.916268570814
+196: SARIMA(1, 1, 1)x(2, 1, 0, 24) - AIC: 10140.015811462927
+197: SARIMA(1, 1, 1)x(2, 1, 1, 24) - AIC: 10128.335896851819
+198: SARIMA(1, 1, 1)x(2, 1, 2, 24) - AIC: 10090.145544598132
+199: SARIMA(1, 1, 2)x(0, 0, 0, 24) - AIC: 12685.52091008421
+200: SARIMA(1, 1, 2)x(0, 0, 1, 24) - AIC: 11772.072512368486
+201: SARIMA(1, 1, 2)x(0, 0, 2, 24) - AIC: 10859.49261406259
+202: SARIMA(1, 1, 2)x(0, 1, 0, 24) - AIC: 12004.397775753738
+203: SARIMA(1, 1, 2)x(0, 1, 1, 24) - AIC: 10965.323581968738
+204: SARIMA(1, 1, 2)x(0, 1, 2, 24) - AIC: 10031.328142002838
+205: SARIMA(1, 1, 2)x(1, 0, 0, 24) - AIC: 11847.70283052906
+206: SARIMA(1, 1, 2)x(1, 0, 1, 24) - AIC: 11769.239841145063
+207: SARIMA(1, 1, 2)x(1, 0, 2, 24) - AIC: 10859.191348641049
+208: SARIMA(1, 1, 2)x(1, 1, 0, 24) - AIC: 11073.509814368354
+209: SARIMA(1, 1, 2)x(1, 1, 1, 24) - AIC: 10964.311984604954
+210: SARIMA(1, 1, 2)x(1, 1, 2, 24) - AIC: 10033.223632523015
+211: SARIMA(1, 1, 2)x(2, 0, 0, 24) - AIC: 10935.622519710298
+212: SARIMA(1, 1, 2)x(2, 0, 1, 24) - AIC: 10935.502697627966
+213: SARIMA(1, 1, 2)x(2, 0, 2, 24) - AIC: 10861.284517111886
+214: SARIMA(1, 1, 2)x(2, 1, 0, 24) - AIC: 10123.765623665116
+215: SARIMA(1, 1, 2)x(2, 1, 1, 24) - AIC: 10112.393541863989
+216: SARIMA(1, 1, 2)x(2, 1, 2, 24) - AIC: 10033.057614688734
+217: SARIMA(2, 0, 0)x(0, 0, 0, 24) - AIC: 12864.318574896755
+218: SARIMA(2, 0, 0)x(0, 0, 1, 24) - AIC: 11981.456223256493
+219: SARIMA(2, 0, 0)x(0, 0, 2, 24) - AIC: 11051.003220742099
+220: SARIMA(2, 0, 0)x(0, 1, 0, 24) - AIC: 12066.985323761157
+221: SARIMA(2, 0, 0)x(0, 1, 1, 24) - AIC: 11064.13748415845
+222: SARIMA(2, 0, 0)x(0, 1, 2, 24) - AIC: 10126.36736023341
+223: SARIMA(2, 0, 0)x(1, 0, 0, 24) - AIC: 11936.668421343074
+224: SARIMA(2, 0, 0)x(1, 0, 1, 24) - AIC: 11894.46447169581
+225: SARIMA(2, 0, 0)x(1, 0, 2, 24) - AIC: 11014.95419312807
+226: SARIMA(2, 0, 0)x(1, 1, 0, 24) - AIC: 11053.516412369481
+227: SARIMA(2, 0, 0)x(1, 1, 1, 24) - AIC: 11023.11126793089
+228: SARIMA(2, 0, 0)x(1, 1, 2, 24) - AIC: 10127.948513946103
+229: SARIMA(2, 0, 0)x(2, 0, 0, 24) - AIC: 10992.654762989123
+230: SARIMA(2, 0, 0)x(2, 0, 1, 24) - AIC: 10970.202890594765
+231: SARIMA(2, 0, 0)x(2, 0, 2, 24) - AIC: 10967.010780330214 (warning)
+232: SARIMA(2, 0, 0)x(2, 1, 0, 24) - AIC: 10097.725480648556
+233: SARIMA(2, 0, 0)x(2, 1, 1, 24) - AIC: 10083.978778711971
+234: SARIMA(2, 0, 0)x(2, 1, 2, 24) - AIC: 10084.773551232694
+235: SARIMA(2, 0, 1)x(0, 0, 0, 24) - AIC: 12865.003475275042
+236: SARIMA(2, 0, 1)x(0, 0, 1, 24) - AIC: 11944.888369915476
+237: SARIMA(2, 0, 1)x(0, 0, 2, 24) - AIC: 11007.402097374972
+238: SARIMA(2, 0, 1)x(0, 1, 0, 24) - AIC: 12061.192778709974
+239: SARIMA(2, 0, 1)x(0, 1, 1, 24) - AIC: 11024.307572428894
+240: SARIMA(2, 0, 1)x(0, 1, 2, 24) - AIC: 10083.04662180959
+241: SARIMA(2, 0, 1)x(1, 0, 0, 24) - AIC: 11937.942952754991
+242: SARIMA(2, 0, 1)x(1, 0, 1, 24) - AIC: 11880.173512239555
+243: SARIMA(2, 0, 1)x(1, 0, 2, 24) - AIC: 10961.613284230694
+244: SARIMA(2, 0, 1)x(1, 1, 0, 24) - AIC: 11051.081346665833
+245: SARIMA(2, 0, 1)x(1, 1, 1, 24) - AIC: 11022.224592578037
+246: SARIMA(2, 0, 1)x(1, 1, 2, 24) - AIC: 10084.313471130852
+247: SARIMA(2, 0, 1)x(2, 0, 0, 24) - AIC: 10993.774201815599
+248: SARIMA(2, 0, 1)x(2, 0, 1, 24) - AIC: 10961.578003326307
+249: SARIMA(2, 0, 1)x(2, 0, 2, 24) - AIC: 10965.54281090977 (warning)
+250: SARIMA(2, 0, 1)x(2, 1, 0, 24) - AIC: 10098.090906509178
+251: SARIMA(2, 0, 1)x(2, 1, 1, 24) - AIC: 10084.91095871659
+252: SARIMA(2, 0, 1)x(2, 1, 2, 24) - AIC: 10085.436053879943
+253: SARIMA(2, 0, 2)x(0, 0, 0, 24) - AIC: 12829.412563999858
+254: SARIMA(2, 0, 2)x(0, 0, 1, 24) - AIC: 11909.335191673003
+255: SARIMA(2, 0, 2)x(0, 0, 2, 24) - AIC: 10971.440927962107
+256: SARIMA(2, 0, 2)x(0, 1, 0, 24) - AIC: 12025.040918167058
+257: SARIMA(2, 0, 2)x(0, 1, 1, 24) - AIC: 10986.733488206151
+258: SARIMA(2, 0, 2)x(0, 1, 2, 24) - AIC: 10046.63079200272
+259: SARIMA(2, 0, 2)x(1, 0, 0, 24) - AIC: 11939.744728504098
+260: SARIMA(2, 0, 2)x(1, 0, 1, 24) - AIC: 11843.526085394795
+261: SARIMA(2, 0, 2)x(1, 0, 2, 24) - AIC: 10926.273589418495
+262: SARIMA(2, 0, 2)x(1, 1, 0, 24) - AIC: 11055.789706070576
+263: SARIMA(2, 0, 2)x(1, 1, 1, 24) - AIC: 10985.118359895972
+264: SARIMA(2, 0, 2)x(1, 1, 2, 24) - AIC: 10047.856668831746
+265: SARIMA(2, 0, 2)x(2, 0, 0, 24) - AIC: 10995.901502107925
+266: SARIMA(2, 0, 2)x(2, 0, 1, 24) - AIC: 10963.884292736124
+267: SARIMA(2, 0, 2)x(2, 0, 2, 24) - AIC: 10930.78156419646 (warning)
+286: SARIMA(2, 1, 0)x(2, 1, 0, 24) - AIC: 16.0 (warning)
+287: SARIMA(2, 1, 0)x(2, 1, 1, 24) - AIC: 18.0 (warning)
+288: SARIMA(2, 1, 0)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+289: SARIMA(2, 1, 1)x(0, 0, 0, 24) - AIC: 331.58311006458956 (warning)
+290: SARIMA(2, 1, 1)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+291: SARIMA(2, 1, 1)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+292: SARIMA(2, 1, 1)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+293: SARIMA(2, 1, 1)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+294: SARIMA(2, 1, 1)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+295: SARIMA(2, 1, 1)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+296: SARIMA(2, 1, 1)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+297: SARIMA(2, 1, 1)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+298: SARIMA(2, 1, 1)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+299: SARIMA(2, 1, 1)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+300: SARIMA(2, 1, 1)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+301: SARIMA(2, 1, 1)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+302: SARIMA(2, 1, 1)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+303: SARIMA(2, 1, 1)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+304: SARIMA(2, 1, 1)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+305: SARIMA(2, 1, 1)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+306: SARIMA(2, 1, 1)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+307: SARIMA(2, 1, 2)x(0, 0, 0, 24) - AIC: 330.9857198670821 (warning)
+308: SARIMA(2, 1, 2)x(0, 0, 1, 24) - AIC: 18.0 (warning)
+309: SARIMA(2, 1, 2)x(0, 0, 2, 24) - AIC: 20.0 (warning)
+310: SARIMA(2, 1, 2)x(0, 1, 0, 24) - AIC: 16.0 (warning)
+311: SARIMA(2, 1, 2)x(0, 1, 1, 24) - AIC: 18.0 (warning)
+312: SARIMA(2, 1, 2)x(0, 1, 2, 24) - AIC: 20.0 (warning)
+313: SARIMA(2, 1, 2)x(1, 0, 0, 24) - AIC: 18.0 (warning)
+314: SARIMA(2, 1, 2)x(1, 0, 1, 24) - AIC: 20.0 (warning)
+315: SARIMA(2, 1, 2)x(1, 0, 2, 24) - AIC: 22.0 (warning)
+316: SARIMA(2, 1, 2)x(1, 1, 0, 24) - AIC: 18.0 (warning)
+317: SARIMA(2, 1, 2)x(1, 1, 1, 24) - AIC: 20.0 (warning)
+318: SARIMA(2, 1, 2)x(1, 1, 2, 24) - AIC: 22.0 (warning)
+319: SARIMA(2, 1, 2)x(2, 0, 0, 24) - AIC: 20.0 (warning)
+320: SARIMA(2, 1, 2)x(2, 0, 1, 24) - AIC: 22.0 (warning)
+321: SARIMA(2, 1, 2)x(2, 0, 2, 24) - AIC: 24.0 (warning)
+322: SARIMA(2, 1, 2)x(2, 1, 0, 24) - AIC: 20.0 (warning)
+323: SARIMA(2, 1, 2)x(2, 1, 1, 24) - AIC: 22.0 (warning)
+324: SARIMA(2, 1, 2)x(2, 1, 2, 24) - AIC: 24.0 (warning)
+Best SARIMA model: SARIMA(0, 0, 0)x(0, 1, 0, 24) with AIC: 8.0
+Training SARIMA model with order (0, 0, 0) and seasonal_order (0, 1, 0, 24)...
+Generating forecast for                              down         up  ...  hour_sin  hour_cos
+time                                          ...                    
+2018-02-06 11:00:00  1.144487e+08  5665176.8  ...  0.258819 -0.965926
+
+[1 rows x 14 columns] steps...
+Train split: 12.00, Test size: 1, ARIMA Order: (0, 0, 0)
+RMSE: 114448661.8333, MAE: 114448661.8333, MSE: 13098496195440688.0000
+
+244: SARIMA(2, 0, 1)x(1, 1, 0, 24) - AIC: 1322.5415220516086 (warning)
+245: SARIMA(2, 0, 1)x(1, 1, 1, 24) - AIC: 1322.5067202009775 (warning)
+246: SARIMA(2, 0, 1)x(1, 1, 2, 24) - AIC: 396.9994829999102 (warning)
+247: SARIMA(2, 0, 1)x(2, 0, 0, 24) - AIC: 1316.9785963530103
+248: SARIMA(2, 0, 1)x(2, 0, 1, 24) - AIC: 1317.532047637721 (warning)
+249: SARIMA(2, 0, 1)x(2, 0, 2, 24) - AIC: 1316.7801118399684 (warning)
+250: SARIMA(2, 0, 1)x(2, 1, 0, 24) - AIC: 394.8231693650039 (warning)
+251: SARIMA(2, 0, 1)x(2, 1, 1, 24) - AIC: 396.8192194644366 (warning)
+252: SARIMA(2, 0, 1)x(2, 1, 2, 24) - AIC: 398.81165583563626 (warning)
+253: SARIMA(2, 0, 2)x(0, 0, 0, 24) - AIC: 3116.0377666015556
+254: SARIMA(2, 0, 2)x(0, 0, 1, 24) - AIC: 2207.9027985825132 (warning)
+255: SARIMA(2, 0, 2)x(0, 0, 2, 24) - AIC: 1274.6705567562153 (warning)
+256: SARIMA(2, 0, 2)x(0, 1, 0, 24) - AIC: 2223.9003383526274
+257: SARIMA(2, 0, 2)x(0, 1, 1, 24) - AIC: 1283.2482683454389 (warning)
+258: SARIMA(2, 0, 2)x(0, 1, 2, 24) - AIC: 359.59006139982165 (warning)
+259: SARIMA(2, 0, 2)x(1, 0, 0, 24) - AIC: 2238.2394830768812
+260: SARIMA(2, 0, 2)x(1, 0, 1, 24) - AIC: 2196.013549632792 (warning)
+261: SARIMA(2, 0, 2)x(1, 0, 2, 24) - AIC: 1274.7530973325927 (warning)
+262: SARIMA(2, 0, 2)x(1, 1, 0, 24) - AIC: 1324.2937208145324
+263: SARIMA(2, 0, 2)x(1, 1, 1, 24) - AIC: 1283.5715885751888 (warning)
+264: SARIMA(2, 0, 2)x(1, 1, 2, 24) - AIC: 361.62952496455074 (warning)
+265: SARIMA(2, 0, 2)x(2, 0, 0, 24) - AIC: 1318.896879908718
+266: SARIMA(2, 0, 2)x(2, 0, 1, 24) - AIC: 1317.0338601475219 (warning)
+267: SARIMA(2, 0, 2)x(2, 0, 2, 24) - AIC: 1276.9306822092972 (warning)
+268: SARIMA(2, 0, 2)x(2, 1, 0, 24) - AIC: 397.2700880543415
+269: SARIMA(2, 0, 2)x(2, 1, 1, 24) - AIC: 399.22691650524183 (warning)
+270: SARIMA(2, 0, 2)x(2, 1, 2, 24) - AIC: 363.54378027330665 (warning)
+271: SARIMA(2, 1, 0)x(0, 0, 0, 24) - AIC: 3099.8429076262732
+272: SARIMA(2, 1, 0)x(0, 0, 1, 24) - AIC: 2227.3315174435106 (warning)
+273: SARIMA(2, 1, 0)x(0, 0, 2, 24) - AIC: 1306.7067087133341 (warning)
+274: SARIMA(2, 1, 0)x(0, 1, 0, 24) - AIC: 2227.0544001349617
+275: SARIMA(2, 1, 0)x(0, 1, 1, 24) - AIC: 1320.3416050701444 (warning)
+276: SARIMA(2, 1, 0)x(0, 1, 2, 24) - AIC: 396.0618508957217 (warning)
+277: SARIMA(2, 1, 0)x(1, 0, 0, 24) - AIC: 2190.137559844064
+278: SARIMA(2, 1, 0)x(1, 0, 1, 24) - AIC: 2184.5417472734157 (warning)
+279: SARIMA(2, 1, 0)x(1, 0, 2, 24) - AIC: 1306.6301702437406 (warning)
+280: SARIMA(2, 1, 0)x(1, 1, 0, 24) - AIC: 1285.6596505690804
+281: SARIMA(2, 1, 0)x(1, 1, 1, 24) - AIC: 1282.1123686188566 (warning)
+282: SARIMA(2, 1, 0)x(1, 1, 2, 24) - AIC: 397.39839793598213 (warning)
+283: SARIMA(2, 1, 0)x(2, 0, 0, 24) - AIC: 1268.8398381241605
+284: SARIMA(2, 1, 0)x(2, 0, 1, 24) - AIC: 1270.062320930708 (warning)
+285: SARIMA(2, 1, 0)x(2, 0, 2, 24) - AIC: 1267.6844307665672 (warning)
+286: SARIMA(2, 1, 0)x(2, 1, 0, 24) - AIC: 356.87968293121446
+287: SARIMA(2, 1, 0)x(2, 1, 1, 24) - AIC: 358.87705243999966 (warning)
+288: SARIMA(2, 1, 0)x(2, 1, 2, 24) - AIC: 360.87705244917566 (warning)
+289: SARIMA(2, 1, 1)x(0, 0, 0, 24) - AIC: 3096.697439236835
+290: SARIMA(2, 1, 1)x(0, 0, 1, 24) - AIC: 2184.9319471465424 (warning)
+291: SARIMA(2, 1, 1)x(0, 0, 2, 24) - AIC: 1270.615581857834 (warning)
+292: SARIMA(2, 1, 1)x(0, 1, 0, 24) - AIC: 2225.4698114146095
+293: SARIMA(2, 1, 1)x(0, 1, 1, 24) - AIC: 1282.1484312093862 (warning)
+294: SARIMA(2, 1, 1)x(0, 1, 2, 24) - AIC: 358.5176748253836 (warning)
+295: SARIMA(2, 1, 1)x(1, 0, 0, 24) - AIC: 2187.300470670902
+296: SARIMA(2, 1, 1)x(1, 0, 1, 24) - AIC: 2183.2504702378124 (warning)
+297: SARIMA(2, 1, 1)x(1, 0, 2, 24) - AIC: 1268.501901097946 (warning)
+298: SARIMA(2, 1, 1)x(1, 1, 0, 24) - AIC: 1286.2611479555387
+299: SARIMA(2, 1, 1)x(1, 1, 1, 24) - AIC: 1282.8741428137887 (warning)
+300: SARIMA(2, 1, 1)x(1, 1, 2, 24) - AIC: 360.50982043875916 (warning)
+301: SARIMA(2, 1, 1)x(2, 0, 0, 24) - AIC: 1263.9699117728528
+302: SARIMA(2, 1, 1)x(2, 0, 1, 24) - AIC: 1271.979084777056 (warning)
+303: SARIMA(2, 1, 1)x(2, 0, 2, 24) - AIC: 1266.820731474437 (warning)
+304: SARIMA(2, 1, 1)x(2, 1, 0, 24) - AIC: 358.47376248711913
+305: SARIMA(2, 1, 1)x(2, 1, 1, 24) - AIC: 360.4454731880505 (warning)
+306: SARIMA(2, 1, 1)x(2, 1, 2, 24) - AIC: 362.44547353657356 (warning)
+307: SARIMA(2, 1, 2)x(0, 0, 0, 24) - AIC: 3055.991740826509
+308: SARIMA(2, 1, 2)x(0, 0, 1, 24) - AIC: 2143.4854929220473 (warning)
+309: SARIMA(2, 1, 2)x(0, 0, 2, 24) - AIC: 1229.0064293974056 (warning)
+310: SARIMA(2, 1, 2)x(0, 1, 0, 24) - AIC: 2186.7381404505077
+311: SARIMA(2, 1, 2)x(0, 1, 1, 24) - AIC: 1246.3986184408488 (warning)
+312: SARIMA(2, 1, 2)x(0, 1, 2, 24) - AIC: 322.7441710076116 (warning)
+313: SARIMA(2, 1, 2)x(1, 0, 0, 24) - AIC: 2183.067124094361
+314: SARIMA(2, 1, 2)x(1, 0, 1, 24) - AIC: 2143.01816950633 (warning)
+315: SARIMA(2, 1, 2)x(1, 0, 2, 24) - AIC: 1231.004798965225 (warning)
+316: SARIMA(2, 1, 2)x(1, 1, 0, 24) - AIC: 1286.4634611693775
+317: SARIMA(2, 1, 2)x(1, 1, 1, 24) - AIC: 1247.113393951469 (warning)
+318: SARIMA(2, 1, 2)x(1, 1, 2, 24) - AIC: 324.71035509260577 (warning)
+319: SARIMA(2, 1, 2)x(2, 0, 0, 24) - AIC: 1265.1554667661599
+320: SARIMA(2, 1, 2)x(2, 0, 1, 24) - AIC: 1266.390420547686 (warning)
+321: SARIMA(2, 1, 2)x(2, 0, 2, 24) - AIC: 1227.3714163297839 (warning)
+322: SARIMA(2, 1, 2)x(2, 1, 0, 24) - AIC: 360.45093207201126
+323: SARIMA(2, 1, 2)x(2, 1, 1, 24) - AIC: 362.48221226951614 (warning)
+324: SARIMA(2, 1, 2)x(2, 1, 2, 24) - AIC: 326.6199284897838 (warning)
+Best SARIMA model: SARIMA(2, 1, 0)x(2, 1, 0, 24) with AIC: 356.87968293121446
+Training SARIMA model with order (2, 1, 0) and seasonal_order (2, 1, 0, 24)...
+Generating forecast for                              down            up  ...      hour_sin      hour_cos
+time                                             ...                            
+2018-02-09 11:00:00  8.709250e+07  6.421307e+05  ...  2.588190e-01 -9.659258e-01
+2018-02-09 12:00:00  1.029501e+08  2.362414e+06  ...  1.224647e-16 -1.000000e+00
+2018-02-09 13:00:00  9.433028e+07  7.227915e+05  ... -2.588190e-01 -9.659258e-01
+2018-02-09 14:00:00  1.350519e+08  1.311242e+06  ... -5.000000e-01 -8.660254e-01
+2018-02-09 15:00:00  1.123976e+08  9.319981e+05  ... -7.071068e-01 -7.071068e-01
+2018-02-09 16:00:00  1.364867e+08  1.840346e+07  ... -8.660254e-01 -5.000000e-01
+2018-02-09 17:00:00  1.154587e+08  9.448965e+05  ... -9.659258e-01 -2.588190e-01
+2018-02-09 18:00:00  1.477216e+08  1.522032e+06  ... -1.000000e+00 -1.836970e-16
+2018-02-09 19:00:00  1.183637e+08  1.035904e+06  ... -9.659258e-01  2.588190e-01
+2018-02-09 20:00:00  1.776030e+08  4.576630e+06  ... -8.660254e-01  5.000000e-01
+2018-02-09 21:00:00  1.473090e+08  1.408369e+06  ... -7.071068e-01  7.071068e-01
+2018-02-09 22:00:00  1.317462e+08  1.165075e+06  ... -5.000000e-01  8.660254e-01
+
+[12 rows x 14 columns] steps...
+Train split: 84.00, Test size: 12, ARIMA Order: (2, 1, 0)
+RMSE: 62284249.1122, MAE: 56562084.3769, MSE: 3879327687464832.0000
+
+288: SARIMA(2, 1, 0)x(2, 1, 2, 24) - AIC: 20.0 (warning)
+289: SARIMA(2, 1, 1)x(0, 0, 0, 24) - AIC: 801.6944941665553 (warning)
+290: SARIMA(2, 1, 1)x(0, 0, 1, 24) - AIC: 16.0 (warning)
+291: SARIMA(2, 1, 1)x(0, 0, 2, 24) - AIC: 18.0 (warning)
+292: SARIMA(2, 1, 1)x(0, 1, 0, 24) - AIC: 14.0 (warning)
+293: SARIMA(2, 1, 1)x(0, 1, 1, 24) - AIC: 16.0 (warning)
+294: SARIMA(2, 1, 1)x(0, 1, 2, 24) - AIC: 18.0 (warning)
+295: SARIMA(2, 1, 1)x(1, 0, 0, 24) - AIC: 16.0 (warning)
+296: SARIMA(2, 1, 1)x(1, 0, 1, 24) - AIC: 18.0 (warning)
+297: SARIMA(2, 1, 1)x(1, 0, 2, 24) - AIC: 20.0 (warning)
+298: SARIMA(2, 1, 1)x(1, 1, 0, 24) - AIC: 16.0 (warning)
+299: SARIMA(2, 1, 1)x(1, 1, 1, 24) - AIC: 18.0 (warning)
+300: SARIMA(2, 1, 1)x(1, 1, 2, 24) - AIC: 20.0 (warning)
+301: SARIMA(2, 1, 1)x(2, 0, 0, 24) - AIC: 18.0 (warning)
+302: SARIMA(2, 1, 1)x(2, 0, 1, 24) - AIC: 20.0 (warning)
+303: SARIMA(2, 1, 1)x(2, 0, 2, 24) - AIC: 22.0 (warning)
+304: SARIMA(2, 1, 1)x(2, 1, 0, 24) - AIC: 18.0 (warning)
+305: SARIMA(2, 1, 1)x(2, 1, 1, 24) - AIC: 20.0 (warning)
+306: SARIMA(2, 1, 1)x(2, 1, 2, 24) - AIC: 22.0 (warning)
+307: SARIMA(2, 1, 2)x(0, 0, 0, 24) - AIC: 765.8473852330933
+308: SARIMA(2, 1, 2)x(0, 0, 1, 24) - AIC: 18.0 (warning)
+309: SARIMA(2, 1, 2)x(0, 0, 2, 24) - AIC: 20.0 (warning)
+310: SARIMA(2, 1, 2)x(0, 1, 0, 24) - AIC: 16.0 (warning)
+311: SARIMA(2, 1, 2)x(0, 1, 1, 24) - AIC: 18.0 (warning)
+312: SARIMA(2, 1, 2)x(0, 1, 2, 24) - AIC: 20.0 (warning)
+313: SARIMA(2, 1, 2)x(1, 0, 0, 24) - AIC: 18.0 (warning)
+314: SARIMA(2, 1, 2)x(1, 0, 1, 24) - AIC: 20.0 (warning)
+315: SARIMA(2, 1, 2)x(1, 0, 2, 24) - AIC: 22.0 (warning)
+316: SARIMA(2, 1, 2)x(1, 1, 0, 24) - AIC: 18.0 (warning)
+317: SARIMA(2, 1, 2)x(1, 1, 1, 24) - AIC: 20.0 (warning)
+318: SARIMA(2, 1, 2)x(1, 1, 2, 24) - AIC: 22.0 (warning)
+319: SARIMA(2, 1, 2)x(2, 0, 0, 24) - AIC: 20.0 (warning)
+320: SARIMA(2, 1, 2)x(2, 0, 1, 24) - AIC: 22.0 (warning)
+321: SARIMA(2, 1, 2)x(2, 0, 2, 24) - AIC: 24.0 (warning)
+322: SARIMA(2, 1, 2)x(2, 1, 0, 24) - AIC: 20.0 (warning)
+323: SARIMA(2, 1, 2)x(2, 1, 1, 24) - AIC: 22.0 (warning)
+324: SARIMA(2, 1, 2)x(2, 1, 2, 24) - AIC: 24.0 (warning)
+Best SARIMA model: SARIMA(0, 0, 0)x(0, 1, 0, 24) with AIC: 8.0
+Training SARIMA model with order (0, 0, 0) and seasonal_order (0, 1, 0, 24)...
+Generating forecast for                              down            up  ...  hour_sin  hour_cos
+time                                             ...                    
+2018-02-06 23:00:00  2.721339e+08  4.138730e+07  ... -0.258819  0.965926
+2018-02-07 00:00:00  5.430525e+07  2.806237e+05  ...  0.000000  1.000000
+2018-02-07 01:00:00  5.522176e+07  6.881826e+06  ...  0.258819  0.965926
+
+[3 rows x 14 columns] steps...
+Train split: 24.00, Test size: 3, ARIMA Order: (0, 0, 0)
+RMSE: 40199583.0493, MAE: 27157645.2622, MSE: 1616006477338264.7500
+
+257: SARIMA(2, 0, 2)x(0, 1, 1, 24) - AIC: 4550.958878804675 (warning)
+258: SARIMA(2, 0, 2)x(0, 1, 2, 24) - AIC: 3611.415813255262 (warning)
+259: SARIMA(2, 0, 2)x(1, 0, 0, 24) - AIC: 5505.854637203477
+260: SARIMA(2, 0, 2)x(1, 0, 1, 24) - AIC: 5447.532412711799 (warning)
+261: SARIMA(2, 0, 2)x(1, 0, 2, 24) - AIC: 4526.080373400999 (warning)
+262: SARIMA(2, 0, 2)x(1, 1, 0, 24) - AIC: 4597.3261448819285 (warning)
+263: SARIMA(2, 0, 2)x(1, 1, 1, 24) - AIC: 4552.616366191614 (warning)
+264: SARIMA(2, 0, 2)x(1, 1, 2, 24) - AIC: 3612.5310229824026 (warning)
+265: SARIMA(2, 0, 2)x(2, 0, 0, 24) - AIC: 4576.083716009885
+266: SARIMA(2, 0, 2)x(2, 0, 1, 24) - AIC: 4563.74874781525 (warning)
+267: SARIMA(2, 0, 2)x(2, 0, 2, 24) - AIC: 4529.811106539033 (warning)
+268: SARIMA(2, 0, 2)x(2, 1, 0, 24) - AIC: 3658.0910435282826 (warning)
+269: SARIMA(2, 0, 2)x(2, 1, 1, 24) - AIC: 3653.7734006860146 (warning)
+270: SARIMA(2, 0, 2)x(2, 1, 2, 24) - AIC: 3613.5047802270005 (warning)
+271: SARIMA(2, 1, 0)x(0, 0, 0, 24) - AIC: 6361.292643832707
+272: SARIMA(2, 1, 0)x(0, 0, 1, 24) - AIC: 5484.34286285319
+273: SARIMA(2, 1, 0)x(0, 0, 2, 24) - AIC: 4565.639307889897 (warning)
+274: SARIMA(2, 1, 0)x(0, 1, 0, 24) - AIC: 5550.943317267018
+275: SARIMA(2, 1, 0)x(0, 1, 1, 24) - AIC: 4603.009045407537
+276: SARIMA(2, 1, 0)x(0, 1, 2, 24) - AIC: 3672.8170647928296 (warning)
+277: SARIMA(2, 1, 0)x(1, 0, 0, 24) - AIC: 5447.180805250646
+278: SARIMA(2, 1, 0)x(1, 0, 1, 24) - AIC: 5444.56544150677
+279: SARIMA(2, 1, 0)x(1, 0, 2, 24) - AIC: 4564.467886310635 (warning)
+280: SARIMA(2, 1, 0)x(1, 1, 0, 24) - AIC: 4581.856823523434
+281: SARIMA(2, 1, 0)x(1, 1, 1, 24) - AIC: 4566.104002257875
+282: SARIMA(2, 1, 0)x(1, 1, 2, 24) - AIC: 3674.028470232858 (warning)
+283: SARIMA(2, 1, 0)x(2, 0, 0, 24) - AIC: 4529.003043910317
+284: SARIMA(2, 1, 0)x(2, 0, 1, 24) - AIC: 4525.992892134682
+285: SARIMA(2, 1, 0)x(2, 0, 2, 24) - AIC: 4524.132230842185 (warning)
+286: SARIMA(2, 1, 0)x(2, 1, 0, 24) - AIC: 3643.879469955349
+287: SARIMA(2, 1, 0)x(2, 1, 1, 24) - AIC: 3635.8760385719625
+288: SARIMA(2, 1, 0)x(2, 1, 2, 24) - AIC: 3637.5838595571345 (warning)
+289: SARIMA(2, 1, 1)x(0, 0, 0, 24) - AIC: 6342.674742236224
+290: SARIMA(2, 1, 1)x(0, 0, 1, 24) - AIC: 5424.293584231852
+291: SARIMA(2, 1, 1)x(0, 0, 2, 24) - AIC: 4508.702916539259 (warning)
+292: SARIMA(2, 1, 1)x(0, 1, 0, 24) - AIC: 5538.670979818755
+293: SARIMA(2, 1, 1)x(0, 1, 1, 24) - AIC: 4564.076125873204
+294: SARIMA(2, 1, 1)x(0, 1, 2, 24) - AIC: 3631.923729528733 (warning)
+295: SARIMA(2, 1, 1)x(1, 0, 0, 24) - AIC: 5424.118500807389
+296: SARIMA(2, 1, 1)x(1, 0, 1, 24) - AIC: 5425.956945430603
+297: SARIMA(2, 1, 1)x(1, 0, 2, 24) - AIC: 4509.391793465986 (warning)
+298: SARIMA(2, 1, 1)x(1, 1, 0, 24) - AIC: 4571.788598149719
+299: SARIMA(2, 1, 1)x(1, 1, 1, 24) - AIC: 4565.360729510882
+300: SARIMA(2, 1, 1)x(1, 1, 2, 24) - AIC: 3632.9037247543497 (warning)
+301: SARIMA(2, 1, 1)x(2, 0, 0, 24) - AIC: 4508.984885661819
+302: SARIMA(2, 1, 1)x(2, 0, 1, 24) - AIC: 4510.667065017901
+303: SARIMA(2, 1, 1)x(2, 0, 2, 24) - AIC: 4511.258013226915 (warning)
+304: SARIMA(2, 1, 1)x(2, 1, 0, 24) - AIC: 3635.4079113986645
+305: SARIMA(2, 1, 1)x(2, 1, 1, 24) - AIC: 3633.5046761995577
+306: SARIMA(2, 1, 1)x(2, 1, 2, 24) - AIC: 3633.968824677862 (warning)
+307: SARIMA(2, 1, 2)x(0, 0, 0, 24) - AIC: 6296.172383951904
+308: SARIMA(2, 1, 2)x(0, 0, 1, 24) - AIC: 5380.819183279918
+309: SARIMA(2, 1, 2)x(0, 0, 2, 24) - AIC: 4468.789302582251 (warning)
+310: SARIMA(2, 1, 2)x(0, 1, 0, 24) - AIC: 5491.79088469158 (warning)
+311: SARIMA(2, 1, 2)x(0, 1, 1, 24) - AIC: 4515.9900440862875 (warning)
+312: SARIMA(2, 1, 2)x(0, 1, 2, 24) - AIC: 3584.3318939058345 (warning)
+313: SARIMA(2, 1, 2)x(1, 0, 0, 24) - AIC: 5419.281603893738
+314: SARIMA(2, 1, 2)x(1, 0, 1, 24) - AIC: 5379.2861938441765 (warning)
+315: SARIMA(2, 1, 2)x(1, 0, 2, 24) - AIC: 4469.753503366448 (warning)
+316: SARIMA(2, 1, 2)x(1, 1, 0, 24) - AIC: 4564.2701765442935 (warning)
+317: SARIMA(2, 1, 2)x(1, 1, 1, 24) - AIC: 4517.573464011192 (warning)
+318: SARIMA(2, 1, 2)x(1, 1, 2, 24) - AIC: 3585.917895322919 (warning)
+319: SARIMA(2, 1, 2)x(2, 0, 0, 24) - AIC: 4506.200402377671
+320: SARIMA(2, 1, 2)x(2, 0, 1, 24) - AIC: 4508.08371479868
+321: SARIMA(2, 1, 2)x(2, 0, 2, 24) - AIC: 4471.533039341358 (warning)
+322: SARIMA(2, 1, 2)x(2, 1, 0, 24) - AIC: 3630.10455795025 (warning)
+323: SARIMA(2, 1, 2)x(2, 1, 1, 24) - AIC: 3627.098243906034 (warning)
+324: SARIMA(2, 1, 2)x(2, 1, 2, 24) - AIC: 3587.445662781616 (warning)
+Best SARIMA model: SARIMA(2, 1, 1)x(2, 1, 1, 24) with AIC: 3633.5046761995577
+Training SARIMA model with order (2, 1, 1) and seasonal_order (2, 1, 1, 24)...
+Generating forecast for                              down            up  ...      hour_sin      hour_cos
+time                                             ...                            
+2018-02-12 23:00:00  3.288648e+08  4.576371e+07  ... -2.588190e-01  9.659258e-01
+2018-02-13 00:00:00  2.515524e+08  3.306768e+07  ...  0.000000e+00  1.000000e+00
+2018-02-13 01:00:00  1.605916e+08  1.893397e+07  ...  2.588190e-01  9.659258e-01
+2018-02-13 02:00:00  1.283978e+08  1.870432e+07  ...  5.000000e-01  8.660254e-01
+2018-02-13 03:00:00  8.837031e+07  1.104153e+07  ...  7.071068e-01  7.071068e-01
+2018-02-13 04:00:00  3.351505e+07  9.290124e+06  ...  8.660254e-01  5.000000e-01
+2018-02-13 05:00:00  3.170589e+07  4.467845e+06  ...  9.659258e-01  2.588190e-01
+2018-02-13 06:00:00  6.716484e+07  4.431528e+05  ...  1.000000e+00  6.123234e-17
+2018-02-13 07:00:00  1.532925e+08  1.536385e+07  ...  9.659258e-01 -2.588190e-01
+2018-02-13 08:00:00  1.124631e+08  1.286922e+07  ...  8.660254e-01 -5.000000e-01
+2018-02-13 09:00:00  7.257430e+07  5.066267e+05  ...  7.071068e-01 -7.071068e-01
+2018-02-13 10:00:00  1.020497e+08  8.144669e+05  ...  5.000000e-01 -8.660254e-01
+2018-02-13 11:00:00  1.252386e+08  1.068942e+06  ...  2.588190e-01 -9.659258e-01
+2018-02-13 12:00:00  1.264444e+08  5.948406e+06  ...  1.224647e-16 -1.000000e+00
+2018-02-13 13:00:00  1.147884e+08  1.013846e+06  ... -2.588190e-01 -9.659258e-01
+2018-02-13 14:00:00  1.541966e+08  1.536627e+06  ... -5.000000e-01 -8.660254e-01
+2018-02-13 15:00:00  1.401173e+08  1.435861e+06  ... -7.071068e-01 -7.071068e-01
+2018-02-13 16:00:00  2.183498e+08  3.989246e+07  ... -8.660254e-01 -5.000000e-01
+2018-02-13 17:00:00  2.684317e+08  4.188156e+07  ... -9.659258e-01 -2.588190e-01
+2018-02-13 18:00:00  2.686037e+08  4.669296e+07  ... -1.000000e+00 -1.836970e-16
+2018-02-13 19:00:00  3.199647e+08  4.810652e+07  ... -9.659258e-01  2.588190e-01
+2018-02-13 20:00:00  2.730867e+08  4.739098e+07  ... -8.660254e-01  5.000000e-01
+2018-02-13 21:00:00  2.471578e+08  4.706007e+07  ... -7.071068e-01  7.071068e-01
+2018-02-13 22:00:00  2.159274e+08  1.150662e+07  ... -5.000000e-01  8.660254e-01
+
+[24 rows x 14 columns] steps...
+Train split: 168.00, Test size: 24, ARIMA Order: (2, 1, 1)
+RMSE: 63821722.2236, MAE: 48719778.4646, MSE: 4073212227584297.5000
+
+268: SARIMA(2, 0, 2)x(2, 1, 0, 24) - AIC: 10099.465422671426
+269: SARIMA(2, 0, 2)x(2, 1, 1, 24) - AIC: 10086.551179132171
+270: SARIMA(2, 0, 2)x(2, 1, 2, 24) - AIC: 10048.881413562036
+271: SARIMA(2, 1, 0)x(0, 0, 0, 24) - AIC: 12778.828102675063
+272: SARIMA(2, 1, 0)x(0, 0, 1, 24) - AIC: 11903.355354724317
+273: SARIMA(2, 1, 0)x(0, 0, 2, 24) - AIC: 10987.248128076908
+274: SARIMA(2, 1, 0)x(0, 1, 0, 24) - AIC: 12090.250475908408
+275: SARIMA(2, 1, 0)x(0, 1, 1, 24) - AIC: 11062.86943076162
+276: SARIMA(2, 1, 0)x(0, 1, 2, 24) - AIC: 10133.822878703013
+277: SARIMA(2, 1, 0)x(1, 0, 0, 24) - AIC: 11865.995296927753
+278: SARIMA(2, 1, 0)x(1, 0, 1, 24) - AIC: 11867.99481364976
+279: SARIMA(2, 1, 0)x(1, 0, 2, 24) - AIC: 10988.55552746123
+280: SARIMA(2, 1, 0)x(1, 1, 0, 24) - AIC: 11072.897895903041
+281: SARIMA(2, 1, 0)x(1, 1, 1, 24) - AIC: 11024.27537324152
+282: SARIMA(2, 1, 0)x(1, 1, 2, 24) - AIC: 10135.747967109766
+283: SARIMA(2, 1, 0)x(2, 0, 0, 24) - AIC: 10949.399057408227
+284: SARIMA(2, 1, 0)x(2, 0, 1, 24) - AIC: 10950.778918114916
+285: SARIMA(2, 1, 0)x(2, 0, 2, 24) - AIC: 10949.500949273935
+286: SARIMA(2, 1, 0)x(2, 1, 0, 24) - AIC: 10119.69071622315
+287: SARIMA(2, 1, 0)x(2, 1, 1, 24) - AIC: 10096.514704449317
+288: SARIMA(2, 1, 0)x(2, 1, 2, 24) - AIC: 10098.390913225301
+289: SARIMA(2, 1, 1)x(0, 0, 0, 24) - AIC: 12731.706506513332
+290: SARIMA(2, 1, 1)x(0, 0, 1, 24) - AIC: 11814.452697741988
+291: SARIMA(2, 1, 1)x(0, 0, 2, 24) - AIC: 10898.895997154534
+292: SARIMA(2, 1, 1)x(0, 1, 0, 24) - AIC: 12047.877691432477
+293: SARIMA(2, 1, 1)x(0, 1, 1, 24) - AIC: 11015.02763489434
+294: SARIMA(2, 1, 1)x(0, 1, 2, 24) - AIC: 10082.787714339289
+295: SARIMA(2, 1, 1)x(1, 0, 0, 24) - AIC: 11813.968142361
+296: SARIMA(2, 1, 1)x(1, 0, 1, 24) - AIC: 11811.987009728076
+297: SARIMA(2, 1, 1)x(1, 0, 2, 24) - AIC: 10898.56782598532
+298: SARIMA(2, 1, 1)x(1, 1, 0, 24) - AIC: 11041.343300059689
+299: SARIMA(2, 1, 1)x(1, 1, 1, 24) - AIC: 11013.727889897218
+300: SARIMA(2, 1, 1)x(1, 1, 2, 24) - AIC: 10084.591096560242
+301: SARIMA(2, 1, 1)x(2, 0, 0, 24) - AIC: 10898.892391503026
+302: SARIMA(2, 1, 1)x(2, 0, 1, 24) - AIC: 10898.533433967106
+303: SARIMA(2, 1, 1)x(2, 0, 2, 24) - AIC: 10900.264034151154
+304: SARIMA(2, 1, 1)x(2, 1, 0, 24) - AIC: 10093.18752993716
+305: SARIMA(2, 1, 1)x(2, 1, 1, 24) - AIC: 10082.760717646102
+306: SARIMA(2, 1, 1)x(2, 1, 2, 24) - AIC: 10083.27009530395
+307: SARIMA(2, 1, 2)x(0, 0, 0, 24) - AIC: 12679.099264531294 (warning)
+308: SARIMA(2, 1, 2)x(0, 0, 1, 24) - AIC: 11766.542734690735 (warning)
+309: SARIMA(2, 1, 2)x(0, 0, 2, 24) - AIC: 10855.140783936518 (warning)
+310: SARIMA(2, 1, 2)x(0, 1, 0, 24) - AIC: 11996.293658343668 (warning)
+311: SARIMA(2, 1, 2)x(0, 1, 1, 24) - AIC: 10951.197512337123 (warning)
+312: SARIMA(2, 1, 2)x(0, 1, 2, 24) - AIC: 10018.981742088152 (warning)
+313: SARIMA(2, 1, 2)x(1, 0, 0, 24) - AIC: 11805.389151803758 (warning)
+314: SARIMA(2, 1, 2)x(1, 0, 1, 24) - AIC: 11764.07770348465 (warning)
+315: SARIMA(2, 1, 2)x(1, 0, 2, 24) - AIC: 10854.903577677398 (warning)
+316: SARIMA(2, 1, 2)x(1, 1, 0, 24) - AIC: 11024.382540070306 (warning)
+317: SARIMA(2, 1, 2)x(1, 1, 1, 24) - AIC: 10951.025973278332 (warning)
+318: SARIMA(2, 1, 2)x(1, 1, 2, 24) - AIC: 10020.880226619636 (warning)
+319: SARIMA(2, 1, 2)x(2, 0, 0, 24) - AIC: 10892.592926399706 (warning)
+320: SARIMA(2, 1, 2)x(2, 0, 1, 24) - AIC: 10892.284144025642 (warning)
+321: SARIMA(2, 1, 2)x(2, 0, 2, 24) - AIC: 10856.138934811192 (warning)
+322: SARIMA(2, 1, 2)x(2, 1, 0, 24) - AIC: 10075.8916500337 (warning)
+323: SARIMA(2, 1, 2)x(2, 1, 1, 24) - AIC: 10061.165740933473 (warning)
+324: SARIMA(2, 1, 2)x(2, 1, 2, 24) - AIC: 10020.926866568001 (warning)
+Best SARIMA model: SARIMA(1, 1, 2)x(0, 1, 2, 24) with AIC: 10031.328142002838
+Training SARIMA model with order (1, 1, 2) and seasonal_order (0, 1, 2, 24)...
+Generating forecast for                              down            up  ...      hour_sin      hour_cos
+time                                             ...                            
+2018-02-19 23:00:00  1.459280e+08  1.550905e+06  ... -2.588190e-01  9.659258e-01
+2018-02-20 00:00:00  1.182419e+08  1.121187e+06  ...  0.000000e+00  1.000000e+00
+2018-02-20 01:00:00  6.097878e+07  3.096669e+05  ...  2.588190e-01  9.659258e-01
+2018-02-20 02:00:00  7.885284e+07  1.507494e+07  ...  5.000000e-01  8.660254e-01
+2018-02-20 03:00:00  3.273594e+07  1.079076e+05  ...  7.071068e-01  7.071068e-01
+2018-02-20 04:00:00  3.002012e+07  8.186475e+04  ...  8.660254e-01  5.000000e-01
+2018-02-20 05:00:00  2.910980e+07  8.126427e+04  ...  9.659258e-01  2.588190e-01
+2018-02-20 06:00:00  4.597395e+07  2.526134e+05  ...  1.000000e+00  6.123234e-17
+2018-02-20 07:00:00  1.332918e+08  1.601661e+07  ...  9.659258e-01 -2.588190e-01
+2018-02-20 08:00:00  7.923922e+07  5.204946e+05  ...  8.660254e-01 -5.000000e-01
+2018-02-20 09:00:00  9.458549e+07  7.693576e+05  ...  7.071068e-01 -7.071068e-01
+2018-02-20 10:00:00  1.182911e+08  9.637091e+05  ...  5.000000e-01 -8.660254e-01
+2018-02-20 11:00:00  1.814635e+08  3.061338e+07  ...  2.588190e-01 -9.659258e-01
+2018-02-20 12:00:00  1.087262e+08  9.069909e+05  ...  1.224647e-16 -1.000000e+00
+2018-02-20 13:00:00  1.815508e+08  3.002541e+07  ... -2.588190e-01 -9.659258e-01
+2018-02-20 14:00:00  2.447899e+08  3.957144e+07  ... -5.000000e-01 -8.660254e-01
+2018-02-20 15:00:00  1.042551e+08  3.938373e+06  ... -7.071068e-01 -7.071068e-01
+2018-02-20 16:00:00  1.553745e+08  7.115607e+06  ... -8.660254e-01 -5.000000e-01
+2018-02-20 17:00:00  2.545285e+08  4.463729e+07  ... -9.659258e-01 -2.588190e-01
+2018-02-20 18:00:00  1.230258e+08  1.144369e+06  ... -1.000000e+00 -1.836970e-16
+2018-02-20 19:00:00  1.401195e+08  1.453543e+06  ... -9.659258e-01  2.588190e-01
+2018-02-20 20:00:00  1.700718e+08  1.804416e+06  ... -8.660254e-01  5.000000e-01
+2018-02-20 21:00:00  1.671005e+08  1.076837e+07  ... -7.071068e-01  7.071068e-01
+2018-02-20 22:00:00  3.020968e+08  3.343597e+07  ... -5.000000e-01  8.660254e-01
+2018-02-20 23:00:00  3.192468e+08  3.270733e+07  ... -2.588190e-01  9.659258e-01
+2018-02-21 00:00:00  1.888613e+08  1.300762e+07  ...  0.000000e+00  1.000000e+00
+2018-02-21 01:00:00  5.184465e+07  2.358012e+05  ...  2.588190e-01  9.659258e-01
+2018-02-21 02:00:00  3.190093e+07  1.173051e+05  ...  5.000000e-01  8.660254e-01
+2018-02-21 03:00:00  2.893457e+07  7.928885e+04  ...  7.071068e-01  7.071068e-01
+2018-02-21 04:00:00  2.794093e+07  6.304864e+04  ...  8.660254e-01  5.000000e-01
+2018-02-21 05:00:00  3.094101e+07  8.204481e+05  ...  9.659258e-01  2.588190e-01
+2018-02-21 06:00:00  2.956602e+07  8.976544e+04  ...  1.000000e+00  6.123234e-17
+2018-02-21 07:00:00  7.116948e+07  4.959834e+05  ...  9.659258e-01 -2.588190e-01
+2018-02-21 08:00:00  8.414562e+07  6.836187e+05  ...  8.660254e-01 -5.000000e-01
+2018-02-21 09:00:00  7.805390e+07  5.477091e+05  ...  7.071068e-01 -7.071068e-01
+2018-02-21 10:00:00  8.944747e+07  6.609632e+05  ...  5.000000e-01 -8.660254e-01
+2018-02-21 11:00:00  1.168476e+08  9.720653e+05  ...  2.588190e-01 -9.659258e-01
+2018-02-21 12:00:00  1.040655e+08  7.620368e+05  ...  1.224647e-16 -1.000000e+00
+2018-02-21 13:00:00  2.206789e+08  3.405034e+07  ... -2.588190e-01 -9.659258e-01
+2018-02-21 14:00:00  2.699814e+08  4.435295e+07  ... -5.000000e-01 -8.660254e-01
+2018-02-21 15:00:00  2.730951e+08  4.320218e+07  ... -7.071068e-01 -7.071068e-01
+2018-02-21 16:00:00  2.660778e+08  4.076149e+07  ... -8.660254e-01 -5.000000e-01
+2018-02-21 17:00:00  2.087635e+08  2.690664e+07  ... -9.659258e-01 -2.588190e-01
+2018-02-21 18:00:00  1.660971e+08  1.221329e+07  ... -1.000000e+00 -1.836970e-16
+2018-02-21 19:00:00  1.242828e+08  1.123183e+06  ... -9.659258e-01  2.588190e-01
+2018-02-21 20:00:00  1.309477e+08  1.197287e+06  ... -8.660254e-01  5.000000e-01
+2018-02-21 21:00:00  1.247379e+08  1.201955e+06  ... -7.071068e-01  7.071068e-01
+2018-02-21 22:00:00  2.834693e+08  3.083738e+07  ... -5.000000e-01  8.660254e-01
+
+[48 rows x 14 columns] steps...
+Train split: 336.00, Test size: 48, ARIMA Order: (1, 1, 2)
+RMSE: 70589677.8351, MAE: 52865289.9583, MSE: 4982902616870225.0000
+
+Generating plots...
+
+Final evaluation results:
+Train split: 12.00 - RMSE: 114448661.8333, MAE: 114448661.8333, MSE: 13098496195440688.0000
+Train split: 24.00 - RMSE: 40199583.0493, MAE: 27157645.2622, MSE: 1616006477338264.7500
+Train split: 84.00 - RMSE: 62284249.1122, MAE: 56562084.3769, MSE: 3879327687464832.0000
+Train split: 168.00 - RMSE: 63821722.2236, MAE: 48719778.4646, MSE: 4073212227584297.5000
+Train split: 336.00 - RMSE: 70589677.8351, MAE: 52865289.9583, MSE: 4982902616870225.0000
+
+Complete evaluation dictionary:
+{12: {'rmse': 114448661.83333333, 'mse': 1.3098496195440688e+16, 'mae': 114448661.83333333, 'order': (0, 0, 0), 'seasonal_order': (0, 1, 0, 24), 'actual': time
+2018-02-06 11:00:00    1.144487e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-06 11:00:00    0.0
+Freq: 60T, dtype: float64, 'test_size': 1}, 24: {'rmse': 40199583.049308665, 'mse': 1616006477338264.8, 'mae': 27157645.26222226, 'order': (0, 0, 0), 'seasonal_order': (0, 1, 0, 24), 'actual': time
+2018-02-06 23:00:00    2.721339e+08
+2018-02-07 00:00:00    5.430525e+07
+2018-02-07 01:00:00    5.522176e+07
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-06 23:00:00    2.031302e+08
+2018-02-07 00:00:00    6.263466e+07
+2018-02-07 01:00:00    5.936165e+07
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 3}, 84: {'rmse': 62284249.112153806, 'mse': 3879327687464832.0, 'mae': 56562084.37689198, 'order': (2, 1, 0), 'seasonal_order': (2, 1, 0, 24), 'actual': time
+2018-02-09 11:00:00    8.709250e+07
+2018-02-09 12:00:00    1.029501e+08
+2018-02-09 13:00:00    9.433028e+07
+2018-02-09 14:00:00    1.350519e+08
+2018-02-09 15:00:00    1.123976e+08
+2018-02-09 16:00:00    1.364867e+08
+2018-02-09 17:00:00    1.154587e+08
+2018-02-09 18:00:00    1.477216e+08
+2018-02-09 19:00:00    1.183637e+08
+2018-02-09 20:00:00    1.776030e+08
+2018-02-09 21:00:00    1.473090e+08
+2018-02-09 22:00:00    1.317462e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-09 11:00:00    1.144381e+08
+2018-02-09 12:00:00    1.627874e+08
+2018-02-09 13:00:00    1.820428e+08
+2018-02-09 14:00:00    2.232585e+08
+2018-02-09 15:00:00    1.356495e+08
+2018-02-09 16:00:00    1.824052e+08
+2018-02-09 17:00:00    1.929703e+08
+2018-02-09 18:00:00    2.137809e+08
+2018-02-09 19:00:00    1.590336e+08
+2018-02-09 20:00:00    1.414848e+08
+2018-02-09 21:00:00    1.217878e+08
+2018-02-09 22:00:00    2.323386e+08
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 12}, 168: {'rmse': 63821722.223583855, 'mse': 4073212227584297.5, 'mae': 48719778.46464348, 'order': (2, 1, 1), 'seasonal_order': (2, 1, 1, 24), 'actual': time
+2018-02-12 23:00:00    3.288648e+08
+2018-02-13 00:00:00    2.515524e+08
+2018-02-13 01:00:00    1.605916e+08
+2018-02-13 02:00:00    1.283978e+08
+2018-02-13 03:00:00    8.837031e+07
+2018-02-13 04:00:00    3.351505e+07
+2018-02-13 05:00:00    3.170589e+07
+2018-02-13 06:00:00    6.716484e+07
+2018-02-13 07:00:00    1.532925e+08
+2018-02-13 08:00:00    1.124631e+08
+2018-02-13 09:00:00    7.257430e+07
+2018-02-13 10:00:00    1.020497e+08
+2018-02-13 11:00:00    1.252386e+08
+2018-02-13 12:00:00    1.264444e+08
+2018-02-13 13:00:00    1.147884e+08
+2018-02-13 14:00:00    1.541966e+08
+2018-02-13 15:00:00    1.401173e+08
+2018-02-13 16:00:00    2.183498e+08
+2018-02-13 17:00:00    2.684317e+08
+2018-02-13 18:00:00    2.686037e+08
+2018-02-13 19:00:00    3.199647e+08
+2018-02-13 20:00:00    2.730867e+08
+2018-02-13 21:00:00    2.471578e+08
+2018-02-13 22:00:00    2.159274e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-12 23:00:00    1.758981e+08
+2018-02-13 00:00:00    1.170621e+08
+2018-02-13 01:00:00    1.090754e+08
+2018-02-13 02:00:00    6.726610e+07
+2018-02-13 03:00:00    8.635182e+07
+2018-02-13 04:00:00    6.114144e+07
+2018-02-13 05:00:00    4.555122e+07
+2018-02-13 06:00:00    5.741616e+07
+2018-02-13 07:00:00    5.391405e+07
+2018-02-13 08:00:00    7.073090e+07
+2018-02-13 09:00:00    9.362975e+07
+2018-02-13 10:00:00    1.217937e+08
+2018-02-13 11:00:00    1.062916e+08
+2018-02-13 12:00:00    1.227485e+08
+2018-02-13 13:00:00    1.901692e+08
+2018-02-13 14:00:00    1.939037e+08
+2018-02-13 15:00:00    1.753864e+08
+2018-02-13 16:00:00    2.146317e+08
+2018-02-13 17:00:00    2.196488e+08
+2018-02-13 18:00:00    2.252259e+08
+2018-02-13 19:00:00    2.166413e+08
+2018-02-13 20:00:00    2.091239e+08
+2018-02-13 21:00:00    1.553975e+08
+2018-02-13 22:00:00    2.220230e+08
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 24}, 336: {'rmse': 70589677.8351497, 'mse': 4982902616870225.0, 'mae': 52865289.958319426, 'order': (1, 1, 2), 'seasonal_order': (0, 1, 2, 24), 'actual': time
+2018-02-19 23:00:00    1.459280e+08
+2018-02-20 00:00:00    1.182419e+08
+2018-02-20 01:00:00    6.097878e+07
+2018-02-20 02:00:00    7.885284e+07
+2018-02-20 03:00:00    3.273594e+07
+2018-02-20 04:00:00    3.002012e+07
+2018-02-20 05:00:00    2.910980e+07
+2018-02-20 06:00:00    4.597395e+07
+2018-02-20 07:00:00    1.332918e+08
+2018-02-20 08:00:00    7.923922e+07
+2018-02-20 09:00:00    9.458549e+07
+2018-02-20 10:00:00    1.182911e+08
+2018-02-20 11:00:00    1.814635e+08
+2018-02-20 12:00:00    1.087262e+08
+2018-02-20 13:00:00    1.815508e+08
+2018-02-20 14:00:00    2.447899e+08
+2018-02-20 15:00:00    1.042551e+08
+2018-02-20 16:00:00    1.553745e+08
+2018-02-20 17:00:00    2.545285e+08
+2018-02-20 18:00:00    1.230258e+08
+2018-02-20 19:00:00    1.401195e+08
+2018-02-20 20:00:00    1.700718e+08
+2018-02-20 21:00:00    1.671005e+08
+2018-02-20 22:00:00    3.020968e+08
+2018-02-20 23:00:00    3.192468e+08
+2018-02-21 00:00:00    1.888613e+08
+2018-02-21 01:00:00    5.184465e+07
+2018-02-21 02:00:00    3.190093e+07
+2018-02-21 03:00:00    2.893457e+07
+2018-02-21 04:00:00    2.794093e+07
+2018-02-21 05:00:00    3.094101e+07
+2018-02-21 06:00:00    2.956602e+07
+2018-02-21 07:00:00    7.116948e+07
+2018-02-21 08:00:00    8.414562e+07
+2018-02-21 09:00:00    7.805390e+07
+2018-02-21 10:00:00    8.944747e+07
+2018-02-21 11:00:00    1.168476e+08
+2018-02-21 12:00:00    1.040655e+08
+2018-02-21 13:00:00    2.206789e+08
+2018-02-21 14:00:00    2.699814e+08
+2018-02-21 15:00:00    2.730951e+08
+2018-02-21 16:00:00    2.660778e+08
+2018-02-21 17:00:00    2.087635e+08
+2018-02-21 18:00:00    1.660971e+08
+2018-02-21 19:00:00    1.242828e+08
+2018-02-21 20:00:00    1.309477e+08
+2018-02-21 21:00:00    1.247379e+08
+2018-02-21 22:00:00    2.834693e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-19 23:00:00    1.504374e+08
+2018-02-20 00:00:00    9.840794e+07
+2018-02-20 01:00:00    5.459364e+07
+2018-02-20 02:00:00    5.245337e+07
+2018-02-20 03:00:00    2.835705e+07
+2018-02-20 04:00:00    1.956861e+07
+2018-02-20 05:00:00    2.135782e+07
+2018-02-20 06:00:00    2.559220e+07
+2018-02-20 07:00:00    3.236578e+07
+2018-02-20 08:00:00    5.176925e+07
+2018-02-20 09:00:00    6.431118e+07
+2018-02-20 10:00:00    8.427358e+07
+2018-02-20 11:00:00    9.371449e+07
+2018-02-20 12:00:00    8.496859e+07
+2018-02-20 13:00:00    8.961637e+07
+2018-02-20 14:00:00    1.111535e+08
+2018-02-20 15:00:00    1.173127e+08
+2018-02-20 16:00:00    1.260568e+08
+2018-02-20 17:00:00    1.407928e+08
+2018-02-20 18:00:00    1.144672e+08
+2018-02-20 19:00:00    1.932807e+08
+2018-02-20 20:00:00    2.128135e+08
+2018-02-20 21:00:00    2.222564e+08
+2018-02-20 22:00:00    2.186550e+08
+2018-02-20 23:00:00    1.765513e+08
+2018-02-21 00:00:00    1.172817e+08
+2018-02-21 01:00:00    6.217774e+07
+2018-02-21 02:00:00    4.391645e+07
+2018-02-21 03:00:00    2.170900e+07
+2018-02-21 04:00:00    1.442794e+07
+2018-02-21 05:00:00    1.789074e+07
+2018-02-21 06:00:00    2.487096e+07
+2018-02-21 07:00:00    2.893323e+07
+2018-02-21 08:00:00    4.527298e+07
+2018-02-21 09:00:00    5.978482e+07
+2018-02-21 10:00:00    7.809217e+07
+2018-02-21 11:00:00    9.989228e+07
+2018-02-21 12:00:00    7.960209e+07
+2018-02-21 13:00:00    8.977155e+07
+2018-02-21 14:00:00    1.136914e+08
+2018-02-21 15:00:00    1.116635e+08
+2018-02-21 16:00:00    1.090891e+08
+2018-02-21 17:00:00    1.233289e+08
+2018-02-21 18:00:00    1.029002e+08
+2018-02-21 19:00:00    2.017908e+08
+2018-02-21 20:00:00    2.159215e+08
+2018-02-21 21:00:00    2.089629e+08
+2018-02-21 22:00:00    2.031783e+08
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 48}}
+{12: {'rmse': 114448661.83333333, 'mse': 1.3098496195440688e+16, 'mae': 114448661.83333333, 'order': (0, 0, 0), 'seasonal_order': (0, 1, 0, 24), 'actual': time
+2018-02-06 11:00:00    1.144487e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-06 11:00:00    0.0
+Freq: 60T, dtype: float64, 'test_size': 1}, 24: {'rmse': 40199583.049308665, 'mse': 1616006477338264.8, 'mae': 27157645.26222226, 'order': (0, 0, 0), 'seasonal_order': (0, 1, 0, 24), 'actual': time
+2018-02-06 23:00:00    2.721339e+08
+2018-02-07 00:00:00    5.430525e+07
+2018-02-07 01:00:00    5.522176e+07
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-06 23:00:00    2.031302e+08
+2018-02-07 00:00:00    6.263466e+07
+2018-02-07 01:00:00    5.936165e+07
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 3}, 84: {'rmse': 62284249.112153806, 'mse': 3879327687464832.0, 'mae': 56562084.37689198, 'order': (2, 1, 0), 'seasonal_order': (2, 1, 0, 24), 'actual': time
+2018-02-09 11:00:00    8.709250e+07
+2018-02-09 12:00:00    1.029501e+08
+2018-02-09 13:00:00    9.433028e+07
+2018-02-09 14:00:00    1.350519e+08
+2018-02-09 15:00:00    1.123976e+08
+2018-02-09 16:00:00    1.364867e+08
+2018-02-09 17:00:00    1.154587e+08
+2018-02-09 18:00:00    1.477216e+08
+2018-02-09 19:00:00    1.183637e+08
+2018-02-09 20:00:00    1.776030e+08
+2018-02-09 21:00:00    1.473090e+08
+2018-02-09 22:00:00    1.317462e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-09 11:00:00    1.144381e+08
+2018-02-09 12:00:00    1.627874e+08
+2018-02-09 13:00:00    1.820428e+08
+2018-02-09 14:00:00    2.232585e+08
+2018-02-09 15:00:00    1.356495e+08
+2018-02-09 16:00:00    1.824052e+08
+2018-02-09 17:00:00    1.929703e+08
+2018-02-09 18:00:00    2.137809e+08
+2018-02-09 19:00:00    1.590336e+08
+2018-02-09 20:00:00    1.414848e+08
+2018-02-09 21:00:00    1.217878e+08
+2018-02-09 22:00:00    2.323386e+08
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 12}, 168: {'rmse': 63821722.223583855, 'mse': 4073212227584297.5, 'mae': 48719778.46464348, 'order': (2, 1, 1), 'seasonal_order': (2, 1, 1, 24), 'actual': time
+2018-02-12 23:00:00    3.288648e+08
+2018-02-13 00:00:00    2.515524e+08
+2018-02-13 01:00:00    1.605916e+08
+2018-02-13 02:00:00    1.283978e+08
+2018-02-13 03:00:00    8.837031e+07
+2018-02-13 04:00:00    3.351505e+07
+2018-02-13 05:00:00    3.170589e+07
+2018-02-13 06:00:00    6.716484e+07
+2018-02-13 07:00:00    1.532925e+08
+2018-02-13 08:00:00    1.124631e+08
+2018-02-13 09:00:00    7.257430e+07
+2018-02-13 10:00:00    1.020497e+08
+2018-02-13 11:00:00    1.252386e+08
+2018-02-13 12:00:00    1.264444e+08
+2018-02-13 13:00:00    1.147884e+08
+2018-02-13 14:00:00    1.541966e+08
+2018-02-13 15:00:00    1.401173e+08
+2018-02-13 16:00:00    2.183498e+08
+2018-02-13 17:00:00    2.684317e+08
+2018-02-13 18:00:00    2.686037e+08
+2018-02-13 19:00:00    3.199647e+08
+2018-02-13 20:00:00    2.730867e+08
+2018-02-13 21:00:00    2.471578e+08
+2018-02-13 22:00:00    2.159274e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-12 23:00:00    1.758981e+08
+2018-02-13 00:00:00    1.170621e+08
+2018-02-13 01:00:00    1.090754e+08
+2018-02-13 02:00:00    6.726610e+07
+2018-02-13 03:00:00    8.635182e+07
+2018-02-13 04:00:00    6.114144e+07
+2018-02-13 05:00:00    4.555122e+07
+2018-02-13 06:00:00    5.741616e+07
+2018-02-13 07:00:00    5.391405e+07
+2018-02-13 08:00:00    7.073090e+07
+2018-02-13 09:00:00    9.362975e+07
+2018-02-13 10:00:00    1.217937e+08
+2018-02-13 11:00:00    1.062916e+08
+2018-02-13 12:00:00    1.227485e+08
+2018-02-13 13:00:00    1.901692e+08
+2018-02-13 14:00:00    1.939037e+08
+2018-02-13 15:00:00    1.753864e+08
+2018-02-13 16:00:00    2.146317e+08
+2018-02-13 17:00:00    2.196488e+08
+2018-02-13 18:00:00    2.252259e+08
+2018-02-13 19:00:00    2.166413e+08
+2018-02-13 20:00:00    2.091239e+08
+2018-02-13 21:00:00    1.553975e+08
+2018-02-13 22:00:00    2.220230e+08
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 24}, 336: {'rmse': 70589677.8351497, 'mse': 4982902616870225.0, 'mae': 52865289.958319426, 'order': (1, 1, 2), 'seasonal_order': (0, 1, 2, 24), 'actual': time
+2018-02-19 23:00:00    1.459280e+08
+2018-02-20 00:00:00    1.182419e+08
+2018-02-20 01:00:00    6.097878e+07
+2018-02-20 02:00:00    7.885284e+07
+2018-02-20 03:00:00    3.273594e+07
+2018-02-20 04:00:00    3.002012e+07
+2018-02-20 05:00:00    2.910980e+07
+2018-02-20 06:00:00    4.597395e+07
+2018-02-20 07:00:00    1.332918e+08
+2018-02-20 08:00:00    7.923922e+07
+2018-02-20 09:00:00    9.458549e+07
+2018-02-20 10:00:00    1.182911e+08
+2018-02-20 11:00:00    1.814635e+08
+2018-02-20 12:00:00    1.087262e+08
+2018-02-20 13:00:00    1.815508e+08
+2018-02-20 14:00:00    2.447899e+08
+2018-02-20 15:00:00    1.042551e+08
+2018-02-20 16:00:00    1.553745e+08
+2018-02-20 17:00:00    2.545285e+08
+2018-02-20 18:00:00    1.230258e+08
+2018-02-20 19:00:00    1.401195e+08
+2018-02-20 20:00:00    1.700718e+08
+2018-02-20 21:00:00    1.671005e+08
+2018-02-20 22:00:00    3.020968e+08
+2018-02-20 23:00:00    3.192468e+08
+2018-02-21 00:00:00    1.888613e+08
+2018-02-21 01:00:00    5.184465e+07
+2018-02-21 02:00:00    3.190093e+07
+2018-02-21 03:00:00    2.893457e+07
+2018-02-21 04:00:00    2.794093e+07
+2018-02-21 05:00:00    3.094101e+07
+2018-02-21 06:00:00    2.956602e+07
+2018-02-21 07:00:00    7.116948e+07
+2018-02-21 08:00:00    8.414562e+07
+2018-02-21 09:00:00    7.805390e+07
+2018-02-21 10:00:00    8.944747e+07
+2018-02-21 11:00:00    1.168476e+08
+2018-02-21 12:00:00    1.040655e+08
+2018-02-21 13:00:00    2.206789e+08
+2018-02-21 14:00:00    2.699814e+08
+2018-02-21 15:00:00    2.730951e+08
+2018-02-21 16:00:00    2.660778e+08
+2018-02-21 17:00:00    2.087635e+08
+2018-02-21 18:00:00    1.660971e+08
+2018-02-21 19:00:00    1.242828e+08
+2018-02-21 20:00:00    1.309477e+08
+2018-02-21 21:00:00    1.247379e+08
+2018-02-21 22:00:00    2.834693e+08
+Freq: 60T, Name: down, dtype: float64, 'prediction': 2018-02-19 23:00:00    1.504374e+08
+2018-02-20 00:00:00    9.840794e+07
+2018-02-20 01:00:00    5.459364e+07
+2018-02-20 02:00:00    5.245337e+07
+2018-02-20 03:00:00    2.835705e+07
+2018-02-20 04:00:00    1.956861e+07
+2018-02-20 05:00:00    2.135782e+07
+2018-02-20 06:00:00    2.559220e+07
+2018-02-20 07:00:00    3.236578e+07
+2018-02-20 08:00:00    5.176925e+07
+2018-02-20 09:00:00    6.431118e+07
+2018-02-20 10:00:00    8.427358e+07
+2018-02-20 11:00:00    9.371449e+07
+2018-02-20 12:00:00    8.496859e+07
+2018-02-20 13:00:00    8.961637e+07
+2018-02-20 14:00:00    1.111535e+08
+2018-02-20 15:00:00    1.173127e+08
+2018-02-20 16:00:00    1.260568e+08
+2018-02-20 17:00:00    1.407928e+08
+2018-02-20 18:00:00    1.144672e+08
+2018-02-20 19:00:00    1.932807e+08
+2018-02-20 20:00:00    2.128135e+08
+2018-02-20 21:00:00    2.222564e+08
+2018-02-20 22:00:00    2.186550e+08
+2018-02-20 23:00:00    1.765513e+08
+2018-02-21 00:00:00    1.172817e+08
+2018-02-21 01:00:00    6.217774e+07
+2018-02-21 02:00:00    4.391645e+07
+2018-02-21 03:00:00    2.170900e+07
+2018-02-21 04:00:00    1.442794e+07
+2018-02-21 05:00:00    1.789074e+07
+2018-02-21 06:00:00    2.487096e+07
+2018-02-21 07:00:00    2.893323e+07
+2018-02-21 08:00:00    4.527298e+07
+2018-02-21 09:00:00    5.978482e+07
+2018-02-21 10:00:00    7.809217e+07
+2018-02-21 11:00:00    9.989228e+07
+2018-02-21 12:00:00    7.960209e+07
+2018-02-21 13:00:00    8.977155e+07
+2018-02-21 14:00:00    1.136914e+08
+2018-02-21 15:00:00    1.116635e+08
+2018-02-21 16:00:00    1.090891e+08
+2018-02-21 17:00:00    1.233289e+08
+2018-02-21 18:00:00    1.029002e+08
+2018-02-21 19:00:00    2.017908e+08
+2018-02-21 20:00:00    2.159215e+08
+2018-02-21 21:00:00    2.089629e+08
+2018-02-21 22:00:00    2.031783e+08
+Freq: 60T, Name: predicted_mean, dtype: float64, 'test_size': 48}}
+Job completed at Tue Jun  3 04:00:09 CEST 2025

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=rnn_train_gpu      
+#SBATCH --job-name=rnn_train_gpu_50_epochs      
 #SBATCH --time=04:00:00                
 #SBATCH --partition=gpu
 #SBATCH --ntasks=1        

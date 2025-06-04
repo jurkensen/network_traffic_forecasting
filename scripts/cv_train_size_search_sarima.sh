@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=cv_size_search_sarima      
+#SBATCH --job-name=2min_cv_sarima      
 #SBATCH --time=24:00:00    
 #SBATCH --partition=compute            
 #SBATCH --ntasks=1                     

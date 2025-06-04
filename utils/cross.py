@@ -14,12 +14,12 @@ import multiprocessing as mp
 from functools import partial
 
 
-def process_single_train_split(train_split, df_all, interval_minutes=60, target_column='down'):
+def process_single_train_split(train_size, df_all, interval_minutes=60, target_column='down'):
     """
     Process a single train split - this function will run in parallel
     """
     try:
-        print(f"\n===== Processing train split: {train_split:.2f} =====")
+        print(f"\n===== Processing train split: {train_size:.2f} =====")
         
         # Create new instance for each process to avoid sharing issues
         sarima = SARIMAPredictor()
@@ -27,12 +27,11 @@ def process_single_train_split(train_split, df_all, interval_minutes=60, target_
         # Calculate splits
         test_split = float(1 / 7)  # 1 week - 1 day, 1 day - 1/7 of a day etc.
         n = len(df_all)
-        train_size = int(n * train_split)
         test_size = int(train_size * test_split)
         
         if train_size + test_size > n:
-            print(f"Not enough data for train_split={train_split}, skipping.")
-            return train_split, None
+            print(f"Not enough data for train_size={train_size}, skipping.")
+            return train_size, None
         
         # Create train/test splits
         train = df_all.iloc[:train_size]
@@ -51,7 +50,7 @@ def process_single_train_split(train_split, df_all, interval_minutes=60, target_
         mse = mean_squared_error(actual, prediction)
         rmse = np.sqrt(mse)
         
-        print(f"Train split: {train_split:.2f}, Test size: {test_size}, ARIMA Order: {order}")
+        print(f"Train split: {train_size:.2f}, Test size: {test_size}, ARIMA Order: {order}")
         print(f"RMSE: {rmse:.4f}, MAE: {mae:.4f}, MSE: {mse:.4f}")
         
         # Return results
@@ -66,17 +65,17 @@ def process_single_train_split(train_split, df_all, interval_minutes=60, target_
             'test_size': test_size
         }
         
-        return train_split, result
+        return train_size, result
         
     except Exception as e:
-        print(f"Error processing train_split {train_split}: {str(e)}")
-        return train_split, None
+        print(f"Error processing train_split {train_size}: {str(e)}")
+        return train_size, None
 
 def cross_validation_multiprocessing():
     """
     Cross validation using multiprocessing
     """
-    interval_minutes = 60  # Use 60 minutes for aggregation
+    interval_minutes = 2  # Use 60 minutes for aggregation
     
     # Load and preprocess data once
     df_all = load_all_data(POBLESEC_ST)
@@ -86,8 +85,21 @@ def cross_validation_multiprocessing():
     df_all = add_hour_features(df_all, interval_minutes)    
     
     # Define train splits to test
-    train_splits = [0.2, 0.4, 0.6, 0.8]
-    
+    # Define train splits: half a day, a day, half a week, a week, and two weeks (in fractions of the dataset)
+    # Calculate number of samples per interval
+    samples_per_day = int((24 * 60) / interval_minutes)
+    samples_per_half_day = samples_per_day // 2
+    samples_per_week = samples_per_day * 7
+    samples_per_half_week = samples_per_day * 3 + samples_per_day // 2  # 3.5 days
+    samples_per_two_weeks = samples_per_week * 2
+
+    train_sizes = [
+        samples_per_half_day,
+        samples_per_day,
+        samples_per_half_week,
+        samples_per_week,
+        samples_per_two_weeks
+    ]    
     # Get number of CPUs to use
     n_cpus = int(os.environ.get('SLURM_CPUS_PER_TASK', mp.cpu_count()))
     print(f"Using {n_cpus} CPUs for parallel processing")
@@ -104,7 +116,7 @@ def cross_validation_multiprocessing():
     evaluation = {}
     with mp.Pool(processes=n_cpus) as pool:
         # Process all train splits in parallel
-        results = pool.map(process_func, train_splits)
+        results = pool.map(process_func, train_sizes)
         
         # Collect results
         for train_split, result in results:
@@ -113,7 +125,7 @@ def cross_validation_multiprocessing():
     
     # Generate plots (do this sequentially to avoid matplotlib issues)
     print("\nGenerating plots...")
-    for train_split in train_splits:
+    for train_split in train_sizes:
         if train_split in evaluation:
             result = evaluation[train_split]
             plot_forecast(
