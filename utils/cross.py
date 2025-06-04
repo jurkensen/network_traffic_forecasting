@@ -13,7 +13,6 @@ import os
 import multiprocessing as mp
 from functools import partial
 
-
 def process_single_train_split(train_size, df_all, interval_minutes=60, target_column='down'):
     """
     Process a single train split - this function will run in parallel
@@ -32,7 +31,6 @@ def process_single_train_split(train_size, df_all, interval_minutes=60, target_c
         if train_size + test_size > n:
             print(f"Not enough data for train_size={train_size}, skipping.")
             return train_size, None
-        
         # Create train/test splits
         train = df_all.iloc[:train_size]
         test = df_all.iloc[train_size:train_size + test_size]

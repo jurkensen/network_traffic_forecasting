@@ -77,18 +77,11 @@ def train(model: torch.nn.Module,
     if plot_history:
         plt.plot(train_loss_history, label="Train MSE")
         plt.plot(val_loss_history, label="Val MSE")
+        plt.title("Train and Validation Loss")
         plt.legend()
         plt.show()
         plt.savefig("train_val_loss.png")
         plt.close()
-
-        plt.plot(train_rmse_history, label="Train RMSE")
-        plt.plot(val_rmse_history, label="Val RMSE")
-        plt.legend()
-        plt.show()
-        plt.savefig("train_val_rmse.png")
-        plt.close()
-        print(f"Best Validation Loss: {best_val_loss}")
 
     return best_model
 
@@ -165,13 +158,13 @@ def accumulate_metric_original_scale(y_true_scaled, y_pred_scaled, scaler, targe
     plt.figure(figsize=(15, 7))
     plt.plot(y_true_original, label='Actual')
     plt.plot(y_pred_original, label='Forecast', color='red')
-    plt.title(f'RNN Forecast vs Actual for {target_columns[0].capitalize()} Traffic')
+    plt.title(f'Forecast vs Actual for {target_columns[0].capitalize()} Traffic')
     plt.xlabel('Time Steps')
     plt.ylabel('Bitrate')
     plt.legend()
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.tight_layout()
-    plt.savefig(f'RNN_forecast.png')
+    plt.savefig(f'model_forecast_{target_columns}.png')
     plt.close()
 
     return {
@@ -259,43 +252,3 @@ def inverse_transform_targets(y_scaled, scaler, target_columns, all_columns):
     else:
         return original_scale[:, target_indices]
     
-def main():
-    torch.manual_seed(42)
-    df_all = load_all_data(POBLESEC_ST)
-    df_all = handle_missing_values(df_all)
-    df_all = handle_outliers(df_all, 5, 95) 
-    df_all = aggregate_data(df_all, 30)
-    df_all, scaler = normalize_df_minmax(df_all, feature_range=(0, 1))
-    df_train, df_val, df_test = split_data(df_all, 0.6, 0.2, 0.2) 
-    original_columns = list(df_all.columns) 
-
-
-    train_loader = create_dataloader(df_train, target_columns=['down'], batch_size=32, seq_length=12)
-    val_loader = create_dataloader(df_val, target_columns=['down'], batch_size=32, seq_length=12)
-    test_loader = create_dataloader(df_test, target_columns=['down'], batch_size=32, seq_length=12)
-    model = RNN(input_dim=len(df_train.columns), rnn_hidden_size=128, num_rnn_layers=2, rnn_dropout=0.3,
-                layer_units=[128, 64], num_outputs=1, init_weights=True, exogenous_dim=0)
-    print(model)
-    model = train(model, train_loader, val_loader, epochs=100, lr=0.0001, max_grad_norm=5.0, plot_history=True)
-    test_metrics = test_with_original_scale(model, test_loader, nn.MSELoss(), 
-                                           device="cuda" if cuda.is_available() else "cpu",
-                                           scaler=scaler, target_columns=['down'], 
-                                           all_columns=original_columns)
-    
-    print("\n" + "="*50)
-    print("FINAL TEST RESULTS")
-    print("="*50)
-    print("Original Scale Metrics:")
-    print(f"  RMSE: {test_metrics['original_scale']['rmse']:.2f}")
-    print(f"  MAE:  {test_metrics['original_scale']['mae']:.2f}")
-    print(f"  R²:   {test_metrics['original_scale']['r2']:.4f}")
-    print(f"  MSE:  {test_metrics['original_scale']['mse']:.2f}")
-    
-    print("\nScaled Metrics (0-1 range):")
-    print(f"  RMSE: {test_metrics['scaled']['rmse']:.6f}")
-    print(f"  MAE:  {test_metrics['scaled']['mae']:.6f}")
-    print(f"  R²:   {test_metrics['scaled']['r2']:.4f}")
-    print(f"  Loss: {test_metrics['loss']:.6f}")
-
-if __name__ == "__main__":
-    main()
