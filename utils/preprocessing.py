@@ -109,3 +109,17 @@ def add_hour_features(df, interval_minutes=60):
         
         return result
     
+def data_pipeline(df_all):
+    """
+    Main data preprocessing pipeline
+    """
+    # Handle missing values
+    df_all = handle_missing_values(df_all)
+    
+    df_all = aggregate_data(df_all, interval_minutes=60)
+    
+    df_all = handle_outliers(df_all)
+    
+    df_all = add_hour_features(df_all, interval_minutes=1)
+        
+    return df_all
