@@ -27,6 +27,7 @@ def train(model: torch.nn.Module,
           lr: float = 0.001,
           max_grad_norm: float = 0.,
           plot_history: bool = True,
+          save_path: str = "train_val_loss.png",  
           device="cuda" if cuda.is_available() else "cpu",
           log_per: int = 1):
     """Trains a neural network defined as torch module."""
@@ -80,7 +81,7 @@ def train(model: torch.nn.Module,
         plt.title("Train and Validation Loss")
         plt.legend()
         plt.show()
-        plt.savefig("train_val_loss.png")
+        plt.savefig(save_path)  # Change from "train_val_loss.png" to save_path
         plt.close()
 
     return best_model
@@ -251,4 +252,3 @@ def inverse_transform_targets(y_scaled, scaler, target_columns, all_columns):
         return original_scale[:, target_indices[0]]
     else:
         return original_scale[:, target_indices]
-    

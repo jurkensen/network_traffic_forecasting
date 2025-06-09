@@ -120,6 +120,6 @@ def data_pipeline(df_all):
     
     df_all = handle_outliers(df_all)
     
-    df_all = add_hour_features(df_all, interval_minutes=1)
+    df_all = add_hour_features(df_all, interval_minutes=60)
         
     return df_all

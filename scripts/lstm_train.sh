@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=lstm_100_epochs      
+#SBATCH --job-name=lstm_interval      
 #SBATCH --time=04:00:00                
 #SBATCH --partition=gpu
 #SBATCH --ntasks=1        
