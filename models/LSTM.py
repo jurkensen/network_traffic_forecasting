@@ -97,10 +97,10 @@ def main():
     intervals = [5, 15, 30, 60]
     
     # Option 1: Fixed temporal context (e.g., 6 hours)
-    # CONTEXT_HOURS = 6
+    CONTEXT_HOURS = 6
     
     # Option 2: Fixed sequence length
-    FIXED_SEQ_LENGTH = 12
+    # FIXED_SEQ_LENGTH = 12
     
     for interval_minutes in intervals:
         print(f"\n{'='*60}")
@@ -130,7 +130,7 @@ def main():
         # seq_length = FIXED_SEQ_LENGTH
         
         # Option 3: Adaptive sequence length with minimum context
-        seq_length = max(int(360 / interval_minutes), 6)  # At least 6 hours or 6 steps
+        seq_length = max(int(180 / interval_minutes), 12)  # At least 6 hours or 6 steps
         
         print(f"Using sequence length: {seq_length} (context: {seq_length * interval_minutes / 60:.1f} hours)")
         
