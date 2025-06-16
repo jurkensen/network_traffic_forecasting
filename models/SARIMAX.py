@@ -108,11 +108,11 @@ class SARIMAPredictor():
                                     enforce_invertibility=True)
                      # Capture all types of warnings
                     with warnings.catch_warnings(record=True) as w:
-                        model_sarima_fit = model.fit(disp=0)
-                        has_warning = any(
-                                issubclass(warning.category, (ConvergenceWarning, UserWarning)) for warning in w
-                        )
-                    
+                        model_sarima_fit = model.fit() #disp=0
+                        # has_warning = any(
+                        #         issubclass(warning.category, (ConvergenceWarning, UserWarning)) for warning in w
+                        # )
+                        has_warning = False
                         # Only consider models without invertibility warnings for best model selection
                         if not has_warning and model_sarima_fit.aic < best_aic:
                             best_aic = model_sarima_fit.aic

@@ -38,7 +38,7 @@ def main():
     # Dictionary to store all results
     all_results = {}
     
-    epochs = [1, 2]
+    epochs = [25, 50, 100, 150, 200]
 
     for e in epochs:
         print(f"\n{'='*60}")
@@ -139,8 +139,6 @@ def main():
         
         # Store results
         results = {
-            'epochs': e, 
-            'interval_minutes': interval_minutes,
             'sequence_length': seq_length,
             'context_hours': seq_length * interval_minutes / 60,
             'data_shape': {
@@ -156,7 +154,7 @@ def main():
             }
         }
         
-        all_results[interval_minutes] = results
+        all_results[e] = results
         
         # Save individual results
         with open(os.path.join(interval_dir, "results.json"), 'w') as f:
