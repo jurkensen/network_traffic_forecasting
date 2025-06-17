@@ -1,0 +1,17 @@
+Job started at Mon Jun 16 18:02:57 CEST 2025
+Running on host: gpu001
+ See https://github.com/google-research/timesfm/blob/master/README.md for updated APIs.
+Loaded PyTorch TimesFM, likely because python version is 3.11.11 (main, Dec  9 2024, 15:32:27) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)].
+Original data points: 19909
+Aggregated data points: 7964
+Reduction ratio: 0.40
+Training set size: 6371
+Validation set size: 0
+Test set size: 1592
+
+TimesFM Results for 5-minute intervals:
+RMSE: 52246409.28
+MAE:  33883709.14
+R²:   0.7193
+{'rmse': np.float64(52246409.276012234), 'mae': 33883709.14181323, 'r2': 0.7193387029181102}
+Job completed at Mon Jun 16 18:08:13 CEST 2025

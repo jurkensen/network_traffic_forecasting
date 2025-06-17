@@ -375,5 +375,5 @@ def print_summary(all_results):
     print(f"Best MAE:  {best_mae} min interval")
     print(f"Best R²:   {best_r2} min interval")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

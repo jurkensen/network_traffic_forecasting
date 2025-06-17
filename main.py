@@ -118,7 +118,7 @@ def interval_study_multiprocessing():
     
     # Define study parameters
     intervals = [5, 15, 30, 60]
-    training_sizes = ['1_week', '2_weeks']
+    training_sizes = ['1_week']
     
     # Create all combinations
     all_combinations = [(interval, training_size) 
@@ -144,7 +144,7 @@ def interval_study_multiprocessing():
         for (interval_minutes, training_size), result in results:
             if result is not None:
                 evaluation[(interval_minutes, training_size)] = result
-    
+    print(evaluation)
     return evaluation
 
 if __name__ == '__main__':

@@ -163,7 +163,6 @@ def main():
             seq_length=seq_length,
             exogenous_data=exog_test
         )
-        
         # Create LSTM model with exogenous dimension
         model = LSTM(
             input_dim=len(df_train.columns),  # All columns including exogenous
@@ -374,4 +373,4 @@ def print_summary(all_results):
     print(f"Best R²:   {best_r2} min interval")
 
 if __name__ == "__main__":
-    main()
+      main()

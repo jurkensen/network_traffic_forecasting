@@ -1,6 +1,5 @@
 from utils.config import *
 from utils.preprocessing import load_all_data, handle_missing_values, handle_outliers, aggregate_data, normalize_df_minmax, split_data
-from models.RNN import RNN  
 import utils.plot as plot_utils
 from models.Dataloader import create_dataloader
 
