@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 import torch.cuda as cuda
 from torch.nn.utils import clip_grad_norm_
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, mean_absolute_percentage_error
 import torch.optim as optim
 
 import math
@@ -146,13 +146,8 @@ def accumulate_metric_original_scale(y_true_scaled, y_pred_scaled, scaler, targe
     mse = mean_squared_error(y_true_original, y_pred_original)
     rmse = math.sqrt(mse)
     mae = mean_absolute_error(y_true_original, y_pred_original)
+    mape = mean_absolute_percentage_error(y_true_original, y_pred_original)
     r2 = r2_score(y_true_original, y_pred_original)
-    
-    # Also calculate scaled metrics for comparison
-    mse_scaled = mean_squared_error(y_true_scaled, y_pred_scaled)
-    rmse_scaled = math.sqrt(mse_scaled)
-    mae_scaled = mean_absolute_error(y_true_scaled, y_pred_scaled)
-    r2_scaled = r2_score(y_true_scaled, y_pred_scaled)
     
     
     plt.figure(figsize=(15, 7))
@@ -167,20 +162,8 @@ def accumulate_metric_original_scale(y_true_scaled, y_pred_scaled, scaler, targe
     plt.savefig(f'model_forecast_{target_columns}.png')
     plt.close()
 
-    return {
-        'original_scale': {
-            'mse': mse,
-            'rmse': rmse,
-            'mae': mae,
-            'r2': r2
-        },
-        'scaled': {
-            'mse': mse_scaled,
-            'rmse': rmse_scaled,
-            'mae': mae_scaled,
-            'r2': r2_scaled
-        }
-    }
+    return {'mse': mse, 'rmse': rmse, 'mae': mae, 'mape': mape, 'r2': r2}
+
 def test_with_original_scale(model, data, criterion, device, scaler, target_columns, all_columns):
     """Test model and return metrics in both original and scaled space"""
     model.to(device)

@@ -2,7 +2,7 @@ import timesfm
 import torch
 import numpy as np
 import pandas as pd
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, mean_absolute_percentage_error
 from utils.preprocessing import *
 
 def setup_timesfm():
@@ -26,18 +26,19 @@ def evaluate(actual_targets, forecast, interval_minutes=5):
     rmse = np.sqrt(mean_squared_error(actual_targets, forecast))
     mae = mean_absolute_error(actual_targets, forecast)
     r2 = r2_score(actual_targets, forecast)
-    
+    mape = mean_absolute_percentage_error(actual_targets, forecast)
     print(f"TimesFM Results for {interval_minutes}-minute intervals:")
     print(f"RMSE: {rmse:.2f}")
     print(f"MAE:  {mae:.2f}")
+    print(f"MAPE: {mape:.4f}")
     print(f"R²:   {r2:.4f}")
     
-    return {'rmse': rmse, 'mae': mae, 'r2': r2}
+    return {'rmse': rmse, 'mae': mae, 'mape': mape, 'r2': r2}
 
 
 def main():
-    df_original = load_all_data(POBLESEC_ST)
-    df_original = load_all_data(POBLESEC_ST)
+    print(LESCORTS_ST.name)
+    df_original = load_all_data(LESCORTS_ST)
     df_original = handle_missing_values(df_original)
     df_original = handle_outliers(df_original, 5, 95)
 
@@ -46,8 +47,10 @@ def main():
     df_agg = add_hour_features(df_agg, interval_minutes)
 
     tfm = setup_timesfm()
-    
-    df_train, df_val, df_test = split_data(df_agg, 0.8, 0.0, 0.2)
+    lc_test_size = 1592
+    lc_agg_size = len(df_agg)
+    lc_test_ratio = float(lc_test_size / lc_agg_size)
+    df_train, df_val, df_test = split_data(df_agg, 1-lc_test_ratio, 0.0, lc_test_ratio)
     
     context_series = df_train['down'].values 
     target_series = df_test['down'].values
@@ -77,7 +80,6 @@ def main():
         print(f"Something's wrong, {len(target_series)}:{len(predictions)}")
         return None
     evaluation = evaluate(target_series, predictions, 5)
-
 
 
 if __name__ == "__main__":

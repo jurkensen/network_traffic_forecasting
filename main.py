@@ -55,7 +55,7 @@ def process_single_experiment(params, df_all, target_column='down'):
         
         # Define training sizes in rows
         training_rows = {
-            # '1_day': rows_per_day,
+            '1_day': rows_per_day,
             '1_week': rows_per_week, 
             '2_weeks': rows_per_week * 2
         }
@@ -118,7 +118,7 @@ def interval_study_multiprocessing():
     
     # Define study parameters
     intervals = [5, 15, 30, 60]
-    training_sizes = ['1_week']
+    training_sizes = ['1_day', '1_week', '2_weeks']
     
     # Create all combinations
     all_combinations = [(interval, training_size) 

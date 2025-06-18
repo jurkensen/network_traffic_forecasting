@@ -9,7 +9,7 @@ from models.train_utils import train, test_with_original_scale, inverse_transfor
 import os
 import json
 from datetime import datetime
-from models.LSTM import LSTM
+from models.LSTM import LSTM, get_predictions_for_plot
 
 def main():
     torch.manual_seed(42)
@@ -147,11 +147,7 @@ def main():
                 'test': df_test.shape
             },
             'model_params': sum(p.numel() for p in model.parameters()),
-            'metrics': {
-                'original_scale': test_metrics['original_scale'],
-                'scaled': test_metrics['scaled'],
-                'loss': float(test_metrics['loss'])
-            }
+            'metrics': test_metrics
         }
         
         all_results[e] = results
@@ -165,94 +161,17 @@ def main():
         print(f"RESULTS FOR {e} epochs")
         print(f"{'='*50}")
         print(f"Sequence Length: {seq_length} (context: {seq_length * interval_minutes / 60:.1f} hours)")
-        print("\nOriginal Scale Metrics:")
-        print(f"  RMSE: {test_metrics['original_scale']['rmse']:.2f}")
-        print(f"  MAE:  {test_metrics['original_scale']['mae']:.2f}")
-        print(f"  R²:   {test_metrics['original_scale']['r2']:.4f}")
-        print(f"  MSE:  {test_metrics['original_scale']['mse']:.2f}")
-        print("\nScaled Metrics (0-1 range):")
-        print(f"  RMSE: {test_metrics['scaled']['rmse']:.6f}")
-        print(f"  MAE:  {test_metrics['scaled']['mae']:.6f}")
-        print(f"  R²:   {test_metrics['scaled']['r2']:.4f}")
-        print(f"  Loss: {test_metrics['loss']:.6f}")
+        print(f"  RMSE: {test_metrics['rmse']:.2f}")
+        print(f"  MAE:  {test_metrics['mae']:.2f}")
+        print(f" MAPE:  {test_metrics['mape']:.2f}")
+        print(f"  R²:   {test_metrics['r2']:.4f}")
+        print(f"  MSE:  {test_metrics['mse']:.2f}")
     
     # Save summary of all results
     with open(os.path.join(results_dir, "all_results_summary.json"), 'w') as f:
         json.dump(all_results, f, indent=4)
     
-    # Create comparison plot
-    create_comparison_plot(all_results, results_dir)
-    
-def get_predictions_for_plot(model, test_loader, scaler, target_columns, 
-                           all_columns, device):
-    """Extract predictions and actuals for plotting"""
-    model.eval()
-    predictions = []
-    actuals = []
-    
-def get_predictions_for_plot(model, test_loader, scaler, target_columns,
-                           all_columns, device):
-    """Extract predictions and actuals for plotting"""
-    model.eval()
-    predictions = []
-    actuals = []
-   
-    with torch.no_grad():
-        for X_batch, exogenous_batch, y_batch in test_loader:  # Unpack 3 values
-            X_batch = X_batch.to(device)
-            if exogenous_batch.numel() > 0:
-                exogenous_batch = exogenous_batch.to(device)
-            else:
-                exogenous_batch = None
-            
-            y_pred = model(X_batch, exogenous_batch, device)  # Pass exogenous data and device
-           
-            # Convert to numpy
-            y_pred_np = y_pred.cpu().numpy()
-            y_batch_np = y_batch.cpu().numpy()
-           
-            # Inverse transform
-            y_pred_original = inverse_transform_targets(
-                y_pred_np, scaler, target_columns, all_columns
-            )
-            y_batch_original = inverse_transform_targets(
-                y_batch_np, scaler, target_columns, all_columns
-            )
-           
-            predictions.extend(y_pred_original.flatten())
-            actuals.extend(y_batch_original.flatten())
-   
-    return np.array(predictions), np.array(actuals)
-def create_comparison_plot(all_results, results_dir):
-    """Create a comparison plot of all intervals"""
-    intervals = sorted(all_results.keys())
-    
-    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-    fig.suptitle('LSTM Performance Across Different Time Intervals', fontsize=16)
-    
-    metrics = ['rmse', 'mae', 'r2', 'mse']
-    titles = ['RMSE', 'MAE', 'R² Score', 'MSE']
-    
-    for idx, (metric, title) in enumerate(zip(metrics, titles)):
-        ax = axes[idx // 2, idx % 2]
-        values = [all_results[interval]['metrics']['original_scale'][metric] 
-                 for interval in intervals]
-        
-        bars = ax.bar([f"{i} min" for i in intervals], values)
-        ax.set_title(title)
-        ax.set_ylabel(title)
-        ax.set_xlabel('Interval')
-        
-        # Color code based on performance (lower is better except R²)
-        if metric == 'r2':
-            best_idx = np.argmax(values)
-        else:
-            best_idx = np.argmin(values)
-        bars[best_idx].set_color('green')
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(results_dir, "interval_comparison.png"), dpi=300)
-    plt.close()
+ 
 
 if __name__ == "__main__":
     main()

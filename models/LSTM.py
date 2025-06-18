@@ -86,7 +86,7 @@ def main():
     os.makedirs(results_dir, exist_ok=True)
     
     # Load data once
-    df_original = load_all_data(POBLESEC_ST)
+    df_original = load_all_data(LESCORTS_ST)
     df_original = handle_missing_values(df_original)
     df_original = handle_outliers(df_original, 5, 95)
     
@@ -94,14 +94,8 @@ def main():
     all_results = {}
     
     # Test different intervals
-    intervals = [5, 15, 30, 60]
-    
-    # Option 1: Fixed temporal context (e.g., 6 hours)
-    CONTEXT_HOURS = 6
-    
-    # Option 2: Fixed sequence length
-    # FIXED_SEQ_LENGTH = 12
-    
+    intervals = [5]
+
     for interval_minutes in intervals:
         print(f"\n{'='*60}")
         print(f"TESTING INTERVAL: {interval_minutes} MINUTES")
@@ -130,7 +124,7 @@ def main():
         # seq_length = FIXED_SEQ_LENGTH
         
         # Option 3: Adaptive sequence length with minimum context
-        seq_length = max(int(180 / interval_minutes), 12)  # At least 6 hours or 6 steps
+        seq_length = int(720 / interval_minutes)  # At least 6 hours or 6 steps
         
         print(f"Using sequence length: {seq_length} (context: {seq_length * interval_minutes / 60:.1f} hours)")
         
@@ -208,9 +202,9 @@ def main():
         plt.plot(actuals, label='Actual', color='blue', alpha=0.7)
         plt.plot(predictions, label='Predicted', color='red', alpha=0.7)
         plt.title(f'LSTM Predictions - {interval_minutes} min intervals\n'
-                 f'RMSE: {test_metrics["original_scale"]["rmse"]:.2f}, '
-                 f'MAE: {test_metrics["original_scale"]["mae"]:.2f}, '
-                 f'R²: {test_metrics["original_scale"]["r2"]:.4f}')
+                 f'RMSE: {test_metrics["rmse"]:.2f}, '
+                 f'MAE: {test_metrics["mae"]:.2f}, '
+                 f'R²: {test_metrics["r2"]:.4f}')
         plt.xlabel('Time Steps')
         plt.ylabel('Traffic (bytes)')
         plt.legend()
@@ -230,11 +224,7 @@ def main():
                 'test': df_test.shape
             },
             'model_params': sum(p.numel() for p in model.parameters()),
-            'metrics': {
-                'original_scale': test_metrics['original_scale'],
-                'scaled': test_metrics['scaled'],
-                'loss': float(test_metrics['loss'])
-            }
+            'metrics': test_metrics
         }
         
         all_results[interval_minutes] = results
@@ -249,32 +239,16 @@ def main():
         print(f"{'='*50}")
         print(f"Sequence Length: {seq_length} (context: {seq_length * interval_minutes / 60:.1f} hours)")
         print("\nOriginal Scale Metrics:")
-        print(f"  RMSE: {test_metrics['original_scale']['rmse']:.2f}")
-        print(f"  MAE:  {test_metrics['original_scale']['mae']:.2f}")
-        print(f"  R²:   {test_metrics['original_scale']['r2']:.4f}")
-        print(f"  MSE:  {test_metrics['original_scale']['mse']:.2f}")
-        print("\nScaled Metrics (0-1 range):")
-        print(f"  RMSE: {test_metrics['scaled']['rmse']:.6f}")
-        print(f"  MAE:  {test_metrics['scaled']['mae']:.6f}")
-        print(f"  R²:   {test_metrics['scaled']['r2']:.4f}")
-        print(f"  Loss: {test_metrics['loss']:.6f}")
+        print(f"  RMSE: {test_metrics['rmse']:.2f}")
+        print(f"  MAE:  {test_metrics['mae']:.2f}")
+        print(f" MAPE:  {test_metrics['mape']:.2f}")
+        print(f"  R²:   {test_metrics['r2']:.4f}")
+        print(f"  MSE:  {test_metrics['mse']:.2f}")
     
     # Save summary of all results
     with open(os.path.join(results_dir, "all_results_summary.json"), 'w') as f:
         json.dump(all_results, f, indent=4)
     
-    # Create comparison plot
-    create_comparison_plot(all_results, results_dir)
-    
-    # Print summary
-    print_summary(all_results)
-
-def get_predictions_for_plot(model, test_loader, scaler, target_columns, 
-                           all_columns, device):
-    """Extract predictions and actuals for plotting"""
-    model.eval()
-    predictions = []
-    actuals = []
     
 def get_predictions_for_plot(model, test_loader, scaler, target_columns,
                            all_columns, device):
@@ -309,68 +283,6 @@ def get_predictions_for_plot(model, test_loader, scaler, target_columns,
             actuals.extend(y_batch_original.flatten())
    
     return np.array(predictions), np.array(actuals)
-def create_comparison_plot(all_results, results_dir):
-    """Create a comparison plot of all intervals"""
-    intervals = sorted(all_results.keys())
-    
-    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-    fig.suptitle('LSTM Performance Across Different Time Intervals', fontsize=16)
-    
-    metrics = ['rmse', 'mae', 'r2', 'mse']
-    titles = ['RMSE', 'MAE', 'R² Score', 'MSE']
-    
-    for idx, (metric, title) in enumerate(zip(metrics, titles)):
-        ax = axes[idx // 2, idx % 2]
-        values = [all_results[interval]['metrics']['original_scale'][metric] 
-                 for interval in intervals]
-        
-        bars = ax.bar([f"{i} min" for i in intervals], values)
-        ax.set_title(title)
-        ax.set_ylabel(title)
-        ax.set_xlabel('Interval')
-        
-        # Color code based on performance (lower is better except R²)
-        if metric == 'r2':
-            best_idx = np.argmax(values)
-        else:
-            best_idx = np.argmin(values)
-        bars[best_idx].set_color('green')
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(results_dir, "interval_comparison.png"), dpi=300)
-    plt.close()
-
-def print_summary(all_results):
-    """Print a summary table of results"""
-    print("\n" + "="*80)
-    print("SUMMARY OF ALL INTERVALS")
-    print("="*80)
-    print(f"{'Interval':<12} {'Seq Len':<10} {'Context':<12} {'RMSE':<12} {'MAE':<12} {'R²':<12}")
-    print("-"*80)
-    
-    for interval in sorted(all_results.keys()):
-        result = all_results[interval]
-        print(f"{str(interval) + ' min':<12} "
-              f"{result['sequence_length']:<10} "
-              f"{str(result['context_hours']) + ' hours':<12} "
-              f"{result['metrics']['original_scale']['rmse']:<12.2f} "
-              f"{result['metrics']['original_scale']['mae']:<12.2f} "
-              f"{result['metrics']['original_scale']['r2']:<12.4f}")
-    
-    # Find best interval for each metric
-    print("\n" + "-"*80)
-    print("BEST PERFORMING INTERVALS:")
-    
-    best_rmse = min(all_results.keys(), 
-                   key=lambda x: all_results[x]['metrics']['original_scale']['rmse'])
-    best_mae = min(all_results.keys(), 
-                  key=lambda x: all_results[x]['metrics']['original_scale']['mae'])
-    best_r2 = max(all_results.keys(), 
-                 key=lambda x: all_results[x]['metrics']['original_scale']['r2'])
-    
-    print(f"Best RMSE: {best_rmse} min interval")
-    print(f"Best MAE:  {best_mae} min interval")
-    print(f"Best R²:   {best_r2} min interval")
 
 if __name__ == "__main__":
       main()

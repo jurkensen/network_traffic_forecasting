@@ -32,7 +32,7 @@ def load_all_data(station_path):
     return df_all
 
 def handle_missing_values(df):
-    clean_df = df.ffill().bfill()
+    clean_df = df.ffill()
     return clean_df
 
 
